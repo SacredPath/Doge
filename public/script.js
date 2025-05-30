@@ -248,20 +248,29 @@ document.addEventListener('DOMContentLoaded', initializeFormElements);
 // Initialize form state
 document.addEventListener('DOMContentLoaded', () => {
   // Initialize all elements
-  if (!initializeFormElements() || !initializeErrorElements()) {
+  if (!initializeFormElements()) {
     console.error('Failed to initialize form elements');
     return;
   }
   
   // Initialize button state
   initializeButtonState();
-  
-  // Add input event listeners
-  [fullName, email, investmentAmount, paymentMethod].forEach(field => {
-    field.addEventListener('input', updateSubmitButton);
+});
+
+// Add input event listeners when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  const fields = [fullName, email, investmentAmount, paymentMethod];
+  fields.forEach(field => {
+    if (field) {
+      field.addEventListener('input', updateSubmitButton);
+    } else {
+      console.error(`Field not found: ${field}`);
+    }
   });
-  
-  // Add form submit event listener
+});
+
+// Add form submit event listener when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
   if (form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault(); // Prevent default form submission
