@@ -195,10 +195,23 @@ function updateSubmitButton() {
   submitBtn.style.pointerEvents = isValid ? 'auto' : 'none';
 }
 
-// Add input event listeners
-[fullName, email, investmentAmount, paymentMethod].forEach(field => {
-  field.addEventListener('input', updateSubmitButton);
+// Add input event listeners when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  const fields = [fullName, email, investmentAmount, paymentMethod];
+  fields.forEach(field => {
+    if (field) {
+      field.addEventListener('input', updateSubmitButton);
+    } else {
+      console.error(`Field not found: ${field}`);
+    }
+  });
 });
+
+// Also initialize button state when DOM is loaded
+document.addEventListener('DOMContentLoaded', initializeButtonState);
+
+// And initialize form elements when DOM is loaded
+document.addEventListener('DOMContentLoaded', initializeFormElements);
 
 // Initialize form state
 document.addEventListener('DOMContentLoaded', () => {
