@@ -16,25 +16,16 @@ if (mobileMenuBtn && navLinks) {
       }
     });
   });
-}
 
-// Close menu when clicking outside
-const closeMenuOutside = (e) => {
-  if (navLinks && navLinks.classList.contains('active') && !e.target.closest('.mobile-menu-btn') && !e.target.closest('.nav-links')) {
-    navLinks.classList.remove('active');
-    const spans = document.querySelector('.mobile-menu-btn')?.querySelectorAll('span');
-    if (spans) {
+  // Close menu when clicking outside
+  window.addEventListener('click', (e) => {
+    if (navLinks.classList.contains('active') && !e.target.closest('.mobile-menu-btn') && !e.target.closest('.nav-links')) {
+      navLinks.classList.remove('active');
+      const spans = mobileMenuBtn.querySelectorAll('span');
       spans.forEach(span => span.style.transform = '');
     }
-  }
-};
-
-// Add the click event listener only if navLinks exists
-if (navLinks) {
-  window.addEventListener('click', closeMenuOutside);
+  });
 }
-
-// Remove duplicate click event listener since we already have it in the mobile menu code
 
 // Fetch BTC/DOGE prices from CoinGecko
 fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,dogecoin&vs_currencies=usd')
@@ -44,165 +35,46 @@ fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,dogecoin&vs_cur
     const dogePrice = data.dogecoin.usd;
     const btcAmount = (500 / btcPrice).toFixed(6);
     const dogeAmount = (500 / dogePrice).toFixed(0);
-    document.getElementById('btc-amount').textContent = `~${btcAmount} BTC ($500)`;
-    document.getElementById('doge-amount').textContent = `~${dogeAmount} DOGE ($500)`;
+    
+    const btcElement = document.getElementById('btc-amount');
+    const dogeElement = document.getElementById('doge-amount');
+    
+    if (btcElement) btcElement.textContent = `~${btcAmount} BTC ($500)`;
+    if (dogeElement) dogeElement.textContent = `~${dogeAmount} DOGE ($500)`;
   })
   .catch(error => console.error('Error fetching prices:', error));
 
 // Form validation and submission
-let form = null;
-let submitBtn = null;
-let fullName = null;
-let email = null;
-let investmentAmount = null;
-let paymentMethod = null;
-let fullNameError = null;
-let emailError = null;
-let tierError = null;
-let paymentError = null;
+let formElements = {};
 
 // Initialize form elements
 function initializeFormElements() {
-  // Define all required elements
-  const requiredElements = [
-    { id: 'invest-form', name: 'form' },
-    { id: 'submitBtn', name: 'submit button' },
-    { id: 'fullName', name: 'full name input' },
-    { id: 'email', name: 'email input' },
-    { id: 'investmentAmount', name: 'investment amount select' },
-    { id: 'paymentMethod', name: 'payment method select' },
-    { id: 'fullNameError', name: 'full name error' },
-    { id: 'emailError', name: 'email error' },
-    { id: 'tierError', name: 'tier error' },
-    { id: 'paymentError', name: 'payment error' }
+  const elementIds = [
+    'invest-form',
+    'submitBtn', 
+    'fullName',
+    'email',
+    'investmentAmount',
+    'paymentMethod',
+    'fullNameError',
+    'emailError', 
+    'tierError',
+    'paymentError'
   ];
 
-  // Initialize all elements
-  let allElementsFound = true;
-  requiredElements.forEach(element => {
-    const el = document.getElementById(element.id);
-    if (el) {
-      window[element.id] = el;
+  let allFound = true;
+  
+  elementIds.forEach(id => {
+    const element = document.getElementById(id);
+    if (element) {
+      formElements[id] = element;
     } else {
-      console.error(`${element.name} not found`);
-      allElementsFound = false;
+      console.error(`Element with ID '${id}' not found`);
+      allFound = false;
     }
   });
 
-  // If all elements are found, update references
-  if (allElementsFound) {
-    form = window.investForm;
-    submitBtn = window.submitBtn;
-    fullName = window.fullName;
-    email = window.email;
-    investmentAmount = window.investmentAmount;
-    paymentMethod = window.paymentMethod;
-    fullNameError = window.fullNameError;
-    emailError = window.emailError;
-    tierError = window.tierError;
-    paymentError = window.paymentError;
-    
-    console.log('Form elements initialized:', { form, submitBtn, fullName, email, investmentAmount, paymentMethod, fullNameError, emailError, tierError, paymentError });
-    
-    // Add event listeners only if all elements are found
-    addFormEventListeners();
-    return true;
-  }
-
-  console.error('Failed to initialize form elements');
-  return false;
-}
-
-// Add form event listeners
-function addFormEventListeners() {
-  if (fullName && email && investmentAmount && paymentMethod) {
-    [fullName, email, investmentAmount, paymentMethod].forEach(field => {
-      field.addEventListener('input', updateSubmitButton);
-    });
-    
-    if (form) {
-      form.addEventListener('submit', handleFormSubmit);
-    }
-  }
-}
-
-// Handle form submission
-function handleFormSubmit(e) {
-  e.preventDefault();
-  if (validateForm()) {
-    showModal();
-  }
-}
-
-// Initialize button state
-function initializeButtonState() {
-  if (!submitBtn) {
-    console.error('Submit button not found');
-    return;
-  }
-  
-  // Set button properties
-  submitBtn.disabled = true;
-  if (submitBtn.style) {
-    submitBtn.style.opacity = '0.6';
-    submitBtn.style.cursor = 'not-allowed';
-    submitBtn.style.pointerEvents = 'none';
-  } else {
-    console.error('Button style not accessible');
-  }
-}
-
-// Initialize modal as hidden
-document.addEventListener('DOMContentLoaded', () => {
-  const modal = document.getElementById('submissionModal');
-  if (modal) {
-    modal.classList.remove('show');
-  }
-});
-
-// Form validation
-function validateForm() {
-  let isValid = true;
-  
-  // Reset all error messages
-  [fullNameError, emailError, tierError, paymentError].forEach(el => {
-    el.classList.remove('show');
-    el.style.display = 'none';
-  });
-
-  // Validate full name
-  if (!fullName.value.trim()) {
-    fullNameError.textContent = 'Please enter your full name';
-    fullNameError.style.display = 'block';
-    isValid = false;
-  }
-
-  // Validate email
-  if (!email.value.trim()) {
-    emailError.textContent = 'Please enter your email address';
-    emailError.style.display = 'block';
-    isValid = false;
-  } else if (!isValidEmail(email.value)) {
-    emailError.textContent = 'Please enter a valid email address';
-    emailError.style.display = 'block';
-    isValid = false;
-  }
-
-  // Validate investment tier
-  if (!investmentAmount.value || investmentAmount.value === '') {
-    tierError.textContent = 'Please select an investment tier';
-    tierError.style.display = 'block';
-    isValid = false;
-  }
-
-  // Validate payment method
-  if (!paymentMethod.value || paymentMethod.value === '') {
-    paymentError.textContent = 'Please select a payment method';
-    paymentError.style.display = 'block';
-    isValid = false;
-  }
-
-  return isValid;
+  return allFound;
 }
 
 // Email validation function
@@ -211,78 +83,151 @@ function isValidEmail(email) {
   return emailRegex.test(email);
 }
 
-// Initialize button state
-function initializeButtonState() {
-  submitBtn.disabled = true;
-  submitBtn.style.opacity = '0.6';
-  submitBtn.style.cursor = 'not-allowed';
-  submitBtn.style.pointerEvents = 'none';
+// Form validation
+function validateForm() {
+  let isValid = true;
+  
+  // Reset all error messages
+  const errorElements = [
+    formElements.fullNameError,
+    formElements.emailError,
+    formElements.tierError,
+    formElements.paymentError
+  ];
+  
+  errorElements.forEach(el => {
+    if (el) {
+      el.classList.remove('show');
+      el.style.display = 'none';
+    }
+  });
+
+  // Validate full name
+  if (!formElements.fullName?.value.trim()) {
+    if (formElements.fullNameError) {
+      formElements.fullNameError.textContent = 'Please enter your full name';
+      formElements.fullNameError.style.display = 'block';
+    }
+    isValid = false;
+  }
+
+  // Validate email
+  if (!formElements.email?.value.trim()) {
+    if (formElements.emailError) {
+      formElements.emailError.textContent = 'Please enter your email address';
+      formElements.emailError.style.display = 'block';
+    }
+    isValid = false;
+  } else if (!isValidEmail(formElements.email.value)) {
+    if (formElements.emailError) {
+      formElements.emailError.textContent = 'Please enter a valid email address';
+      formElements.emailError.style.display = 'block';
+    }
+    isValid = false;
+  }
+
+  // Validate investment tier
+  if (!formElements.investmentAmount?.value) {
+    if (formElements.tierError) {
+      formElements.tierError.textContent = 'Please select an investment tier';
+      formElements.tierError.style.display = 'block';
+    }
+    isValid = false;
+  }
+
+  // Validate payment method
+  if (!formElements.paymentMethod?.value) {
+    if (formElements.paymentError) {
+      formElements.paymentError.textContent = 'Please select a payment method';
+      formElements.paymentError.style.display = 'block';
+    }
+    isValid = false;
+  }
+
+  return isValid;
 }
 
 // Update submit button state
 function updateSubmitButton() {
-  const isValid = validateForm();
-  submitBtn.disabled = !isValid;
-  submitBtn.style.opacity = isValid ? '1' : '0.6';
-  submitBtn.style.pointerEvents = isValid ? 'auto' : 'none';
+  if (!formElements.submitBtn) return;
+  
+  const isFormValid = formElements.fullName?.value.trim() && 
+                     formElements.email?.value.trim() && 
+                     isValidEmail(formElements.email.value) &&
+                     formElements.investmentAmount?.value &&
+                     formElements.paymentMethod?.value;
+
+  formElements.submitBtn.disabled = !isFormValid;
+  formElements.submitBtn.style.opacity = isFormValid ? '1' : '0.6';
+  formElements.submitBtn.style.cursor = isFormValid ? 'pointer' : 'not-allowed';
+  formElements.submitBtn.style.pointerEvents = isFormValid ? 'auto' : 'none';
 }
 
-// Add input event listeners when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-  const fields = [fullName, email, investmentAmount, paymentMethod];
-  fields.forEach(field => {
-    if (field) {
-      field.addEventListener('input', updateSubmitButton);
-    } else {
-      console.error(`Field not found: ${field}`);
-    }
-  });
-});
-
-// Also initialize button state when DOM is loaded
-document.addEventListener('DOMContentLoaded', initializeButtonState);
-
-// And initialize form elements when DOM is loaded
-document.addEventListener('DOMContentLoaded', initializeFormElements);
-
-// Initialize form state
-document.addEventListener('DOMContentLoaded', () => {
-  // Initialize all elements
-  if (!initializeFormElements()) {
-    console.error('Failed to initialize form elements');
+// Initialize button state
+function initializeButtonState() {
+  if (!formElements.submitBtn) {
+    console.error('Submit button not found');
     return;
   }
   
-  // Initialize button state
-  initializeButtonState();
-});
+  formElements.submitBtn.disabled = true;
+  formElements.submitBtn.style.opacity = '0.6';
+  formElements.submitBtn.style.cursor = 'not-allowed';
+  formElements.submitBtn.style.pointerEvents = 'none';
+}
 
-// Add input event listeners when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-  const fields = [fullName, email, investmentAmount, paymentMethod];
-  fields.forEach(field => {
+// Handle form submission
+function handleFormSubmit(e) {
+  e.preventDefault();
+  
+  if (validateForm()) {
+    // Check if showModal function exists, otherwise use alert
+    if (typeof showModal === 'function') {
+      showModal();
+    } else {
+      alert('Form submitted successfully!');
+    }
+    
+    // Reset form
+    if (formElements['invest-form']) {
+      formElements['invest-form'].reset();
+      updateSubmitButton();
+    }
+  }
+}
+
+// Add event listeners to form fields
+function addFormEventListeners() {
+  const inputFields = ['fullName', 'email', 'investmentAmount', 'paymentMethod'];
+  
+  inputFields.forEach(fieldName => {
+    const field = formElements[fieldName];
     if (field) {
       field.addEventListener('input', updateSubmitButton);
-    } else {
-      console.error(`Field not found: ${field}`);
+      field.addEventListener('change', updateSubmitButton);
     }
   });
-});
 
-// Add form submit event listener when DOM is loaded
+  // Add form submit listener
+  if (formElements['invest-form']) {
+    formElements['invest-form'].addEventListener('submit', handleFormSubmit);
+  }
+}
+
+// Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-  if (form) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault(); // Prevent default form submission
-      
-      if (validateForm()) {
-        // Form is valid, handle submission
-        showModal(); // Show the modal instead of alert
-        
-        // Optionally reset the form
-        form.reset();
-        updateSubmitButton(); // Update button state after reset
-      }
-    });
+  // Initialize modal as hidden
+  const modal = document.getElementById('submissionModal');
+  if (modal) {
+    modal.classList.remove('show');
+  }
+
+  // Initialize form elements
+  if (initializeFormElements()) {
+    console.log('Form elements initialized successfully');
+    initializeButtonState();
+    addFormEventListeners();
+  } else {
+    console.error('Failed to initialize all form elements');
   }
 });
