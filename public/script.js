@@ -181,18 +181,29 @@ function handleFormSubmit(e) {
   e.preventDefault();
   
   if (validateForm()) {
-    // Check if showModal function exists, otherwise use alert
-    if (typeof showModal === 'function') {
-      showModal();
-    } else {
-      alert('Form submitted successfully!');
-    }
+    showModal();
     
     // Reset form
     if (formElements['invest-form']) {
       formElements['invest-form'].reset();
       updateSubmitButton();
     }
+  }
+}
+
+// Show modal function
+function showModal() {
+  const modal = document.getElementById('submissionModal');
+  if (modal) {
+    modal.classList.add('show');
+  }
+}
+
+// Close modal function
+function closeModal() {
+  const modal = document.getElementById('submissionModal');
+  if (modal) {
+    modal.classList.remove('show');
   }
 }
 
@@ -220,6 +231,19 @@ document.addEventListener('DOMContentLoaded', () => {
   const modal = document.getElementById('submissionModal');
   if (modal) {
     modal.classList.remove('show');
+    
+    // Add close modal event listeners
+    const closeBtn = modal.querySelector('.close-modal');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', closeModal);
+    }
+    
+    // Close modal when clicking outside
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
   }
 
   // Initialize form elements
