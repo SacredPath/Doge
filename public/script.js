@@ -56,50 +56,82 @@ let fullName = null;
 let email = null;
 let investmentAmount = null;
 let paymentMethod = null;
+let fullNameError = null;
+let emailError = null;
+let tierError = null;
+let paymentError = null;
 
 // Initialize form elements
 function initializeFormElements() {
-  // Wait for elements to be loaded
-  const elements = [
+  // Define all required elements
+  const requiredElements = [
     { id: 'invest-form', name: 'form' },
     { id: 'submitBtn', name: 'submit button' },
     { id: 'fullName', name: 'full name input' },
     { id: 'email', name: 'email input' },
     { id: 'investmentAmount', name: 'investment amount select' },
-    { id: 'paymentMethod', name: 'payment method select' }
+    { id: 'paymentMethod', name: 'payment method select' },
+    { id: 'fullNameError', name: 'full name error' },
+    { id: 'emailError', name: 'email error' },
+    { id: 'tierError', name: 'tier error' },
+    { id: 'paymentError', name: 'payment error' }
   ];
 
-  // Try to get all elements
-  elements.forEach(element => {
+  // Initialize all elements
+  let allElementsFound = true;
+  requiredElements.forEach(element => {
     const el = document.getElementById(element.id);
     if (el) {
-      window[element.id] = el; // Store in global scope
+      window[element.id] = el;
     } else {
       console.error(`${element.name} not found`);
+      allElementsFound = false;
     }
   });
 
-  // Check if all required elements exist
-  if (!window.investForm || !window.submitBtn || !window.fullName || !window.email || !window.investmentAmount || !window.paymentMethod) {
-    console.error('One or more form elements not found');
-    return false;
+  // If all elements are found, update references
+  if (allElementsFound) {
+    form = window.investForm;
+    submitBtn = window.submitBtn;
+    fullName = window.fullName;
+    email = window.email;
+    investmentAmount = window.investmentAmount;
+    paymentMethod = window.paymentMethod;
+    fullNameError = window.fullNameError;
+    emailError = window.emailError;
+    tierError = window.tierError;
+    paymentError = window.paymentError;
+    
+    console.log('Form elements initialized:', { form, submitBtn, fullName, email, investmentAmount, paymentMethod, fullNameError, emailError, tierError, paymentError });
+    
+    // Add event listeners only if all elements are found
+    addFormEventListeners();
+    return true;
   }
 
-  // Update references
-  form = window.investForm;
-  submitBtn = window.submitBtn;
-  fullName = window.fullName;
-  email = window.email;
-  investmentAmount = window.investmentAmount;
-  paymentMethod = window.paymentMethod;
-  fullNameError = window.fullNameError;
-  emailError = window.emailError;
-  tierError = window.tierError;
-  paymentError = window.paymentError;
+  console.error('Failed to initialize form elements');
+  return false;
+}
 
-  // Debugging
-  console.log('Form elements initialized:', { form, submitBtn, fullName, email, investmentAmount, paymentMethod });
-  return true;
+// Add form event listeners
+function addFormEventListeners() {
+  if (fullName && email && investmentAmount && paymentMethod) {
+    [fullName, email, investmentAmount, paymentMethod].forEach(field => {
+      field.addEventListener('input', updateSubmitButton);
+    });
+    
+    if (form) {
+      form.addEventListener('submit', handleFormSubmit);
+    }
+  }
+}
+
+// Handle form submission
+function handleFormSubmit(e) {
+  e.preventDefault();
+  if (validateForm()) {
+    showModal();
+  }
 }
 
 // Initialize button state
