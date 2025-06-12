@@ -5,25 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Companies - Musk Crypto Investment Hub</title>
   <link rel="icon" type="image/ico" href="./images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: Arial, sans-serif;
+      font-family: 'Poppins', Arial, sans-serif;
     }
 
     body {
       background-color: #f0f0f0;
+      overflow-x: hidden;
     }
 
     header {
-      background-color: #1a1a1a;
+      background: linear-gradient(90deg, #1a1a1a, #2a2a2a);
       padding: 15px 20px;
       position: fixed;
       width: 100%;
       top: 0;
       z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     }
 
     nav {
@@ -36,8 +39,14 @@
 
     .logo {
       color: #fff;
-      font-size: 24px;
-      font-weight: bold;
+      font-size: 26px;
+      font-weight: 700;
+      text-shadow: 0 0 10px #00aaff;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
     }
 
     .nav-links {
@@ -53,10 +62,28 @@
       color: #fff;
       text-decoration: none;
       font-size: 16px;
+      font-weight: 400;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: #00aaff;
+      transition: width 0.3s ease;
     }
 
     .nav-links a:hover {
       color: #00aaff;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
     }
 
     .mobile-menu-btn {
@@ -74,61 +101,117 @@
       height: 3px;
       background-color: #fff;
       display: block;
+      transition: all 0.3s ease;
     }
 
     main {
-      margin-top: 60px; /* Offset for fixed header */
+      margin-top: 60px;
       padding: 20px;
     }
 
     .companies {
-      padding: 50px 20px;
+      padding: 60px 20px;
       text-align: center;
-      background-color: #fff;
+      background: linear-gradient(180deg, #e6f0fa 0%, #ffffff 100%);
       max-width: 1200px;
       margin: 0 auto;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 1s ease-out;
     }
 
     .companies h1 {
-      font-size: 36px;
+      font-size: 40px;
       color: #1a1a1a;
-      margin-bottom: 30px;
+      font-weight: 700;
+      margin-bottom: 40px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
 
     .company {
-      background-color: #f9f9f9;
-      padding: 20px;
-      margin: 15px auto;
-      border-radius: 8px;
-      max-width: 600px;
-      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+      background: linear-gradient(135deg, #ffffff, #f0faff);
+      padding: 25px;
+      margin: 20px auto;
+      border-radius: 12px;
+      max-width: 700px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      animation: slideUp 0.5s ease-out forwards;
+      animation-delay: calc(0.1s * var(--index));
     }
 
-    .company h2 {
+    .company:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 25px rgba(0, 170, 255, 0.3);
+    }
+
+    .company::before {
+      content: '⚡️'; /* Placeholder icon; varies by company */
+      position: absolute;
+      top: 20px;
+      left: 20px;
       font-size: 24px;
+      opacity: 0.2;
+    }
+
+    .company:nth-child(1)::before { content: '🚗'; } /* Tesla */
+    .company:nth-child(2)::before { content: '🚀'; } /* SpaceX */
+    .company:nth-child(3)::before { content: '🧠'; } /* Neuralink */
+    .company:nth-child(4)::before { content: '🚇'; } /* The Boring Company */
+    .company:nth-child(5)::before { content: '🤖'; } /* xAI */
+
+    .company h2 {
+      font-size: 26px;
       color: #00aaff;
-      margin-bottom: 10px;
+      font-weight: 600;
+      margin-bottom: 15px;
     }
 
     .company p {
       font-size: 16px;
       color: #333;
-      line-height: 1.6;
+      line-height: 1.7;
     }
 
     footer {
-      background-color: #1a1a1a;
+      background: linear-gradient(90deg, #1a1a1a, #2a2a2a);
       color: #fff;
       text-align: center;
-      padding: 20px;
+      padding: 30px 20px;
       font-size: 14px;
-      margin-top: 20px;
+      margin-top: 40px;
+      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
     }
 
     footer p {
-      margin: 5px 0;
+      margin: 10px 0;
+    }
+
+    .social-icons {
+      margin-top: 15px;
+    }
+
+    .social-icons a {
+      color: #fff;
+      font-size: 20px;
+      margin: 0 10px;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: #00aaff;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
     }
 
     @media (max-width: 768px) {
@@ -156,11 +239,16 @@
       }
 
       .companies h1 {
-        font-size: 28px;
+        font-size: 32px;
+      }
+
+      .company {
+        padding: 20px;
+        margin: 15px auto;
       }
 
       .company h2 {
-        font-size: 20px;
+        font-size: 22px;
       }
 
       .company p {
@@ -182,6 +270,7 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="investment.html">Invest</a></li>
         <li><a href="companies.html">Companies</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
         <li><a href="about.html">About</a></li>
       </ul>
     </nav>
@@ -189,23 +278,23 @@
   <main>
     <section class="companies">
       <h1>Back Musk’s Visionary Companies</h1>
-      <div class="company">
+      <div class="company" style="--index: 1;">
         <h2>Tesla</h2>
         <p>Leading electric vehicles, $1.2T market cap. 20% of fund supports Gigafactory expansion.</p>
       </div>
-      <div class="company">
+      <div class="company" style="--index: 2;">
         <h2>SpaceX</h2>
         <p>$200B valuation, Mars by 2028. 15% of fund backs Starship and Starlink.</p>
       </div>
-      <div class="company">
+      <div class="company" style="--index: 3;">
         <h2>Neuralink</h2>
         <p>$50B potential by 2026. 10% of fund drives brain-computer interfaces.</p>
       </div>
-      <div class="company">
+      <div class="company" style="--index: 4;">
         <h2>The Boring Company</h2>
         <p>Urban transport innovation. 5% of fund supports Las Vegas tunnels.</p>
       </div>
-      <div class="company">
+      <div class="company" style="--index: 5;">
         <h2>xAI</h2>
         <p>AI for human discovery. 10% of fund fuels enterprise AI solutions.</p>
       </div>
@@ -214,6 +303,11 @@
   <footer>
     <p>Musk Crypto Investment Hub<br>250 University Ave, Palo Alto, CA 94301<br>Email: support@Doge-initiative.org</p>
     <p>© 2025 Musk Crypto Investment Hub</p>
+    <div class="social-icons">
+      <a href="#" aria-label="Twitter">𝕏</a>
+      <a href="#" aria-label="LinkedIn">🖇️</a>
+      <a href="#" aria-label="Email">✉️</a>
+    </div>
   </footer>
   <script src="script.js"></script>
   <script src="https://embed.tawk.to/YOUR_TAWKTO_ID/default"></script>
