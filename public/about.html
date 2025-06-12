@@ -5,13 +5,161 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About - Musk Crypto Investment Hub</title>
   <link rel="icon" type="image/png" href="./images/favicon.ico">
-  <link rel="stylesheet" href="style.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f0f0f0;
+    }
+
+    header {
+      background-color: #1a1a1a;
+      padding: 15px 20px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      color: #fff;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+
+    .nav-links li {
+      margin-left: 20px;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .nav-links a:hover {
+      color: #00aaff;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 20px;
+    }
+
+    .mobile-menu-btn span {
+      width: 25px;
+      height: 3px;
+      background-color: #fff;
+      display: block;
+    }
+
+    main {
+      margin-top: 60px; /* Offset for fixed header */
+      padding: 20px;
+    }
+
+    .about {
+      padding: 50px 20px;
+      text-align: center;
+      background-color: #fff;
+      max-width: 800px;
+      margin: 0 auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .about h1 {
+      font-size: 36px;
+      color: #1a1a1a;
+      margin-bottom: 20px;
+    }
+
+    .about p {
+      font-size: 18px;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    footer {
+      background-color: #1a1a1a;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      margin-top: 20px;
+    }
+
+    footer p {
+      margin: 5px 0;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #1a1a1a;
+        padding: 20px;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links li {
+        margin: 10px 0;
+      }
+
+      .mobile-menu-btn {
+        display: flex;
+      }
+
+      .about h1 {
+        font-size: 28px;
+      }
+
+      .about p {
+        font-size: 16px;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
     <nav>
       <div class="logo">Musk Crypto Investment Hub</div>
-      <ul>
+      <button class="mobile-menu-btn" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="investment.html">Invest</a></li>
         <li><a href="companies.html">Companies</a></li>
