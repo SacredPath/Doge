@@ -4,8 +4,218 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Musk Crypto Investment Hub</title>
-  <link rel="stylesheet" href="style.css">
   <link rel="icon" href="./images/favicon.ico">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f0f0f0;
+    }
+
+    header {
+      background-color: #1a1a1a;
+      padding: 15px 20px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      color: #fff;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+
+    .nav-links li {
+      margin-left: 20px;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .nav-links a:hover {
+      color: #00aaff;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 20px;
+    }
+
+    .mobile-menu-btn span {
+      width: 25px;
+      height: 3px;
+      background-color: #fff;
+      display: block;
+    }
+
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      margin-top: 60px; /* Offset for fixed header */
+    }
+
+    .hero video {
+      width: 100vw;
+      height: 100%;
+      object-fit: cover; /* Stretches video to fill width, may distort */
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #fff;
+      z-index: 2;
+      background: rgba(0, 0, 0, 0.5); /* Semi-transparent backdrop */
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    .hero-content h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .hero-content p {
+      font-size: 18px;
+      margin-bottom: 15px;
+      max-width: 600px;
+    }
+
+    .mission-statement {
+      font-style: italic;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #00aaff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 18px;
+      margin-top: 20px;
+    }
+
+    .cta-button:hover {
+      background-color: #0088cc;
+    }
+
+    .why-invest {
+      padding: 50px 20px;
+      text-align: center;
+      background-color: #fff;
+    }
+
+    .why-invest h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .why-invest p {
+      font-size: 18px;
+      max-width: 800px;
+      margin: 0 auto 30px;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .stats div {
+      font-size: 24px;
+      font-weight: bold;
+      color: #00aaff;
+    }
+
+    footer {
+      background-color: #1a1a1a;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
+
+    footer p {
+      margin: 5px 0;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #1a1a1a;
+        padding: 20px;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links li {
+        margin: 10px 0;
+      }
+
+      .mobile-menu-btn {
+        display: flex;
+      }
+
+      .hero-content h1 {
+        font-size: 32px;
+      }
+
+      .hero-content p {
+        font-size: 16px;
+      }
+
+      .stats div {
+        font-size: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -26,7 +236,7 @@
     </nav>
   </header>
   <section class="hero">
-    <video autoplay muted loop margin-right:0>
+    <video autoplay muted loop>
       <source src="./images/hero-video.mp4" type="video/mp4">
     </video>
     <div class="hero-content">
@@ -37,9 +247,6 @@
       <a href="investment.html" class="cta-button">Invest Now</a>
     </div>
   </section>
-
-
-
   <main>
     <section class="why-invest">
       <h2>Why Musk Crypto?</h2>
