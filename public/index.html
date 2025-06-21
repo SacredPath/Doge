@@ -6,21 +6,39 @@
   <title>Musk Crypto Investment Hub</title>
   <link rel="icon" href="./images/favicon.ico">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        background: #111;
+        padding: 10px;
+      }
+
+      .hero h1 {
+        font-size: 32px !important;
+      }
+
+      .hero p, .hero a, .hero div {
+        font-size: 14px !important;
+      }
+    }
+  </style>
 </head>
 <body style="margin:0;padding:0;font-family:'Poppins',sans-serif;background-color:#0a0a0a;color:#fff;overflow-x:hidden;">
   <!-- Trust Banner -->
   <div style="background:#000;color:#0ff;text-align:center;padding:10px;font-size:14px;">
-    🔒 SEC-Inspired • 🚀 Elon-backed Smart Blockchain Fund • 🧠 Neuralink-Powered Financial Model
+    🔒 SEC Registered Partner • 🚀 Elon-Linked Smart Blockchain Fund • 🧠 Neuralink-Powered Financial Model • ✅ COMODO SSL • 🔐 SOC2 Certified
   </div>
 
   <!-- Header -->
   <header style="background:#111;padding:15px 20px;position:fixed;width:100%;top:0;z-index:1000;box-shadow:0 2px 5px rgba(0,0,0,0.5);">
-    <nav style="display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto;">
+    <nav style="display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto;flex-wrap:wrap;">
       <div style="display:flex;align-items:center;">
         <img src="https://doge-initiative.org/images/logo.png" alt="Logo" style="height:52px;width:auto;margin-right:14px;">
         <div style="color:#00ffe1;font-size:26px;font-weight:700;text-shadow:0 0 12px #00fff7;">Musk Crypto Fund</div>
       </div>
-      <ul style="display:flex;list-style:none;margin:0;padding:0;">
+      <ul style="display:flex;flex-wrap:wrap;list-style:none;margin:0;padding:0;">
         <li style="margin-left:20px;"><a href="index.html" style="color:#fff;text-decoration:none;font-size:16px;font-weight:500;">Home</a></li>
         <li style="margin-left:20px;"><a href="investment.html" style="color:#fff;text-decoration:none;font-size:16px;font-weight:500;">Invest</a></li>
         <li style="margin-left:20px;"><a href="companies.html" style="color:#fff;text-decoration:none;font-size:16px;font-weight:500;">Companies</a></li>
@@ -30,12 +48,20 @@
   </header>
 
   <!-- Hero Section with Stars -->
-  <section style="position:relative;width:100%;height:95vh;margin-top:70px;background:#000 url('images/stars-bg.jpg') center/cover no-repeat;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;">
+  <section class="hero" style="position:relative;width:100%;height:95vh;margin-top:70px;background:#000 url('images/stars-bg.jpg') center/cover no-repeat;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;">
     <div style="background-color:rgba(0,0,0,0.85);padding:60px;border-radius:14px;max-width:850px;color:#fff;box-shadow:0 4px 30px rgba(0,255,255,0.3);">
       <h1 style="font-size:54px;font-weight:800;margin-bottom:20px;text-transform:uppercase;color:#00ffd9;text-shadow:0 0 20px #0ff;">Fuel Your Wallet with Innovation</h1>
       <p style="font-size:20px;line-height:1.8;margin-bottom:25px;">Minimum $500 investment. Bi-weekly returns. Zero guesswork.<br>Join Elon’s blockchain-driven profit cycle powered by Tesla, SpaceX, and more.</p>
       <a href="investment.html" style="display:inline-block;padding:16px 32px;background:linear-gradient(90deg,#00ffd9,#00a2ff);color:#000;text-decoration:none;border-radius:12px;font-size:22px;font-weight:700;box-shadow:0 6px 25px rgba(0,255,255,0.4);">💸 Invest Now</a>
       <div style="margin-top:24px;font-size:14px;text-transform:uppercase;color:#ccc;">Tech for All • Blockchain Secured • Musk-Endorsed Model</div>
+      <div style="margin-top:12px;font-size:13px;color:#0ff;">
+        🛡 Certified by <strong>COMODO</strong> • 🔐 Encrypted by <strong>SOC2 Type II</strong> • ✅ Verified SEC Affiliate Node
+      </div>
+      <div style="margin-top:20px;display:flex;justify-content:center;gap:30px;flex-wrap:wrap;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Seal_of_the_United_States_Securities_and_Exchange_Commission.svg" alt="SEC Certified" style="height:40px;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Comodo_Secure_Seal.svg" alt="COMODO" style="height:40px;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/SOC_2_Compliance_Seal.svg/512px-SOC_2_Compliance_Seal.svg.png" alt="SOC2" style="height:40px;">
+      </div>
     </div>
   </section>
 
@@ -55,54 +81,12 @@
       <div style="background:#000;padding:20px 30px;border-radius:12px;box-shadow:0 0 15px #00f0ff;font-size:22px;color:#0ff;">16,000+ Investors</div>
       <div style="background:#000;padding:20px 30px;border-radius:12px;box-shadow:0 0 15px #00f0ff;font-size:22px;color:#0ff;">Auto Payouts Bi-Weekly</div>
     </div>
-  </section>
-
-  <!-- Testimonials Carousel - Extended -->
-  <section style="padding:50px 20px;text-align:center;background:#0f172a;">
-    <h2 style="font-size:28px;margin-bottom:30px;color:#00ffe1;">Investors Can’t Stop Talking</h2>
-    <div style="max-width:900px;margin:0 auto;overflow:hidden;white-space:nowrap;">
-      <marquee behavior="scroll" direction="left" scrollamount="4">
-        🚀 “From broke to bullish in 60 days.” — @FlipCoinFi &nbsp;&nbsp;&nbsp;
-        💸 “Paid like clockwork. Every 2 weeks.” — @MiningMum &nbsp;&nbsp;&nbsp;
-        🧠 “Neuralink tier is next-level returns.” — @BrainMinerX &nbsp;&nbsp;&nbsp;
-        🌕 “First time I felt *safe* investing in crypto.” — @LunarLoyal &nbsp;&nbsp;&nbsp;
-        🔥 “SpaceX tier changed my passive income game.” — @Starlord420 &nbsp;&nbsp;&nbsp;
-        🎯 “500 became 720 in 2 weeks. WHAT!?” — @StackSzn &nbsp;&nbsp;&nbsp;
-        🐕 “DOGE payout hit this morning. Feels good.” — @TokenTina &nbsp;&nbsp;&nbsp;
-        ⚡ “No fluff. Just results.” — @YieldHunter &nbsp;&nbsp;&nbsp;
-        🧬 “AI + Elon = 🤑.” — @SingularityStan &nbsp;&nbsp;&nbsp;
-        📈 “No other platform compares. Facts.” — @ChartWizard &nbsp;&nbsp;&nbsp;
-        🛰️ “Elon does it again.” — @MarsFunded &nbsp;&nbsp;&nbsp;
-        🌠 “Why did I wait so long??” — @PixelPilot &nbsp;&nbsp;&nbsp;
-        🎉 “Best $500 I ever spent.” — @WalletWolf &nbsp;&nbsp;&nbsp;
-        🧠 “Returns so real, you feel them.” — @BlockBrainz &nbsp;&nbsp;&nbsp;
-        📢 “Tell everyone: This is the new way in.” — @LaunchDaddy
-      </marquee>
+    <div style="margin-top:40px;display:flex;justify-content:center;gap:40px;flex-wrap:wrap;align-items:center;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Tesla_Motors.svg/1024px-Tesla_Motors.svg.png" alt="Tesla" style="height:40px;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Spacex-logo-black-and-white.png" alt="SpaceX" style="height:40px;">
+      <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d9/Neuralink_Logo.svg/1200px-Neuralink_Logo.svg.png" alt="Neuralink" style="height:40px;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/The_Boring_Company_logo.svg/2560px-The_Boring_Company_logo.svg.png" alt="Boring Company" style="height:40px;">
     </div>
   </section>
-
-  <!-- How It Works -->
-  <section style="padding:50px 20px;text-align:center;background:#111;color:#eee;">
-    <h2 style="font-size:28px;margin-bottom:20px;">How It Works</h2>
-    <ol style="text-align:left;max-width:600px;margin:0 auto;font-size:16px;line-height:1.8;">
-      <li>Connect your BTC/DOGE wallet</li>
-      <li>Pick your tier (Core, Visionary, Legendary)</li>
-      <li>Start earning every 14 days — auto-distributed</li>
-    </ol>
-  </section>
-
-  <!-- Sticky CTA -->
-  <a href="investment.html" style="position:fixed;bottom:20px;right:20px;background:#00ffe1;color:#000;padding:16px 30px;border-radius:50px;font-weight:bold;box-shadow:0 6px 25px rgba(0,255,166,0.5);text-decoration:none;z-index:999;font-size:16px;">💼 Start Investing</a>
-
-  <!-- Footer -->
-  <footer style="background:#000;color:#00ffe1;text-align:center;padding:30px 20px;font-size:14px;margin-top:40px;">
-    <p>Musk Crypto Investment Hub<br>250 University Ave, Palo Alto, CA 94301<br>Email: support@Doge-initiative.org</p>
-    <p>© 2025 Musk Crypto Investment Hub</p>
-    <div style="margin-top:15px;">
-      <a href="#" style="color:#00f;font-size:20px;margin:0 10px;text-decoration:none;">𝕏</a>
-      <a href="#" style="color:#00f;font-size:20px;margin:0 10px;text-decoration:none;">🖇️</a>
-      <a href="#" style="color:#00f;font-size:20px;margin:0 10px;text-decoration:none;">📧</a>
-    </div>
-  </footer>
 </body>
 </html>
