@@ -1,33 +1,265 @@
-<!-- Trust badges below CTA -->
-<div style="margin-top:20px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap;">
-  <img src="https://img.icons8.com/fluency/48/000000/approval.png" alt="Approved" style="height:40px;">
-  <img src="https://img.icons8.com/color/48/000000/comodo.png" alt="Comodo" style="height:40px;">
-  <img src="https://img.icons8.com/ios-filled/50/00ffd9/lock-2.png" alt="Secure" style="height:40px;">
-  <img src="https://img.icons8.com/ios-filled/50/00ffd9/us-dollar-circled--v1.png" alt="SEC" style="height:40px;">
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doge Initiative | Elon-Backed Crypto Fund</title>
+  <link rel="icon" href="https://img.icons8.com/clouds/500/doge.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #000;
+      color: #fff;
+    }
+    header {
+      background: #111;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    header .logo {
+      display: flex;
+      align-items: center;
+      font-weight: 800;
+      font-size: 20px;
+      gap: 10px;
+      color: #00ffd9;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    nav ul li a {
+      color: #00ffd9;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .hero {
+      height: 100vh;
+      background: url('https://images.unsplash.com/photo-1605902711622-cfb43c4437d1') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      padding: 20px;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+    }
+    .hero-content h1 {
+      font-size: 42px;
+      margin-bottom: 15px;
+      color: #00ffd9;
+    }
+    .hero-content p {
+      font-size: 18px;
+    }
+    .cta-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 30px;
+      font-weight: bold;
+      color: #000;
+      background: #00ffd9;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+    .sticky-cta {
+      position: fixed;
+      bottom: 15px;
+      right: 15px;
+      background: #00ffd9;
+      color: #000;
+      font-weight: bold;
+      padding: 12px 24px;
+      border-radius: 40px;
+      box-shadow: 0 0 15px #00ffd9;
+      z-index: 1001;
+    }
+    .live-feed {
+      position: fixed;
+      bottom: 80px;
+      right: 15px;
+      background: #111;
+      padding: 10px 15px;
+      color: #00ffd9;
+      font-size: 14px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #00ffd9;
+      z-index: 1001;
+    }
+    .countdown {
+      text-align: center;
+      font-size: 18px;
+      margin: 20px 0;
+      color: #00ffd9;
+    }
+    .elon-quote {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 16px;
+      font-style: italic;
+      color: #ccc;
+    }
+    .invest-form {
+      margin: 40px auto;
+      padding: 30px;
+      background: #111;
+      border-radius: 12px;
+      max-width: 500px;
+    }
+    .invest-form h2 {
+      color: #00ffd9;
+      margin-bottom: 20px;
+    }
+    .invest-form input, .invest-form select {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      border: none;
+      background: #222;
+      color: #fff;
+    }
+    .invest-form button {
+      padding: 12px 20px;
+      background: #00ffd9;
+      color: #000;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .tx-proof {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 30px;
+    }
+    .tx-proof img {
+      width: 150px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #00ffd9;
+    }
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        flex-direction: column;
+        background: #000;
+        padding: 20px;
+        position: absolute;
+        top: 60px;
+        right: 10px;
+        width: 200px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px #00ffd9;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="https://img.icons8.com/clouds/500/doge.png" alt="Logo" style="height:40px;">
+      Doge Initiative
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#invest">Invest</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Invest in Elon-Backed Crypto Projects</h1>
+      <p>Join the only fund inspired by Elon Musk’s vision. Get paid bi-weekly in BTC or DOGE starting with $500.</p>
+      <div class="countdown">
+        ⚡ Next payout round closes in: <span id="timer">Loading...</span>
+      </div>
+      <a class="cta-button" href="#invest">Get Started</a>
+    </div>
+  </section>
+  <a class="sticky-cta" href="#invest">Invest Now</a>
+  <div class="live-feed" id="liveFeed">💰 Olivia from NY just invested $900</div>
 
-<!-- Testimonials Section -->
-<section style="padding:60px 20px;background:#0d0d0d;text-align:center;">
-  <h2 style="color:#00ffd9;font-size:36px;margin-bottom:30px;">Investor Testimonials</h2>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;max-width:1200px;margin:0 auto;">
-    <div style="background:#111;padding:20px;border-radius:10px;box-shadow:0 0 12px rgba(0,255,255,0.2);">“Doubled my money in 6 weeks. Never seen returns like this.”<br><strong>- @CryptoShark</strong></div>
-    <div style="background:#111;padding:20px;border-radius:10px;box-shadow:0 0 12px rgba(0,255,255,0.2);">“SpaceX payouts hit every 2 weeks like clockwork.”<br><strong>- @HODLHero</strong></div>
-    <div style="background:#111;padding:20px;border-radius:10px;box-shadow:0 0 12px rgba(0,255,255,0.2);">“I started with $500. Now I’m reinvesting my profits.”<br><strong>- @MoonInvestor</strong></div>
-    <div style="background:#111;padding:20px;border-radius:10px;box-shadow:0 0 12px rgba(0,255,255,0.2);">“This isn’t hype, it’s my new passive income stream.”<br><strong>- @StackSats</strong></div>
-    <div style="background:#111;padding:20px;border-radius:10px;box-shadow:0 0 12px rgba(0,255,255,0.2);">“SEC approval gave me confidence to go big.”<br><strong>- @DeFiBoss</strong></div>
-    <div style="background:#111;padding:20px;border-radius:10px;box-shadow:0 0 12px rgba(0,255,255,0.2);">“My crypto finally works *for* me, not against me.”<br><strong>- @YieldPilot</strong></div>
-    <div style="background:#111;padding:20px;border-radius:10px;box-shadow:0 0 12px rgba(0,255,255,0.2);">“Every Friday feels like payday. Thanks Elon!”<br><strong>- @ElonBacker</strong></div>
-    <div style="background:#111;padding:20px;border-radius:10px;box-shadow:0 0 12px rgba(0,255,255,0.2);">“This changed my retirement game completely.”<br><strong>- @StakingGrandpa</strong></div>
-    <div style="background:#111;padding:20px;border-radius:10px;box-shadow:0 0 12px rgba(0,255,255,0.2);">“Was skeptical at first. Now I’m doubling down.”<br><strong>- @SkepticTurnedBull</strong></div>
-    <div style="background:#111;padding:20px;border-radius:10px;box-shadow:0 0 12px rgba(0,255,255,0.2);">“500 turned to 1300 in 2 cycles. Unbelievable.”<br><strong>- @FlipItFast</strong></div>
-    <div style="background:#111;padding:20px;border-radius:10px;box-shadow:0 0 12px rgba(0,255,255,0.2);">“Been paid on time, every time. No glitches.”<br><strong>- @Code2Coin</strong></div>
-    <div style="background:#111;padding:20px;border-radius:10px;box-shadow:0 0 12px rgba(0,255,255,0.2);">“The payout system feels like DeFi, only better.”<br><strong>- @YieldTiger</strong></div>
-    <div style="background:#111;padding:20px;border-radius:10px;box-shadow:0 0 12px rgba(0,255,255,0.2);">“Forget stocks. This is where growth lives.”<br><strong>- @BlockyBear</strong></div>
-    <div style="background:#111;padding:20px;border-radius:10px;box-shadow:0 0 12px rgba(0,255,255,0.2);">“My financial advisor is asking *me* for advice.”<br><strong>- @DegenMentor</strong></div>
-    <div style="background:#111;padding:20px;border-radius:10px;box-shadow:0 0 12px rgba(0,255,255,0.2);">“Tesla x DOGE = unstoppable!”<br><strong>- @AutoStacker</strong></div>
-    <div style="background:#111;padding:20px;border-radius:10px;box-shadow:0 0 12px rgba(0,255,255,0.2);">“This fund walked so ETFs could run.”<br><strong>- @GenZInvestor</strong></div>
-    <div style="background:#111;padding:20px;border-radius:10px;box-shadow:0 0 12px rgba(0,255,255,0.2);">“Even my mom invests now. That says it all.”<br><strong>- @FamilyFinance</strong></div>
-    <div style="background:#111;padding:20px;border-radius:10px;box-shadow:0 0 12px rgba(0,255,255,0.2);">“Revolutionary. Like buying ETH in 2016.”<br><strong>- @CryptoHistorian</strong></div>
-    <div style="background:#111;padding:20px;border-radius:10px;box-shadow:0 0 12px rgba(0,255,255,0.2);">“I just got my third payout. Still shocked.”<br><strong>- @ElonTrust</strong></div>
+  <div class="elon-quote">
+    “Crypto is the future currency of Earth.” — Elon Musk
   </div>
-</section>
+
+  <section class="invest-form" id="invest">
+    <h2>Start Your Investment</h2>
+    <form>
+      <input type="text" placeholder="Your Full Name" required>
+      <input type="email" placeholder="Email Address" required>
+      <select required>
+        <option value="">Choose Wallet Type</option>
+        <option value="btc">Bitcoin (BTC)</option>
+        <option value="doge">Dogecoin (DOGE)</option>
+      </select>
+      <input type="number" placeholder="Amount (min $500)" required>
+      <input type="text" placeholder="Wallet TX Hash" required>
+      <button type="submit">Confirm Investment</button>
+    </form>
+  </section>
+
+  <div class="tx-proof">
+    <img src="https://i.imgur.com/bvxuV3v.png" alt="tx-proof">
+    <img src="https://i.imgur.com/XPkNEV1.png" alt="tx-proof">
+    <img src="https://i.imgur.com/RCBAbnf.png" alt="tx-proof">
+  </div>
+
+  <script>
+    function updateCountdown() {
+      const now = new Date();
+      const tomorrow = new Date();
+      tomorrow.setHours(23,59,59,999);
+      const diff = tomorrow - now;
+      const hours = String(Math.floor(diff / 1000 / 60 / 60)).padStart(2, '0');
+      const mins = String(Math.floor(diff / 1000 / 60) % 60).padStart(2, '0');
+      const secs = String(Math.floor(diff / 1000) % 60).padStart(2, '0');
+      document.getElementById("timer").textContent = `${hours}:${mins}:${secs}`;
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    const investors = [
+      "James from California just invested $1,200",
+      "Ava from Texas just invested $500",
+      "Liam from Florida just invested $750",
+      "Emma from Ohio just invested $1,000",
+      "Noah from Nevada just invested $2,200",
+      "Mia from New York just invested $1,050",
+      "Lucas from Illinois just invested $650",
+      "Sophia from Georgia just invested $800",
+      "Elijah from Arizona just invested $1,500"
+    ];
+    let i = 0;
+    setInterval(() => {
+      const feed = document.getElementById("liveFeed");
+      feed.textContent = "💰 " + investors[i % investors.length];
+      i++;
+    }, 6000);
+  </script>
+</body>
+</html>
