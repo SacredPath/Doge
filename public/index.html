@@ -6,365 +6,81 @@
   <title>Musk Crypto Investment Hub</title>
   <link rel="icon" href="./images/favicon.ico">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', Arial, sans-serif;
-    }
-
-    body {
-      background-color: #f0f0f0;
-      overflow-x: hidden;
-    }
-
-    header {
-      background: linear-gradient(90deg, #1a1a1a, #2a2a2a);
-      padding: 15px 20px;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    }
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .logo {
-      color: #fff;
-      font-size: 26px;
-      font-weight: 700;
-      text-shadow: 0 0 10px #00aaff;
-      transition: transform 0.3s ease;
-    }
-
-    .logo:hover {
-      transform: scale(1.05);
-    }
-
-    .nav-links {
-      display: flex;
-      list-style: none;
-    }
-
-    .nav-links li {
-      margin-left: 20px;
-    }
-
-    .nav-links a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 16px;
-      font-weight: 400;
-      position: relative;
-      transition: color 0.3s ease;
-    }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      bottom: -5px;
-      left: 0;
-      background-color: #00aaff;
-      transition: width 0.3s ease;
-    }
-
-    .nav-links a:hover {
-      color: #00aaff;
-    }
-
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-
-    .mobile-menu-btn {
-      display: none;
-      background: none;
-      border: none;
-      cursor: pointer;
-      flex-direction: column;
-      justify-content: space-between;
-      height: 20px;
-    }
-
-    .mobile-menu-btn span {
-      width: 25px;
-      height: 3px;
-      background-color: #fff;
-      display: block;
-      transition: all 0.3s ease;
-    }
-
-    .hero {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      overflow: hidden;
-      margin-top: 60px;
-    }
-
-    .hero video {
-      width: 100vw;
-      height: 100%;
-      object-fit: cover;
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 1;
-    }
-
-    .hero-content {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      color: #fff;
-      z-index: 2;
-      background: linear-gradient(135deg, #1a1a1a, #2a2a2a); /* Opaque gradient */
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-      animation: slideUp 0.5s ease-out;
-    }
-
-    .hero-content h1 {
-      font-size: 48px;
-      font-weight: 700;
-      margin-bottom: 20px;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-    }
-
-    .hero-content p {
-      font-size: 16px;
-      margin-bottom: 15px;
-      max-width: 600px;
-      line-height: 1.6;
-    }
-
-    .mission-statement {
-      font-style: italic;
-      font-size: 16px;
-      color: #e0e0e0;
-    }
-
-    .cta-button {
-      display: inline-block;
-      padding: 12px 24px;
-      background: linear-gradient(90deg, #00aaff, #0088cc);
-      color: #fff;
-      text-decoration: none;
-      border-radius: 8px;
-      font-size: 18px;
-      font-weight: 600;
-      margin-top: 20px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .cta-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 15px rgba(0, 170, 255, 0.4);
-    }
-
-    .why-invest {
-      padding: 60px 20px;
-      text-align: center;
-      background: linear-gradient(180deg, #e6f0fa 0%, #ffffff 100%);
-      max-width: 1200px;
-      margin: 0 auto;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-      animation: fadeIn 1s ease-out;
-    }
-
-    .why-invest h2 {
-      font-size: 40px;
-      color: #1a1a1a;
-      font-weight: 700;
-      margin-bottom: 20px;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-    .why-invest p {
-      font-size: 16px;
-      color: #333;
-      max-width: 800px;
-      margin: 0 auto 30px;
-      line-height: 1.7;
-    }
-
-    .stats {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      flex-wrap: wrap;
-    }
-
-    .stats div {
-      background: linear-gradient(135deg, #ffffff, #f0faff);
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-      font-size: 24px;
-      font-weight: 600;
-      color: #00aaff;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      animation: slideUp 0.5s ease-out forwards;
-      animation-delay: calc(0.1s * var(--index));
-    }
-
-    .stats div:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 8px 25px rgba(0, 170, 255, 0.3);
-    }
-
-    footer {
-      background: linear-gradient(90deg, #1a1a1a, #2a2a2a);
-      color: #fff;
-      text-align: center;
-      padding: 30px 20px;
-      font-size: 14px;
-      margin-top: 40px;
-      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
-    }
-
-    footer p {
-      margin: 10px 0;
-    }
-
-    .social-icons {
-      margin-top: 15px;
-    }
-
-    .social-icons a {
-      color: #fff;
-      font-size: 20px;
-      margin: 0 10px;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .social-icons a:hover {
-      color: #00aaff;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    @keyframes slideUp {
-      from { transform: translateY(50px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        background-color: #1a1a1a;
-        padding: 20px;
-      }
-
-      .nav-links.active {
-        display: flex;
-      }
-
-      .nav-links li {
-        margin: 10px 0;
-      }
-
-      .mobile-menu-btn {
-        display: flex;
-      }
-
-      .hero-content {
-        padding: 20px;
-      }
-
-      .hero-content h1 {
-        font-size: 32px;
-      }
-
-      .hero-content p {
-        font-size: 14px;
-      }
-
-      .why-invest h2 {
-        font-size: 32px;
-      }
-
-      .stats div {
-        font-size: 20px;
-        width: 100%;
-        max-width: 300px;
-      }
-    }
-  </style>
 </head>
-<body>
-  <header>
-    <nav>
-      <div class="logo">Musk Crypto Investment Hub</div>
-      <button class="mobile-menu-btn" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="investment.html">Invest</a></li>
-        <li><a href="companies.html">Companies</a></li>
-        <li><a href="about.html">About</a></li>
+<body style="margin:0;padding:0;font-family:'Poppins',sans-serif;background-color:#f0f0f0;overflow-x:hidden;">
+  <!-- Trust Banner -->
+  <div style="background:#0a0a0a;color:#fff;text-align:center;padding:10px;font-size:14px;">
+    🔒 SEC-Inspired | 📜 Smart Contract Audit Pending | 📈 Simulated Dashboard Available
+  </div>
+
+  <!-- Header -->
+  <header style="background:linear-gradient(90deg,#1a1a1a,#2a2a2a);padding:15px 20px;position:fixed;width:100%;top:0;z-index:1000;box-shadow:0 2px 5px rgba(0,0,0,0.2);">
+    <nav style="display:flex;justify-content:space-between;align-items:center;max-width:1200px;margin:0 auto;">
+      <div style="color:#fff;font-size:26px;font-weight:700;text-shadow:0 0 10px #00aaff;">Musk Crypto Investment Hub</div>
+      <ul style="display:flex;list-style:none;margin:0;padding:0;">
+        <li style="margin-left:20px;"><a href="index.html" style="color:#fff;text-decoration:none;font-size:16px;font-weight:400;">Home</a></li>
+        <li style="margin-left:20px;"><a href="investment.html" style="color:#fff;text-decoration:none;font-size:16px;font-weight:400;">Invest</a></li>
+        <li style="margin-left:20px;"><a href="companies.html" style="color:#fff;text-decoration:none;font-size:16px;font-weight:400;">Companies</a></li>
+        <li style="margin-left:20px;"><a href="about.html" style="color:#fff;text-decoration:none;font-size:16px;font-weight:400;">About</a></li>
       </ul>
     </nav>
   </header>
-  <section class="hero">
-    <video autoplay muted loop>
-      <source src="./images/hero-video.mp4" type="video/mp4">
-    </video>
-    <div class="hero-content">
-      <h1>Invest in the Future with Musk</h1>
-      <p><strong>Minimum $500 Investment - No Maximum Limit</strong></p>
-      <p>Elon Musk created this fund to make crypto investments accessible to everyone. With just $500 in Bitcoin or Dogecoin, you can support his revolutionary companies and receive bi-weekly payouts from Tesla, SpaceX, Neuralink, and more.</p>
-      <p class="mission-statement">Our mission is to democratize access to crypto investments. We believe everyone deserves a chance to invest in the future, not just the wealthy elite.</p>
-      <a href="investment.html" class="cta-button">Invest Now</a>
+
+  <!-- Hero Section -->
+  <section style="position:relative;width:100%;height:90vh;margin-top:70px;background:url('images/hero-thumbnail.jpg') center/cover no-repeat;text-align:center;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:20px;">
+    <h1 style="color:#fff;font-size:48px;font-weight:700;text-shadow:0 2px 4px rgba(0,0,0,0.5);margin-bottom:20px;">Invest in the Future with Musk</h1>
+    <p style="font-size:16px;color:#fff;margin-bottom:10px;"><strong>Minimum $500 Investment - No Maximum Limit</strong></p>
+    <p style="max-width:600px;color:#fff;line-height:1.6;">Elon Musk created this fund to make crypto investments accessible to everyone. With just $500 in Bitcoin or Dogecoin, you can support his revolutionary companies and receive bi-weekly payouts.</p>
+    <p style="font-style:italic;font-size:14px;color:#e0e0e0;">Our mission is to democratize access to crypto investments. We believe everyone deserves a chance to invest in the future.</p>
+    <a href="investment.html" style="display:inline-block;padding:12px 24px;background:linear-gradient(90deg,#00aaff,#0088cc);color:#fff;text-decoration:none;border-radius:8px;font-size:18px;font-weight:600;margin-top:20px;">Invest Now</a>
+    <p style="color:#ccc;margin-top:10px;font-size:14px;">Not financial advice. Simulated environment only.</p>
+  </section>
+
+  <!-- Simulated Activity Feed -->
+  <div style="background:#fff;color:#333;padding:10px;text-align:center;font-size:14px;border-top:1px solid #ccc;border-bottom:1px solid #ccc;">
+    💸 0.014 BTC just invested • 🎉 Visionary Tier Activated by 0x92E5...B7f2
+  </div>
+
+  <!-- Why Invest -->
+  <section style="padding:60px 20px;text-align:center;background:#f9f9f9;max-width:1200px;margin:0 auto;border-radius:12px;">
+    <h2 style="font-size:36px;color:#1a1a1a;margin-bottom:20px;">Why Musk Crypto?</h2>
+    <p style="font-size:16px;color:#333;max-width:800px;margin:0 auto 30px;line-height:1.7;">Join our fund to back Elon-linked companies and receive bi-weekly crypto payouts. Built to help everyday investors, not just whales.</p>
+    <div style="display:flex;justify-content:center;gap:40px;flex-wrap:wrap;">
+      <div style="background:#fff;padding:20px;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,0.1);font-size:20px;color:#00aaff;">$50B+ Invested</div>
+      <div style="background:#fff;padding:20px;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,0.1);font-size:20px;color:#00aaff;">16,000+ Investors</div>
+      <div style="background:#fff;padding:20px;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,0.1);font-size:20px;color:#00aaff;">Bi-Weekly Payouts</div>
     </div>
   </section>
-  <main>
-    <section class="why-invest">
-      <h2>Why Musk Crypto?</h2>
-      <p>Join our fund to back these Superstar Companies with bi-weekly payouts in BTC or DOGE.</p>
-      <div class="stats">
-        <div style="--index: 1;">$50B+ Invested</div>
-        <div style="--index: 2;">16,000+ Investors</div>
-        <div style="--index: 3;">Bi-Weekly Payouts</div>
-      </div>
-    </section>
-  </main>
-  <footer>
+
+  <!-- Testimonials -->
+  <section style="padding:40px 20px;text-align:center;background:#e6f0fa;">
+    <h2 style="font-size:28px;margin-bottom:20px;">What Investors Say</h2>
+    <blockquote style="font-style:italic;color:#333;max-width:600px;margin:0 auto 20px;">“I started with $500 DOGE and saw my first payout in 14 days. Unreal.” — @TechGuy42</blockquote>
+    <blockquote style="font-style:italic;color:#333;max-width:600px;margin:0 auto;">“Musk-backed or not, this project pays like clockwork.” — @CryptoMom</blockquote>
+  </section>
+
+  <!-- How It Works -->
+  <section style="padding:40px 20px;text-align:center;background:#fff;">
+    <h2 style="font-size:28px;margin-bottom:20px;">How It Works</h2>
+    <ol style="text-align:left;max-width:600px;margin:0 auto;font-size:16px;line-height:1.8;">
+      <li>Connect your wallet (BTC or DOGE)</li>
+      <li>Select your tier: Core ($500), Visionary ($2k), Legendary ($10k)</li>
+      <li>Start receiving bi-weekly payouts</li>
+    </ol>
+  </section>
+
+  <!-- Sticky CTA -->
+  <a href="investment.html" style="position:fixed;bottom:20px;right:20px;background:#00aaff;color:white;padding:12px 20px;border-radius:50px;font-weight:bold;box-shadow:0 4px 15px rgba(0,0,0,0.3);text-decoration:none;z-index:999;">💸 Invest Now</a>
+
+  <!-- Footer -->
+  <footer style="background:linear-gradient(90deg,#1a1a1a,#2a2a2a);color:#fff;text-align:center;padding:30px 20px;font-size:14px;margin-top:40px;">
     <p>Musk Crypto Investment Hub<br>250 University Ave, Palo Alto, CA 94301<br>Email: support@Doge-initiative.org</p>
     <p>© 2025 Musk Crypto Investment Hub</p>
-    <div class="social-icons">
-      <a href="#" aria-label="Twitter">𝕏</a>
-      <a href="#" aria-label="LinkedIn">🖇️</a>
-      <a href="#" aria-label="Email">📧</a>
+    <div style="margin-top:15px;">
+      <a href="#" style="color:#fff;font-size:20px;margin:0 10px;text-decoration:none;">𝕏</a>
+      <a href="#" style="color:#fff;font-size:20px;margin:0 10px;text-decoration:none;">🖇️</a>
+      <a href="#" style="color:#fff;font-size:20px;margin:0 10px;text-decoration:none;">📧</a>
     </div>
   </footer>
-  <script src="script.js"></script>
-  <script src="https://embed.tawk.to/YOUR_TAWKTO_ID/default"></script>
 </body>
 </html>
