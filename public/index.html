@@ -3,59 +3,71 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Doge Initiative – Backed by Elon Musk</title>
+  <title>Doge Initiative – Invest with Confidence</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
   <style>
     body {
       font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
-      background: #f9f9f9;
+      background: #f5f5f5;
       color: #111;
     }
     header {
-      background: #111;
+      background: #000;
       color: #fff;
-      padding: 16px 20px;
+      padding: 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
     }
-    header .logo {
+    .logo {
       font-size: 24px;
       font-weight: bold;
+      color: #00d0ff;
     }
-    header nav a {
+    nav a {
       color: #fff;
       margin-left: 20px;
       text-decoration: none;
-      font-weight: 500;
-    }
-    .countdown {
-      background: #ffd700;
-      color: #000;
-      text-align: center;
-      font-weight: 700;
-      font-size: 16px;
-      padding: 12px;
     }
     .hero {
-      padding: 60px 20px;
       text-align: center;
-      background: #fff;
+      padding: 60px 20px;
+      background: linear-gradient(135deg, #000, #1a1a1a);
+      color: white;
     }
     .hero h1 {
-      font-size: 36px;
+      font-size: 42px;
       margin-bottom: 20px;
     }
     .hero p {
-      font-size: 18px;
-      margin-bottom: 30px;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
+      font-size: 20px;
+      max-width: 700px;
+      margin: auto;
+    }
+    .cta {
+      display: inline-block;
+      margin-top: 30px;
+      background: #00d0ff;
+      color: #fff;
+      padding: 16px 32px;
+      border-radius: 8px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+    .cta:hover {
+      background: #00aacc;
+    }
+    .fomo-banner {
+      background: #ffd700;
+      color: #000;
+      text-align: center;
+      padding: 12px;
+      font-weight: 600;
+      font-size: 16px;
     }
     .floating-cta {
       position: fixed;
@@ -63,227 +75,142 @@
       right: 20px;
       background: #00d0ff;
       color: white;
-      padding: 14px 24px;
-      border-radius: 50px;
+      padding: 12px 20px;
+      border-radius: 30px;
       font-weight: 600;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       z-index: 999;
       text-decoration: none;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
     }
-    .live-alert {
-      position: fixed;
-      bottom: 80px;
-      left: 20px;
-      background: #fff;
-      color: #000;
-      padding: 12px 20px;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-      font-weight: 500;
-      z-index: 998;
-      display: none;
-    }
-    .section {
-      padding: 40px 20px;
-      text-align: center;
-    }
-    .section h2 {
+    .section-title {
       font-size: 28px;
       margin-bottom: 20px;
     }
-    .testimonials {
+    .how-it-works, .features, .testimonials, .contact {
+      padding: 60px 20px;
+      background: white;
+      text-align: center;
+    }
+    .features-grid, .testimonials-grid {
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
       gap: 20px;
+      justify-content: center;
     }
-    .testimonial {
-      background: #fff;
+    .feature, .testimonial {
+      background: #f0f0f0;
       padding: 20px;
       border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-      max-width: 280px;
+      max-width: 300px;
     }
     .testimonial img {
       width: 60px;
-      height: 60px;
       border-radius: 50%;
       margin-bottom: 10px;
     }
-    .progress {
-      max-width: 600px;
-      margin: 0 auto 30px;
-      background: #eee;
-      border-radius: 50px;
-      overflow: hidden;
-      height: 16px;
-    }
-    .progress-bar {
-      width: 85%;
-      height: 100%;
-      background: #00d0ff;
-    }
-    .quote {
-      font-style: italic;
-      color: #555;
-      max-width: 600px;
-      margin: 20px auto;
-    }
-    .logos {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin-top: 20px;
-    }
-    .logos img {
-      height: 32px;
-      opacity: 0.6;
-    }
     footer {
-      background: #111;
-      color: #fff;
+      background: #000;
+      color: white;
+      padding: 20px;
       text-align: center;
-      padding: 30px 20px;
-      font-size: 14px;
     }
     @media (max-width: 600px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      header nav {
-        margin-top: 10px;
-      }
-      .hero h1 {
-        font-size: 28px;
-      }
-      .floating-cta {
-        padding: 10px 18px;
-        font-size: 14px;
-      }
+      .hero h1 { font-size: 32px; }
+      .section-title { font-size: 24px; }
+      .floating-cta { padding: 10px 16px; font-size: 14px; }
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="logo">Doge Initiative</div>
+    <div class="logo">🚀 Doge Initiative</div>
     <nav>
-      <a href="#">Home</a>
-      <a href="#invest">Invest</a>
+      <a href="#how">How It Works</a>
+      <a href="#features">Benefits</a>
       <a href="#testimonials">Testimonials</a>
-      <a href="#about">About</a>
+      <a href="#contact">Get Started</a>
     </nav>
   </header>
 
-  <div class="countdown">⏳ Next Investor Round Ends In: loading…</div>
+  <div class="fomo-banner">⏳ Limited Slots Left – Next Payout in 6 Days! Don’t Miss Out!</div>
 
   <section class="hero">
-    <h1>Invest in the Future with Elon Musk</h1>
-    <p>Minimum $500 Investment • Get Paid Every 2 Weeks • Backed by Real Companies</p>
-    <a href="#invest" class="floating-cta">💰 Invest Now</a>
+    <h1>Your Financial Breakthrough Starts Here</h1>
+    <p>Elon-backed investments. Get bi-weekly returns starting with just $500. This isn’t crypto hype — it’s real wealth distribution.</p>
+    <a href="#contact" class="cta">Claim Your Spot Now</a>
   </section>
 
-  <div class="live-alert" id="liveAlert">💸 Someone just invested!</div>
+  <a href="#contact" class="floating-cta">💸 Invest Now</a>
 
-  <section class="section">
-    <div class="progress">
-      <div class="progress-bar"></div>
-    </div>
-    <p><strong>🚨 85% of investment slots already claimed. Act fast!</strong></p>
-  </section>
-
-  <section class="section">
-    <h2>What Investors Say</h2>
-    <div class="testimonials">
-      <div class="testimonial">
-        <img src="https://randomuser.me/api/portraits/men/12.jpg" alt="Investor">
-        <p>“I invested $500 and got my first payout in 2 weeks. Unbelievable!”</p>
-        <strong>– Ethan, USA 🇺🇸</strong>
+  <section class="how-it-works" id="how">
+    <h2 class="section-title">How It Works</h2>
+    <div class="features-grid">
+      <div class="feature">
+        <h3>1. Deposit</h3>
+        <p>Start with $500 in BTC or DOGE to activate your slot.</p>
       </div>
-      <div class="testimonial">
-        <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Investor">
-        <p>“This is the easiest investment I’ve ever made. Elon delivered!”</p>
-        <strong>– Amina, Nigeria 🇳🇬</strong>
+      <div class="feature">
+        <h3>2. Activate</h3>
+        <p>Your funds join our Elon-backed portfolio of breakthrough ventures.</p>
       </div>
-      <div class="testimonial">
-        <img src="https://randomuser.me/api/portraits/men/18.jpg" alt="Investor">
-        <p>“No stress, just rewards. This is the future of investing.”</p>
-        <strong>– Lars, Germany 🇩🇪</strong>
+      <div class="feature">
+        <h3>3. Earn</h3>
+        <p>Receive your first bi-weekly payment 14 days after onboarding.</p>
       </div>
     </div>
   </section>
 
-  <section class="section">
-    <h2>Elon Musk on the Future of Wealth</h2>
-    <p class="quote">"I believe everyone should have the opportunity to benefit from innovation – not just the elite."</p>
+  <section class="features" id="features">
+    <h2 class="section-title">Why 16,000+ People Trust Us</h2>
+    <div class="features-grid">
+      <div class="feature">
+        <h3>Elon-Backed Trust</h3>
+        <p>Direct exposure to Tesla, SpaceX, and Neuralink returns.</p>
+      </div>
+      <div class="feature">
+        <h3>Every 2 Weeks</h3>
+        <p>Your crypto wallet gets funded regularly, like clockwork.</p>
+      </div>
+      <div class="feature">
+        <h3>Built for Everyone</h3>
+        <p>No hidden fees. Just a clean, open door to serious investing.</p>
+      </div>
+    </div>
   </section>
 
-  <section class="section">
-    <h2>As Seen In</h2>
-    <div class="logos">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Forbes_logo_2019.svg" alt="Forbes">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Bloomberg_Media_Logo.svg/2560px-Bloomberg_Media_Logo.svg.png" alt="Bloomberg">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/TechCrunch_logo.svg/2560px-TechCrunch_logo.svg.png" alt="TechCrunch">
+  <section class="testimonials" id="testimonials">
+    <h2 class="section-title">What Real Investors Say</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial">
+        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="">
+        <p>“I received my first payout on time. It’s no joke.”</p>
+        <strong>– Jackson, USA</strong>
+      </div>
+      <div class="testimonial">
+        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="">
+        <p>“I hesitated. Now I wish I invested sooner.”</p>
+        <strong>– Ayana, Nigeria</strong>
+      </div>
+      <div class="testimonial">
+        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="">
+        <p>“Money shows up. That’s all I care about.”</p>
+        <strong>– Marko, Croatia</strong>
+      </div>
     </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2 class="section-title">Join the Next Payout Round</h2>
+    <p>Submit your email and we'll send exact steps to start earning every 2 weeks.</p>
+    <form action="#" method="POST" style="margin-top:20px;">
+      <input type="email" name="email" placeholder="Your email" required style="padding: 10px; border-radius: 6px; border: 1px solid #ccc; width: 250px; max-width: 90%;">
+      <button type="submit" style="padding: 10px 20px; background: #00d0ff; color: #fff; border: none; border-radius: 6px; font-weight: bold; margin-left: 10px;">Get Started</button>
+    </form>
   </section>
 
   <footer>
-    <p>Doge Initiative – 250 University Ave, Palo Alto, CA 94301</p>
+    <p>Doge Initiative – Built to Distribute Wealth. © 2025</p>
     <p>Email: support@doge-initiative.org</p>
-    <p>© 2025 Doge Initiative. All rights reserved.</p>
   </footer>
-
-  <script>
-    const investorMessages = [
-      "💸 Ahmed from Dubai just invested $1,000",
-      "💸 Maria from Brazil just invested $750",
-      "💸 John from USA just invested $1,500",
-      "💸 Wei from China just invested $900",
-      "💸 Leila from Nigeria just invested $500",
-      "💸 Hans from Germany just invested $800",
-      "💸 Amina from Morocco just invested $1,000",
-      "💸 Kenji from Japan just invested $1,200",
-      "💸 Carlos from Mexico just invested $1,300",
-      "💸 Priya from India just invested $650",
-      "💸 Alex from Canada just invested $700",
-      "💸 Fatima from UAE just invested $1,100",
-      "💸 Omar from Egypt just invested $900",
-      "💸 Chloe from France just invested $600",
-      "💸 Luka from Croatia just invested $720"
-    ];
-    const alertBox = document.getElementById("liveAlert");
-    let alertIndex = 0;
-    function showNextAlert() {
-      alertBox.textContent = investorMessages[alertIndex];
-      alertBox.style.display = 'block';
-      alertBox.style.opacity = 1;
-      setTimeout(() => {
-        alertBox.style.opacity = 0;
-        alertBox.style.display = 'none';
-      }, 4000);
-      alertIndex = (alertIndex + 1) % investorMessages.length;
-    }
-    setInterval(showNextAlert, 6000);
-
-    function updateCountdown() {
-      const countdownElement = document.querySelector(".countdown");
-      const now = new Date();
-      const start = new Date('2024-01-01T00:00:00');
-      const diff = Math.floor((now - start) / (1000 * 60 * 60 * 24));
-      const cycle = 14;
-      const nextCycleStart = new Date(start.getTime() + (Math.floor(diff / cycle) + 1) * cycle * 24 * 60 * 60 * 1000);
-      const remaining = nextCycleStart - now;
-
-      const days = Math.floor(remaining / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((remaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((remaining % (1000 * 60)) / 1000);
-
-      countdownElement.textContent = `⏳ Next Investor Round Ends In: ${String(days).padStart(2, '0')} Days ${String(hours).padStart(2, '0')} Hours ${String(minutes).padStart(2, '0')} Minutes ${String(seconds).padStart(2, '0')} Seconds`;
-    }
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
-  </script>
 </body>
 </html>
