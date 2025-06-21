@@ -41,138 +41,16 @@
       text-decoration: none;
       font-weight: 600;
     }
-    .hero {
-      height: 100vh;
-      background: url('https://images.unsplash.com/photo-1605902711622-cfb43c4437d1') center/cover no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      position: relative;
-      padding: 20px;
-    }
-    .hero::after {
-      content: "";
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.6);
-      z-index: 1;
-    }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 700px;
-    }
-    .hero-content h1 {
-      font-size: 42px;
-      margin-bottom: 15px;
-      color: #00ffd9;
-    }
-    .hero-content p {
-      font-size: 18px;
-    }
-    .cta-button {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 30px;
-      font-weight: bold;
-      color: #000;
-      background: #00ffd9;
-      border: none;
-      border-radius: 8px;
-      text-decoration: none;
-    }
-    .sticky-cta {
-      position: fixed;
-      bottom: 15px;
-      right: 15px;
-      background: #00ffd9;
-      color: #000;
-      font-weight: bold;
-      padding: 12px 24px;
-      border-radius: 40px;
-      box-shadow: 0 0 15px #00ffd9;
-      z-index: 1001;
-    }
-    .live-feed {
-      position: fixed;
-      bottom: 80px;
-      right: 15px;
-      background: #111;
-      padding: 10px 15px;
-      color: #00ffd9;
-      font-size: 14px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px #00ffd9;
-      z-index: 1001;
-    }
-    .countdown {
-      text-align: center;
-      font-size: 18px;
-      margin: 20px 0;
-      color: #00ffd9;
-    }
-    .elon-quote {
-      text-align: center;
-      margin-top: 40px;
-      font-size: 16px;
-      font-style: italic;
-      color: #ccc;
-    }
-    .invest-form {
-      margin: 40px auto;
-      padding: 30px;
-      background: #111;
-      border-radius: 12px;
-      max-width: 500px;
-    }
-    .invest-form h2 {
-      color: #00ffd9;
-      margin-bottom: 20px;
-    }
-    .invest-form input, .invest-form select {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 15px;
-      border-radius: 6px;
-      border: none;
-      background: #222;
-      color: #fff;
-    }
-    .invest-form button {
-      padding: 12px 20px;
-      background: #00ffd9;
-      color: #000;
-      font-weight: bold;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-    .tx-proof {
+    .trust-strip, .press-strip {
       display: flex;
       justify-content: center;
-      gap: 10px;
-      margin-top: 30px;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 30px 10px;
+      background: #0f0f0f;
     }
-    .tx-proof img {
-      width: 150px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px #00ffd9;
-    }
-    @media (max-width: 768px) {
-      nav ul {
-        display: none;
-        flex-direction: column;
-        background: #000;
-        padding: 20px;
-        position: absolute;
-        top: 60px;
-        right: 10px;
-        width: 200px;
-        border-radius: 10px;
-        box-shadow: 0 0 10px #00ffd9;
-      }
+    .trust-strip img, .press-strip img {
+      height: 40px;
     }
   </style>
 </head>
@@ -190,76 +68,20 @@
       </ul>
     </nav>
   </header>
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Invest in Elon-Backed Crypto Projects</h1>
-      <p>Join the only fund inspired by Elon Musk’s vision. Get paid bi-weekly in BTC or DOGE starting with $500.</p>
-      <div class="countdown">
-        ⚡ Next payout round closes in: <span id="timer">Loading...</span>
-      </div>
-      <a class="cta-button" href="#invest">Get Started</a>
-    </div>
-  </section>
-  <a class="sticky-cta" href="#invest">Invest Now</a>
-  <div class="live-feed" id="liveFeed">💰 Olivia from NY just invested $900</div>
 
-  <div class="elon-quote">
-    “Crypto is the future currency of Earth.” — Elon Musk
-  </div>
-
-  <section class="invest-form" id="invest">
-    <h2>Start Your Investment</h2>
-    <form>
-      <input type="text" placeholder="Your Full Name" required>
-      <input type="email" placeholder="Email Address" required>
-      <select required>
-        <option value="">Choose Wallet Type</option>
-        <option value="btc">Bitcoin (BTC)</option>
-        <option value="doge">Dogecoin (DOGE)</option>
-      </select>
-      <input type="number" placeholder="Amount (min $500)" required>
-      <input type="text" placeholder="Wallet TX Hash" required>
-      <button type="submit">Confirm Investment</button>
-    </form>
+  <section class="trust-strip">
+    <img src="https://img.icons8.com/fluency/48/approval.png" alt="Verified">
+    <img src="https://img.icons8.com/color/48/comodo.png" alt="Comodo">
+    <img src="https://img.icons8.com/ios-filled/50/lock-2.png" alt="Secure">
+    <img src="https://img.icons8.com/ios-filled/50/us-dollar-circled--v1.png" alt="Regulated">
   </section>
 
-  <div class="tx-proof">
-    <img src="https://i.imgur.com/bvxuV3v.png" alt="tx-proof">
-    <img src="https://i.imgur.com/XPkNEV1.png" alt="tx-proof">
-    <img src="https://i.imgur.com/RCBAbnf.png" alt="tx-proof">
-  </div>
-
-  <script>
-    function updateCountdown() {
-      const now = new Date();
-      const tomorrow = new Date();
-      tomorrow.setHours(23,59,59,999);
-      const diff = tomorrow - now;
-      const hours = String(Math.floor(diff / 1000 / 60 / 60)).padStart(2, '0');
-      const mins = String(Math.floor(diff / 1000 / 60) % 60).padStart(2, '0');
-      const secs = String(Math.floor(diff / 1000) % 60).padStart(2, '0');
-      document.getElementById("timer").textContent = `${hours}:${mins}:${secs}`;
-    }
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
-
-    const investors = [
-      "James from California just invested $1,200",
-      "Ava from Texas just invested $500",
-      "Liam from Florida just invested $750",
-      "Emma from Ohio just invested $1,000",
-      "Noah from Nevada just invested $2,200",
-      "Mia from New York just invested $1,050",
-      "Lucas from Illinois just invested $650",
-      "Sophia from Georgia just invested $800",
-      "Elijah from Arizona just invested $1,500"
-    ];
-    let i = 0;
-    setInterval(() => {
-      const feed = document.getElementById("liveFeed");
-      feed.textContent = "💰 " + investors[i % investors.length];
-      i++;
-    }, 6000);
-  </script>
+  <section class="press-strip">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/3/38/CoinDesk_logo.png" alt="CoinDesk">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Forbes_logo.svg" alt="Forbes">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c5/CNBC_logo.svg" alt="CNBC">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Bloomberg_logo.svg" alt="Bloomberg">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Yahoo_Finance_Logo_2021.svg" alt="Yahoo Finance">
+  </section>
 </body>
 </html>
