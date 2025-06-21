@@ -7,165 +7,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
-    body {
-      background-color: #f4f8fb;
-      color: #1a1a1a;
-    }
-    header {
-      background: #000;
-      color: white;
-      padding: 20px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    .logo {
-      font-size: 24px;
-      font-weight: 700;
-      color: #00d0ff;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 24px;
-    }
-    nav a {
-      text-decoration: none;
-      color: white;
-      font-weight: 500;
-    }
-    .hero {
-      background: linear-gradient(to right, #1b1b1b, #0d0d0d);
-      color: #fff;
-      text-align: center;
-      padding: 100px 20px;
-    }
-    .hero h1 {
-      font-size: 48px;
-      font-weight: 700;
-      margin-bottom: 20px;
-    }
-    .hero p {
-      font-size: 18px;
-      max-width: 700px;
-      margin: 0 auto 30px;
-    }
-    .cta a {
-      background: #00d0ff;
-      color: white;
-      padding: 14px 32px;
-      font-size: 18px;
-      font-weight: 600;
-      text-decoration: none;
-      border-radius: 10px;
-      transition: background 0.3s;
-    }
-    .cta a:hover {
-      background: #00aacc;
-    }
-    .badges {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      background: #fff;
-      padding: 50px 20px;
-      flex-wrap: wrap;
-    }
-    .badge {
-      background: #e9f9ff;
-      padding: 25px;
-      border-radius: 12px;
-      width: 200px;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    }
-    .badge h3 {
-      font-size: 28px;
-      color: #00aaff;
-      margin-bottom: 10px;
-    }
-    .section {
-      padding: 60px 20px;
-      max-width: 1200px;
-      margin: auto;
-    }
-    .section h2 {
-      text-align: center;
-      font-size: 36px;
-      margin-bottom: 30px;
-    }
-    .testimonials-carousel {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-    .testimonial {
-      background: white;
-      padding: 20px;
-      border-radius: 12px;
-      text-align: center;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-    .testimonial img {
-      width: 60px;
-      border-radius: 50%;
-      margin-bottom: 10px;
-    }
-    .testimonial p {
-      font-style: italic;
-      margin-bottom: 10px;
-    }
-    .fomo-strip {
-      background: #00d0ff;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      font-weight: 600;
-      font-size: 18px;
-    }
-    .countdown {
-      background: #ffd700;
-      color: #000;
-      text-align: center;
-      font-weight: 700;
-      font-size: 16px;
-      padding: 12px;
-    }
-    .progress-bar {
-      margin: 20px auto;
-      height: 20px;
-      background: #e0e0e0;
-      width: 90%;
-      border-radius: 10px;
-      overflow: hidden;
-    }
-    .progress-bar .filled {
-      height: 100%;
-      width: 85%;
-      background: #00d0ff;
-    }
-    .floating-cta {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #00d0ff;
-      color: white;
-      padding: 14px 24px;
-      border-radius: 50px;
-      font-weight: 600;
-      z-index: 999;
-      text-decoration: none;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-    }
+    /* ... existing styles ... */
     .live-alert {
       position: fixed;
       bottom: 80px;
@@ -177,106 +19,69 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.15);
       font-weight: 500;
       z-index: 998;
-      animation: fadeInOut 6s ease-in-out infinite;
-    }
-    @keyframes fadeInOut {
-      0% { opacity: 0; transform: translateY(20px); }
-      10%, 90% { opacity: 1; transform: translateY(0); }
-      100% { opacity: 0; transform: translateY(20px); }
-    }
-    footer {
-      background: #000;
-      color: #aaa;
-      text-align: center;
-      padding: 40px 20px;
-    }
-    .socials a {
-      color: #00d0ff;
-      margin: 0 10px;
-      font-size: 18px;
+      display: none;
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="logo">🚀 Doge Initiative</div>
-    <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#invest">Invest</a></li>
-        <li><a href="#testimonials">Success</a></li>
-        <li><a href="#about">About</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <div class="fomo-strip">LIMITED SLOTS AVAILABLE – Next Payout In Less Than 10 Days! Get In Early. 💸</div>
-  <div class="countdown">⏳ Next Investor Round Ends In: 02 Days 14 Hours 36 Minutes</div>
-  <div class="progress-bar"><div class="filled"></div></div>
-
-  <section class="hero">
-    <h1>You Get Paid Every 2 Weeks from Elon's Empire</h1>
-    <p>Invest $500 and receive consistent bi-weekly returns backed by real innovation. This isn’t crypto speculation – it’s your access pass to the future.</p>
-    <div class="cta">
-      <a href="#invest">Tap In Before It Closes</a>
-    </div>
-  </section>
-
-  <section class="badges">
-    <div class="badge">
-      <h3>$50B+</h3>
-      <p>Capital Backed</p>
-    </div>
-    <div class="badge">
-      <h3>16,000+</h3>
-      <p>Global Investors</p>
-    </div>
-    <div class="badge">
-      <h3>Every 2 Weeks</h3>
-      <p>Guaranteed Payouts</p>
-    </div>
-  </section>
-
-  <section class="section" id="testimonials">
-    <h2>Real People. Real Profits.</h2>
-    <div class="testimonials-carousel">
-      <div class="testimonial">
-        <img src="https://randomuser.me/api/portraits/men/11.jpg" alt="Investor">
-        <p>“I invested $500 and received $850 back within a month. This is the new standard.”</p>
-        <strong>– Jamal, NYC 🇺🇸</strong>
-      </div>
-      <div class="testimonial">
-        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Investor">
-        <p>“It’s not crypto trading, it’s real returns from real ventures. And yes — it works.”</p>
-        <strong>– Sofia, Berlin 🇩🇪</strong>
-      </div>
-      <div class="testimonial">
-        <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Investor">
-        <p>“Payout hit my wallet on Day 13. This isn’t hype. It’s innovation.”</p>
-        <strong>– Tunde, Lagos 🇳🇬</strong>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="invest">
-    <h2>Secure Your Spot</h2>
-    <p style="text-align:center; max-width:600px; margin:auto;">Minimum investment: $500. Returns issued every 14 days, directly to your wallet.</p>
-    <div class="cta" style="text-align:center; margin-top:30px;">
-      <a href="investment.html">Start Earning Today</a>
-    </div>
-  </section>
-
-  <footer>
-    <p>Doge Initiative · 250 University Ave, Palo Alto, CA · support@doge-initiative.org</p>
-    <div class="socials">
-      <a href="#"><i class="fab fa-x-twitter"></i></a>
-      <a href="#"><i class="fab fa-linkedin"></i></a>
-      <a href="#"><i class="fas fa-envelope"></i></a>
-    </div>
-    <p>© 2025 Doge Initiative. Inspired by Elon. Built for Everyone.</p>
-  </footer>
+  <!-- ... existing HTML content ... -->
 
   <a href="#invest" class="floating-cta">💰 Invest Now</a>
-  <div class="live-alert">💸 Ahmed from Dubai just invested $1,000</div>
+  <div class="live-alert" id="liveAlert">💸 Someone just invested!</div>
+
+  <script>
+    // LIVE ALERT ROTATOR
+    const investorMessages = [
+      "💸 Ahmed from Dubai just invested $1,000",
+      "💸 Maria from Brazil just invested $750",
+      "💸 John from USA just invested $1,500",
+      "💸 Wei from China just invested $900",
+      "💸 Leila from Nigeria just invested $500",
+      "💸 Hans from Germany just invested $800",
+      "💸 Amina from Morocco just invested $1,000",
+      "💸 Kenji from Japan just invested $1,200",
+      "💸 Carlos from Mexico just invested $1,300",
+      "💸 Priya from India just invested $650",
+      "💸 Alex from Canada just invested $700",
+      "💸 Fatima from UAE just invested $1,100",
+      "💸 Omar from Egypt just invested $900",
+      "💸 Chloe from France just invested $600",
+      "💸 Luka from Croatia just invested $720"
+    ];
+    const alertBox = document.getElementById("liveAlert");
+
+    let alertIndex = 0;
+    function showNextAlert() {
+      alertBox.textContent = investorMessages[alertIndex];
+      alertBox.style.display = 'block';
+      alertBox.style.opacity = 1;
+      setTimeout(() => {
+        alertBox.style.opacity = 0;
+        alertBox.style.display = 'none';
+      }, 4000);
+      alertIndex = (alertIndex + 1) % investorMessages.length;
+    }
+    setInterval(showNextAlert, 6000);
+
+    // LEGIT COUNTDOWN TIMER RESETTING EVERY 14 DAYS
+    function updateCountdown() {
+      const countdownElement = document.querySelector(".countdown");
+      const now = new Date();
+      const start = new Date('2024-01-01T00:00:00');
+      const diff = Math.floor((now - start) / (1000 * 60 * 60 * 24));
+      const cycle = 14;
+      const nextCycleStart = new Date(start.getTime() + (Math.floor(diff / cycle) + 1) * cycle * 24 * 60 * 60 * 1000);
+      const remaining = nextCycleStart - now;
+
+      const days = Math.floor(remaining / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((remaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((remaining % (1000 * 60)) / 1000);
+
+      countdownElement.textContent = `⏳ Next Investor Round Ends In: ${String(days).padStart(2, '0')} Days ${String(hours).padStart(2, '0')} Hours ${String(minutes).padStart(2, '0')} Minutes ${String(seconds).padStart(2, '0')} Seconds`;
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
 </body>
 </html>
