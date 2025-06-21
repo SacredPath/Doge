@@ -3,202 +3,126 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Doge Initiative | Elon-Backed Crypto Fund</title>
-  <link rel="icon" href="https://img.icons8.com/clouds/500/doge.png">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <title>Doge Initiative - Backed by Elon</title>
+  <link rel="icon" href="./images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: #000;
-      color: #fff;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', Arial, sans-serif; }
+    body { background-color: #f0f0f0; overflow-x: hidden; }
     header {
-      background: #111;
-      padding: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+      background: linear-gradient(90deg, #1a1a1a, #2a2a2a);
+      padding: 15px 20px;
+      position: fixed; width: 100%; top: 0; z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     }
-    header .logo {
-      display: flex;
-      align-items: center;
-      font-weight: 800;
-      font-size: 20px;
-      gap: 10px;
-      color: #00ffd9;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-    }
-    nav ul li a {
-      color: #00ffd9;
-      text-decoration: none;
-      font-weight: 600;
-    }
-    .hero {
-      height: 100vh;
-      background: url('https://images.unsplash.com/photo-1605902711622-cfb43c4437d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 20px;
-      position: relative;
-    }
-    .hero::after {
-      content: "";
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.6);
-      z-index: 1;
-    }
+    nav { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; }
+    .logo { color: #fff; font-size: 26px; font-weight: 700; text-shadow: 0 0 10px #00aaff; }
+    .nav-links { display: flex; list-style: none; }
+    .nav-links li { margin-left: 20px; }
+    .nav-links a { color: #fff; text-decoration: none; font-size: 16px; position: relative; }
+    .nav-links a:hover { color: #00aaff; }
+    .hero { position: relative; width: 100%; height: 100vh; margin-top: 60px; }
+    .hero video { width: 100vw; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: 1; }
     .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 700px;
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      text-align: center; color: #fff; z-index: 2;
+      background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+      padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     }
-    .hero-content h1 {
-      font-size: 42px;
-      margin-bottom: 15px;
-      color: #00ffd9;
-    }
-    .hero-content p {
-      font-size: 18px;
-    }
+    .hero-content h1 { font-size: 48px; font-weight: 700; margin-bottom: 20px; }
+    .hero-content p { font-size: 16px; margin-bottom: 15px; max-width: 600px; line-height: 1.6; }
     .cta-button {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 30px;
-      font-weight: bold;
-      color: #000;
-      background: #00ffd9;
-      border: none;
-      border-radius: 8px;
-      text-decoration: none;
+      display: inline-block; padding: 12px 24px;
+      background: linear-gradient(90deg, #00aaff, #0088cc);
+      color: #fff; text-decoration: none; border-radius: 8px;
+      font-size: 18px; font-weight: 600; margin-top: 20px;
     }
-    .trust-strip, .press-strip {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 20px;
-      padding: 30px 10px;
-      background: #0f0f0f;
+    .why-invest, .testimonials, .investor-grid { padding: 60px 20px; text-align: center; }
+    .stats { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; }
+    .stats div {
+      background: linear-gradient(135deg, #ffffff, #f0faff);
+      padding: 20px; border-radius: 12px;
+      font-size: 24px; font-weight: 600; color: #00aaff;
     }
-    .trust-strip img, .press-strip img {
-      height: 40px;
-    }
-    .testimonials {
-      padding: 60px 20px;
-      background: #0d0d0d;
-      text-align: center;
-    }
-    .testimonials h2 {
-      color: #00ffd9;
-      font-size: 36px;
-      margin-bottom: 30px;
-    }
-    .testimonials-grid {
+    .investor-grid .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      max-width: 1200px;
-      margin: 0 auto;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px; max-width: 900px; margin: auto;
     }
-    .testimonial {
-      background: #111;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 12px rgba(0,255,255,0.2);
+    .investor-grid .grid div {
+      background: white; padding: 20px; border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
-    @media screen and (max-width: 768px) {
-      .hero-content h1 {
-        font-size: 28px;
-      }
-      .hero-content p {
-        font-size: 16px;
-      }
-      nav ul {
-        flex-direction: column;
-        background: #111;
-        position: absolute;
-        top: 60px;
-        right: 0;
-        width: 100%;
-        display: none;
-      }
-      nav ul.show {
-        display: flex;
-      }
-      .menu-toggle {
-        display: block;
-        cursor: pointer;
-      }
+    footer {
+      background: linear-gradient(90deg, #1a1a1a, #2a2a2a);
+      color: #fff; text-align: center;
+      padding: 30px 20px; font-size: 14px;
+      margin-top: 40px;
     }
-    .menu-toggle {
-      display: none;
-      font-size: 24px;
-      color: #00ffd9;
+    @media (max-width: 768px) {
+      .hero-content { padding: 20px; }
+      .hero-content h1 { font-size: 32px; }
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="logo">
-      <img src="https://img.icons8.com/clouds/500/doge.png" alt="Logo" style="height:40px;">
-      Doge Initiative
-    </div>
-    <div class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('show')">
-      &#9776;
-    </div>
     <nav>
-      <ul>
+      <div class="logo">Doge Initiative</div>
+      <ul class="nav-links">
         <li><a href="#">Home</a></li>
-        <li><a href="#invest">Invest</a></li>
-        <li><a href="#about">About</a></li>
+        <li><a href="#">Invest</a></li>
+        <li><a href="#">About</a></li>
       </ul>
     </nav>
   </header>
 
   <section class="hero">
+    <video autoplay muted loop><source src="./images/hero-video.mp4" type="video/mp4"></video>
     <div class="hero-content">
-      <h1>YOU Get Paid Every 2 Weeks. Forever.</h1>
-      <p>Back Elon’s vision. Invest in the Doge Initiative with as little as $500 and start earning bi-weekly crypto payouts.</p>
-      <a class="cta-button" href="#invest">Start Now</a>
+      <h1>You Will Get Paid Every 2 Weeks</h1>
+      <p><strong>Just Invest $500 in the Elon-backed Doge Initiative</strong></p>
+      <p>Join over 16,000 backers getting steady crypto payouts from the world's most innovative companies.</p>
+      <a href="#" class="cta-button">Start Now</a>
     </div>
   </section>
 
-  <section class="trust-strip">
-    <img src="https://img.icons8.com/fluency/48/approval.png" alt="Verified">
-    <img src="https://img.icons8.com/color/48/comodo.png" alt="Comodo">
-    <img src="https://img.icons8.com/ios-filled/50/lock-2.png" alt="Secure">
-    <img src="https://img.icons8.com/ios-filled/50/us-dollar-circled--v1.png" alt="Regulated">
-  </section>
-
-  <section class="press-strip">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/3/38/CoinDesk_logo.png" alt="CoinDesk">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Forbes_logo.svg" alt="Forbes">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c5/CNBC_logo.svg" alt="CNBC">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Bloomberg_logo.svg" alt="Bloomberg">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Yahoo_Finance_Logo_2021.svg" alt="Yahoo Finance">
+  <section class="why-invest">
+    <h2>Why Doge Initiative?</h2>
+    <p>Back Tesla, SpaceX, and Neuralink through one decentralized crypto fund. Bi-weekly returns, no experience needed.</p>
+    <div class="stats">
+      <div>$50B+ Invested</div>
+      <div>16,000+ Investors</div>
+      <div>Bi-Weekly Payouts</div>
+    </div>
   </section>
 
   <section class="testimonials">
     <h2>What Our Investors Say</h2>
-    <div class="testimonials-grid">
-      <div class="testimonial">“Turned my $500 into $1,200 in just 3 months!”<br><strong>@ElonBeliever</strong></div>
-      <div class="testimonial">“The payouts actually land every 2 weeks. Game-changer.”<br><strong>@DogeDreamer</strong></div>
-      <div class="testimonial">“This fund helped me diversify fast. Very professional.”<br><strong>@CryptoMom</strong></div>
-      <div class="testimonial">“Best decision I made this year.”<br><strong>@StackingBTC</strong></div>
-      <div class="testimonial">“Perfect for beginners. Smooth onboarding.”<br><strong>@GenZInvestor</strong></div>
-      <div class="testimonial">“I'm telling all my friends about this!”<br><strong>@TrustTheDoge</strong></div>
+    <div class="stats">
+      <div>"I invested $500 and received my first payout in 2 weeks. This is real."<br><strong>– Jamal, NYC 🇺🇸</strong></div>
+      <div>"This feels like the early days of Bitcoin. Elon changed my life again."<br><strong>– Sofia, Berlin 🇩🇪</strong></div>
+      <div>"Bi-weekly crypto payments with zero stress. It's unbelievable."<br><strong>– Tunde, Lagos 🇳🇬</strong></div>
     </div>
   </section>
+
+  <section class="investor-grid">
+    <h2>Backed by 16,000+ Visionaries</h2>
+    <div class="grid">
+      <div><img src="https://randomuser.me/api/portraits/men/10.jpg" style="width:60px; border-radius:50%;"><br><strong>Leon</strong><br><small>Toronto 🇨🇦</small></div>
+      <div><img src="https://randomuser.me/api/portraits/women/22.jpg" style="width:60px; border-radius:50%;"><br><strong>Maya</strong><br><small>London 🇬🇧</small></div>
+      <div><img src="https://randomuser.me/api/portraits/men/45.jpg" style="width:60px; border-radius:50%;"><br><strong>Ravi</strong><br><small>New Delhi 🇮🇳</small></div>
+    </div>
+  </section>
+
+  <div style="text-align:center; margin-top:40px;">
+    <a href="#" class="cta-button">Claim My Bi-Weekly Crypto</a>
+  </div>
+
+  <footer>
+    <p>Doge Initiative<br>250 University Ave, Palo Alto, CA 94301<br>Email: support@Doge-Initiative.org</p>
+    <p>© 2025 Doge Initiative</p>
+    <p><strong>🚀 Join Before the Next Payout Cycle Begins!</strong></p>
+  </footer>
 </body>
 </html>
