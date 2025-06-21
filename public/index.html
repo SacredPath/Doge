@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Doge Initiative | Elon-Backed Crypto Fund</title>
-  <link rel="icon" href="https://img.icons8.com/clouds/500/doge.png">
+  <link rel="icon" href="https://img.icons8.com/ios-filled/50/doge.png">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     body {
@@ -23,13 +23,21 @@
       top: 0;
       z-index: 1000;
     }
-    header .logo {
+    .logo {
       display: flex;
       align-items: center;
       font-weight: 800;
-      font-size: 20px;
+      font-size: 24px;
       gap: 10px;
       color: #00ffd9;
+    }
+    .logo span {
+      background: #00ffd9;
+      color: #000;
+      border-radius: 50%;
+      padding: 5px 12px;
+      font-size: 28px;
+      font-weight: 900;
     }
     nav ul {
       list-style: none;
@@ -45,7 +53,7 @@
     }
     .hero {
       height: 100vh;
-      background: url('https://images.unsplash.com/photo-1605902711622-cfb43c4437d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+      background: url('https://images.unsplash.com/photo-1494891848038-9e03c26834e6?auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -58,7 +66,7 @@
       position: absolute;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(0,0,0,0.6);
+      background: rgba(0,0,0,0.75);
       z-index: 1;
     }
     .hero-content {
@@ -85,6 +93,21 @@
       border-radius: 8px;
       text-decoration: none;
     }
+    .carousel-container {
+      padding: 40px 20px;
+      background: #111;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+    .carousel-item {
+      display: inline-block;
+      background: #222;
+      margin-right: 10px;
+      padding: 20px;
+      border-radius: 8px;
+      color: #00ffd9;
+      font-weight: bold;
+    }
     .trust-strip, .press-strip {
       display: flex;
       justify-content: center;
@@ -97,27 +120,28 @@
       height: 40px;
     }
     .testimonials {
-      padding: 60px 20px;
+      padding: 40px 20px;
       background: #0d0d0d;
       text-align: center;
     }
     .testimonials h2 {
       color: #00ffd9;
-      font-size: 36px;
-      margin-bottom: 30px;
+      font-size: 32px;
+      margin-bottom: 20px;
     }
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      max-width: 1200px;
-      margin: 0 auto;
+    .testimonial-carousel {
+      overflow-x: auto;
+      white-space: nowrap;
+      padding-bottom: 10px;
     }
     .testimonial {
+      display: inline-block;
       background: #111;
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 0 12px rgba(0,255,255,0.2);
+      margin-right: 10px;
+      width: 280px;
     }
     footer {
       background: #111;
@@ -126,13 +150,17 @@
       padding: 20px;
       font-size: 14px;
     }
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+      }
+    }
   </style>
 </head>
 <body>
   <header>
     <div class="logo">
-      <img src="https://img.icons8.com/clouds/500/doge.png" alt="Logo" style="height:40px;">
-      Doge Initiative
+      <span>M</span> Doge Initiative
     </div>
     <nav>
       <ul>
@@ -149,11 +177,36 @@
     </div>
   </section>
 
+  <div class="carousel-container">
+    <div class="carousel-item">Tier 1: $500</div>
+    <div class="carousel-item">Tier 2: $1,000</div>
+    <div class="carousel-item">Tier 3: $2,500</div>
+    <div class="carousel-item">Tier 4: $5,000</div>
+    <div class="carousel-item">Tier 5: $10,000</div>
+    <div class="carousel-item">Tier 6: $20,000</div>
+    <div class="carousel-item">Tier 7: $25,000</div>
+    <div class="carousel-item">Tier 8: $50,000</div>
+    <div class="carousel-item">Tier 9: $75,000</div>
+    <div class="carousel-item">Tier 10: $100,000</div>
+    <div class="carousel-item">Tier 11: $120,000</div>
+    <div class="carousel-item">Tier 12: $150,000</div>
+    <div class="carousel-item">Tier 13: $200,000</div>
+    <div class="carousel-item">Tier 14: $300,000</div>
+    <div class="carousel-item">Tier 15: $400,000</div>
+    <div class="carousel-item">Tier 16: $500,000</div>
+    <div class="carousel-item">Tier 17: $600,000</div>
+    <div class="carousel-item">Tier 18: $750,000</div>
+    <div class="carousel-item">Tier 19: $900,000</div>
+    <div class="carousel-item">Tier 20: $1,000,000</div>
+  </div>
+
   <section class="trust-strip">
     <img src="https://img.icons8.com/fluency/48/approval.png" alt="Verified">
     <img src="https://img.icons8.com/color/48/comodo.png" alt="Comodo">
     <img src="https://img.icons8.com/ios-filled/50/lock-2.png" alt="Secure">
     <img src="https://img.icons8.com/ios-filled/50/us-dollar-circled--v1.png" alt="Regulated">
+    <img src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/64/00ffd9/external-sec-financial-technology-flatart-icons-outline-flatarticons.png" alt="SEC Approved">
+    <img src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/00ffd9/external-elon-celebrities-flaticons-lineal-color-flat-icons.png" alt="Elon Backed">
   </section>
 
   <section class="press-strip">
@@ -166,7 +219,7 @@
 
   <section class="testimonials">
     <h2>What Our Investors Say</h2>
-    <div class="testimonials-grid">
+    <div class="testimonial-carousel">
       <div class="testimonial">“Turned my $500 into $1,200 in just 3 months!”<br><strong>@ElonBeliever</strong></div>
       <div class="testimonial">“The payouts actually land every 2 weeks. Game-changer.”<br><strong>@DogeDreamer</strong></div>
       <div class="testimonial">“This fund helped me diversify fast. Very professional.”<br><strong>@CryptoMom</strong></div>
