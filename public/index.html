@@ -21,6 +21,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
     }
     header .logo {
       font-size: 24px;
@@ -46,12 +47,15 @@
       background: #fff;
     }
     .hero h1 {
-      font-size: 40px;
+      font-size: 36px;
       margin-bottom: 20px;
     }
     .hero p {
       font-size: 18px;
       margin-bottom: 30px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
     }
     .floating-cta {
       position: fixed;
@@ -79,12 +83,85 @@
       z-index: 998;
       display: none;
     }
+    .section {
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .section h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+    .testimonials {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .testimonial {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      max-width: 280px;
+    }
+    .testimonial img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+    .progress {
+      max-width: 600px;
+      margin: 0 auto 30px;
+      background: #eee;
+      border-radius: 50px;
+      overflow: hidden;
+      height: 16px;
+    }
+    .progress-bar {
+      width: 85%;
+      height: 100%;
+      background: #00d0ff;
+    }
+    .quote {
+      font-style: italic;
+      color: #555;
+      max-width: 600px;
+      margin: 20px auto;
+    }
+    .logos {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .logos img {
+      height: 32px;
+      opacity: 0.6;
+    }
     footer {
       background: #111;
       color: #fff;
       text-align: center;
       padding: 30px 20px;
       font-size: 14px;
+    }
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      header nav {
+        margin-top: 10px;
+      }
+      .hero h1 {
+        font-size: 28px;
+      }
+      .floating-cta {
+        padding: 10px 18px;
+        font-size: 14px;
+      }
     }
   </style>
 </head>
@@ -108,6 +185,48 @@
   </section>
 
   <div class="live-alert" id="liveAlert">💸 Someone just invested!</div>
+
+  <section class="section">
+    <div class="progress">
+      <div class="progress-bar"></div>
+    </div>
+    <p><strong>🚨 85% of investment slots already claimed. Act fast!</strong></p>
+  </section>
+
+  <section class="section">
+    <h2>What Investors Say</h2>
+    <div class="testimonials">
+      <div class="testimonial">
+        <img src="https://randomuser.me/api/portraits/men/12.jpg" alt="Investor">
+        <p>“I invested $500 and got my first payout in 2 weeks. Unbelievable!”</p>
+        <strong>– Ethan, USA 🇺🇸</strong>
+      </div>
+      <div class="testimonial">
+        <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Investor">
+        <p>“This is the easiest investment I’ve ever made. Elon delivered!”</p>
+        <strong>– Amina, Nigeria 🇳🇬</strong>
+      </div>
+      <div class="testimonial">
+        <img src="https://randomuser.me/api/portraits/men/18.jpg" alt="Investor">
+        <p>“No stress, just rewards. This is the future of investing.”</p>
+        <strong>– Lars, Germany 🇩🇪</strong>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Elon Musk on the Future of Wealth</h2>
+    <p class="quote">"I believe everyone should have the opportunity to benefit from innovation – not just the elite."</p>
+  </section>
+
+  <section class="section">
+    <h2>As Seen In</h2>
+    <div class="logos">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Forbes_logo_2019.svg" alt="Forbes">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Bloomberg_Media_Logo.svg/2560px-Bloomberg_Media_Logo.svg.png" alt="Bloomberg">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/TechCrunch_logo.svg/2560px-TechCrunch_logo.svg.png" alt="TechCrunch">
+    </div>
+  </section>
 
   <footer>
     <p>Doge Initiative – 250 University Ave, Palo Alto, CA 94301</p>
