@@ -41,6 +41,48 @@
       text-decoration: none;
       font-weight: 600;
     }
+    .hero {
+      height: 100vh;
+      background: url('https://images.unsplash.com/photo-1605902711622-cfb43c4437d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+    }
+    .hero-content h1 {
+      font-size: 42px;
+      margin-bottom: 15px;
+      color: #00ffd9;
+    }
+    .hero-content p {
+      font-size: 18px;
+    }
+    .cta-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 30px;
+      font-weight: bold;
+      color: #000;
+      background: #00ffd9;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+    }
     .trust-strip, .press-strip {
       display: flex;
       justify-content: center;
@@ -51,6 +93,29 @@
     }
     .trust-strip img, .press-strip img {
       height: 40px;
+    }
+    .testimonials {
+      padding: 60px 20px;
+      background: #0d0d0d;
+      text-align: center;
+    }
+    .testimonials h2 {
+      color: #00ffd9;
+      font-size: 36px;
+      margin-bottom: 30px;
+    }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .testimonial {
+      background: #111;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 12px rgba(0,255,255,0.2);
     }
   </style>
 </head>
@@ -69,6 +134,14 @@
     </nav>
   </header>
 
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Invest in Elon-Backed Crypto Projects</h1>
+      <p>Join the only fund inspired by Elon Musk’s vision. Get paid bi-weekly in BTC or DOGE starting with $500.</p>
+      <a class="cta-button" href="#">Get Started</a>
+    </div>
+  </section>
+
   <section class="trust-strip">
     <img src="https://img.icons8.com/fluency/48/approval.png" alt="Verified">
     <img src="https://img.icons8.com/color/48/comodo.png" alt="Comodo">
@@ -82,6 +155,18 @@
     <img src="https://upload.wikimedia.org/wikipedia/commons/c/c5/CNBC_logo.svg" alt="CNBC">
     <img src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Bloomberg_logo.svg" alt="Bloomberg">
     <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Yahoo_Finance_Logo_2021.svg" alt="Yahoo Finance">
+  </section>
+
+  <section class="testimonials">
+    <h2>What Our Investors Say</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial">“Turned my $500 into $1,200 in just 3 months!”<br><strong>@ElonBeliever</strong></div>
+      <div class="testimonial">“The payouts actually land every 2 weeks. Game-changer.”<br><strong>@DogeDreamer</strong></div>
+      <div class="testimonial">“This fund helped me diversify fast. Very professional.”<br><strong>@CryptoMom</strong></div>
+      <div class="testimonial">“Best decision I made this year.”<br><strong>@StackingBTC</strong></div>
+      <div class="testimonial">“Perfect for beginners. Smooth onboarding.”<br><strong>@GenZInvestor</strong></div>
+      <div class="testimonial">“I'm telling all my friends about this!”<br><strong>@TrustTheDoge</strong></div>
+    </div>
   </section>
 </body>
 </html>
