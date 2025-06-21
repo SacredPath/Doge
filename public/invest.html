@@ -10,32 +10,30 @@
     rel="stylesheet"
   />
   <style>
-    /* Reset and base */
+    /* Your existing styles from index.html here */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: "Poppins", Arial, sans-serif;
+      font-family: 'Poppins', Arial, sans-serif;
     }
     body {
-      background: #0b0c10;
-      color: #cbd5e1;
+      background-color: #f0f0f0;
       overflow-x: hidden;
-      min-height: 100vh;
       position: relative;
     }
 
-    /* Starry background */
+    /* Stars background */
     .stars {
       position: fixed;
       width: 100%;
       height: 100%;
       background: transparent;
       z-index: -1;
-      overflow: hidden;
+      pointer-events: none;
     }
-    .stars:before,
-    .stars:after {
+    .stars::before,
+    .stars::after {
       content: "";
       position: absolute;
       top: 0;
@@ -44,374 +42,480 @@
       height: 200%;
       background: transparent;
       box-shadow:
-        50px 100px white,
-        200px 300px white,
-        400px 150px white,
-        700px 500px white,
-        900px 700px white,
-        1100px 350px white,
-        1300px 600px white,
-        1600px 400px white,
-        1800px 200px white;
-      animation: twinkle 30s linear infinite;
-      opacity: 0.8;
+        50px 100px #00aaff,
+        200px 300px #00aaff,
+        400px 150px #00aaff,
+        700px 500px #00aaff,
+        900px 700px #00aaff,
+        1100px 350px #00aaff,
+        1300px 600px #00aaff,
+        1600px 400px #00aaff,
+        1800px 200px #00aaff;
+      opacity: 0.3;
       border-radius: 50%;
+      animation: twinkle 40s linear infinite;
     }
-    .stars:after {
-      animation-delay: 15s;
+    .stars::after {
+      animation-delay: 20s;
     }
     @keyframes twinkle {
-      0%, 100% {transform: translate(0, 0);}
-      50% {transform: translate(-20px, 20px);}
+      0%, 100% { transform: translate(0, 0); }
+      50% { transform: translate(-15px, 15px); }
     }
 
-    /* Container */
+    /* Your existing styles continue here */
+    header {
+      background: linear-gradient(90deg, #1a1a1a, #2a2a2a);
+      padding: 15px 20px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .logo {
+      color: #fff;
+      font-size: 26px;
+      font-weight: 700;
+      text-shadow: 0 0 10px #00aaff;
+      transition: transform 0.3s ease;
+    }
+    .logo:hover {
+      transform: scale(1.05);
+    }
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+    .nav-links li {
+      margin-left: 20px;
+    }
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 400;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: #00aaff;
+      transition: width 0.3s ease;
+    }
+    .nav-links a:hover {
+      color: #00aaff;
+    }
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 20px;
+    }
+    .mobile-menu-btn span {
+      width: 25px;
+      height: 3px;
+      background-color: #fff;
+      display: block;
+      transition: all 0.3s ease;
+    }
     main {
-      max-width: 900px;
-      margin: 100px auto 60px;
-      background: linear-gradient(145deg, #131a2f, #1c2345);
-      border-radius: 15px;
-      padding: 40px 30px;
-      box-shadow: 0 0 40px #00aaff88;
+      margin-top: 60px;
+      padding: 20px;
+    }
+    .investment {
+      padding: 60px 20px;
       text-align: center;
+      background: linear-gradient(180deg, #e6f0fa 0%, #ffffff 100%);
+      max-width: 1200px;
+      margin: 0 auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 1s ease-out;
     }
-
-    h1 {
-      font-size: 3rem;
-      color: #00d8ff;
+    .investment h1 {
+      font-size: 40px;
+      color: #1a1a1a;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .investment p {
+      font-size: 16px;
+      color: #333;
+      line-height: 1.7;
       margin-bottom: 15px;
-      text-shadow: 0 0 10px #00d8ff;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
     }
-
-    p.lead {
-      font-size: 1.2rem;
-      margin-bottom: 25px;
-      color: #a0c4ff;
-    }
-
-    .mission {
+    .mission-statement {
       font-style: italic;
-      font-size: 1rem;
+      font-size: 16px;
+      color: #555;
       margin-bottom: 30px;
-      color: #88bfffcc;
     }
-
-    /* Investment tiers */
     .tiers {
       display: flex;
       justify-content: center;
-      gap: 25px;
+      gap: 20px;
       flex-wrap: wrap;
-      margin-bottom: 40px;
+      margin: 30px 0;
     }
-
     .tier {
-      background: linear-gradient(135deg, #02111b, #04213e);
+      background: linear-gradient(135deg, #ffffff, #f0faff);
+      padding: 25px;
       border-radius: 12px;
-      padding: 25px 20px;
-      width: 320px;
-      box-shadow: 0 0 15px #00aaff88;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      width: 300px;
+      text-align: left;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: slideUp 0.5s ease-out forwards;
+      animation-delay: calc(0.1s * var(--index));
     }
     .tier:hover {
-      transform: translateY(-12px);
-      box-shadow: 0 0 35px #00e1ffcc;
+      transform: translateY(-10px);
+      box-shadow: 0 8px 25px rgba(0, 170, 255, 0.3);
     }
-
     .tier h3 {
-      font-size: 1.8rem;
-      color: #00e1ff;
-      margin-bottom: 15px;
-      text-shadow: 0 0 5px #00e1ffaa;
+      font-size: 26px;
+      color: #00aaff;
+      font-weight: 600;
+      margin-bottom: 10px;
     }
     .tier p {
-      font-size: 1rem;
-      color: #aad8ffcc;
-      margin-bottom: 15px;
+      font-size: 16px;
+      margin-bottom: 10px;
     }
     .tier ul {
-      list-style: none;
-      padding-left: 0;
-      text-align: left;
-      color: #aad8ffbb;
+      list-style: disc;
+      padding-left: 20px;
     }
-    .tier ul li {
-      padding-left: 1.2em;
-      text-indent: -1.2em;
-      margin-bottom: 10px;
-      position: relative;
+    .tier li {
+      font-size: 14px;
+      color: #333;
+      margin-bottom: 5px;
     }
-    .tier ul li::before {
-      content: "★";
-      color: #00e1ff;
-      position: absolute;
-      left: 0;
-    }
-
-    /* Wallet section */
     .wallets {
       display: flex;
       justify-content: center;
-      gap: 35px;
+      gap: 40px;
       flex-wrap: wrap;
-      margin-bottom: 40px;
+      margin: 30px 0;
     }
-    .wallet {
-      background: linear-gradient(135deg, #02111b, #04213e);
+    .wallets div {
+      background: linear-gradient(135deg, #ffffff, #f0faff);
+      padding: 25px;
       border-radius: 12px;
-      padding: 25px 20px;
-      width: 320px;
-      box-shadow: 0 0 15px #00aaff88;
-      color: #aad8ffbb;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
       text-align: center;
+      width: 300px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: slideUp 0.5s ease-out forwards;
+      animation-delay: calc(0.2s * var(--index));
     }
-    .wallet:hover {
-      transform: translateY(-12px);
-      box-shadow: 0 0 35px #00e1ffcc;
+    .wallets div:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 25px rgba(0, 170, 255, 0.3);
     }
-    .wallet h3 {
-      font-size: 1.6rem;
-      color: #00e1ff;
-      margin-bottom: 15px;
-      text-shadow: 0 0 5px #00e1ffaa;
+    .wallets h3 {
+      font-size: 22px;
+      color: #00aaff;
+      font-weight: 600;
+      margin-bottom: 10px;
     }
-    .wallet p.address {
-      font-family: monospace;
-      word-break: break-word;
-      margin-bottom: 15px;
-      font-size: 0.95rem;
-      color: #88bfffdd;
+    .wallets p {
+      font-size: 14px;
+      word-break: break-all;
+      margin-bottom: 10px;
     }
-    .wallet img {
-      width: 140px;
+    .wallets img {
+      margin: 10px 0;
       border-radius: 8px;
-      filter: drop-shadow(0 0 5px #00aaffcc);
       transition: transform 0.3s ease;
       cursor: pointer;
     }
-    .wallet img:hover {
-      transform: scale(1.1);
+    .wallets img:hover {
+      transform: scale(1.05);
     }
-
-    /* Call to action */
-    .cta {
-      font-size: 1.1rem;
+    .investment h2 {
+      font-size: 32px;
+      color: #1a1a1a;
+      font-weight: 600;
+      margin: 30px 0 20px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .investment-process {
+      font-size: 16px;
+      font-weight: 600;
+      color: #333;
+    }
+    .process-steps {
+      list-style: decimal;
+      padding-left: 20px;
+      text-align: left;
+      max-width: 600px;
+      margin: 10px auto;
+    }
+    .process-steps li {
+      font-size: 16px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+    .process-note {
+      font-size: 14px;
+      font-style: italic;
+      color: #555;
+      margin-bottom: 30px;
+    }
+    .form-container {
+      background: linear-gradient(135deg, #ffffff, #f0faff);
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      max-width: 800px;
+      margin: 30px auto;
+      animation: slideUp 0.5s ease-out;
+      text-align: left;
+    }
+    .form-section {
+      margin-bottom: 20px;
+    }
+    .form-section h2 {
+      font-size: 26px;
+      color: #1a1a1a;
       font-weight: 600;
       margin-bottom: 15px;
-      color: #00d8ff;
-      text-shadow: 0 0 7px #00d8ffaa;
     }
-
-    /* Form styling */
-    form {
-      background: #031423;
-      border-radius: 12px;
-      padding: 30px;
-      max-width: 600px;
-      margin: 0 auto;
-      box-shadow: 0 0 25px #00aaffbb;
-      text-align: left;
-      color: #a0c4ffcc;
+    .form-group {
+      margin-bottom: 15px;
     }
-    form h2 {
-      color: #00d8ff;
-      margin-bottom: 20px;
-      font-weight: 600;
-      font-size: 1.8rem;
-      text-shadow: 0 0 7px #00d8ffbb;
-    }
-    label {
+    .form-group label {
       display: block;
-      margin-bottom: 8px;
+      font-size: 16px;
+      color: #333;
       font-weight: 500;
-      font-size: 1rem;
+      margin-bottom: 5px;
     }
-    input,
-    select {
+    .form-group input,
+    .form-group select {
       width: 100%;
-      padding: 12px 15px;
-      margin-bottom: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
       border-radius: 8px;
-      border: none;
-      background: #183054;
-      color: #d0e8ff;
-      font-size: 1rem;
-      transition: box-shadow 0.3s ease;
+      font-size: 16px;
+      background: #f9f9f9;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
     }
-    input:focus,
-    select:focus {
+    .form-group input:focus,
+    .form-group select:focus {
+      border-color: #00aaff;
+      box-shadow: 0 0 8px rgba(0, 170, 255, 0.2);
       outline: none;
-      box-shadow: 0 0 12px #00d8ffbb;
-      background: #1a3a68;
-    }
-    button {
-      width: 100%;
-      padding: 15px;
-      font-size: 1.2rem;
-      background: linear-gradient(90deg, #00d8ff, #0088cc);
-      color: white;
-      border: none;
-      border-radius: 10px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: background 0.4s ease, transform 0.3s ease;
-      box-shadow: 0 0 20px #00aaffcc;
-    }
-    button:hover:not(:disabled) {
-      background: linear-gradient(90deg, #00ffff, #005577);
-      transform: translateY(-3px);
-      box-shadow: 0 0 30px #00ffffcc;
-    }
-    button:disabled {
-      background: #456a8f;
-      cursor: not-allowed;
-      box-shadow: none;
-      transform: none;
     }
     .error-message {
-      color: #ff4c4c;
-      font-size: 0.85rem;
-      margin-top: -15px;
-      margin-bottom: 15px;
+      font-size: 14px;
+      color: red;
     }
-
-    /* Footer */
+    .form-actions {
+      text-align: center;
+    }
+    .form-actions button {
+      padding: 12px 24px;
+      background: linear-gradient(90deg, #00aaff, #0088cc);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .form-actions button:hover:enabled {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0, 170, 255, 0.4);
+    }
+    .form-actions button:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
     footer {
+      background: linear-gradient(90deg, #1a1a1a, #2a2a2a);
+      color: #fff;
       text-align: center;
       padding: 30px 20px;
-      font-size: 0.9rem;
-      color: #5c7ea7;
-      background: #121b2e;
-      box-shadow: inset 0 2px 5px #000000aa;
-      user-select: none;
-      margin-top: 50px;
+      font-size: 14px;
+      margin-top: 40px;
+      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
     }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      main {
-        margin: 80px 15px 40px;
-        padding: 30px 20px;
+    footer p {
+      margin: 10px 0;
+    }
+    .social-icons {
+      margin-top: 15px;
+    }
+    .social-icons a {
+      color: #fff;
+      font-size: 20px;
+      margin: 0 10px;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .social-icons a:hover {
+      color: #00aaff;
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
       }
-      .tiers,
+      to {
+        opacity: 1;
+      }
+    }
+    @keyframes slideUp {
+      from {
+        transform: translateY(50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #1a1a1a;
+        padding: 20px;
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .nav-links li {
+        margin: 10px 0;
+      }
+      .mobile-menu-btn {
+        display: flex;
+      }
+      .investment h1 {
+        font-size: 32px;
+      }
+      .investment h2 {
+        font-size: 28px;
+      }
+      .investment p {
+        font-size: 14px;
+      }
+      .tiers {
+        flex-direction: column;
+        align-items: center;
+      }
       .wallets {
         flex-direction: column;
-        gap: 20px;
+        align-items: center;
       }
-      .tier,
-      .wallet {
-        width: 100%;
+      .form-section h2 {
+        font-size: 22px;
+      }
+      .modal-content {
+        width: 95%;
       }
     }
   </style>
 </head>
 <body>
+  <header>
+    <nav>
+      <div class="logo">Musk Crypto Investment Hub</div>
+      <button class="mobile-menu-btn" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="investment.html" class="active">Invest</a></li>
+        <li><a href="companies.html">Companies</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+  </header>
+
   <div class="stars"></div>
+
   <main>
-    <h1>Unlock Your Future with the Musk Crypto Fund</h1>
-    <p class="lead">
-      Start investing with just <strong>$500</strong> in Bitcoin or Dogecoin and join a movement backed by innovation and vision.
-    </p>
-    <p class="mission">
-      "Empowering everyone to share the wealth of technology — because the future belongs to all of us."
-    </p>
+    <section class="investment">
+      <h1>Join the Musk Crypto Fund — Invest in the Future Today</h1>
+      <p><strong>Start with just $500 — No maximum limit</strong></p>
+      <p>
+        Elon Musk’s exclusive crypto fund lets you participate in the next big wave of innovation.
+        Invest $500 or more in Bitcoin or Dogecoin, support Musk’s revolutionary ventures, and earn
+        bi-weekly payouts.
+      </p>
+      <p class="mission-statement">
+        Our mission: Democratize wealth. Empower everyone to share in the profits of tomorrow’s
+        technology — no matter your background.
+      </p>
 
-    <div class="tiers">
-      <div class="tier" style="--index: 1;">
-        <h3>Core Investor</h3>
-        <p><strong>$500 Minimum</strong> (BTC / DOGE)</p>
-        <ul>
-          <li>Access to exclusive Musk Crypto Fund opportunities</li>
-          <li>Reliable bi-weekly payouts — no delays</li>
-          <li>Digital Investor Certificate</li>
-        </ul>
+      <div class="tiers">
+        <div class="tier" style="--index: 1;">
+          <h3>Core Investor</h3>
+          <p>$500 Minimum (BTC / DOGE)</p>
+          <ul>
+            <li>Access to Musk Crypto Fund</li>
+            <li>Reliable bi-weekly payouts</li>
+            <li>Digital Investor Certificate</li>
+          </ul>
+        </div>
+        <div class="tier" style="--index: 2;">
+          <h3>Visionary Investor</h3>
+          <p>$2,000 Minimum (BTC / DOGE)</p>
+          <ul>
+            <li>All Core benefits</li>
+            <li>Priority payout processing</li>
+            <li>Exclusive monthly Musk Ventures report</li>
+          </ul>
+        </div>
       </div>
-      <div class="tier" style="--index: 2;">
-        <h3>Visionary Investor</h3>
-        <p><strong>$2,000 Minimum</strong> (BTC / DOGE)</p>
-        <ul>
-          <li>All Core Investor benefits</li>
-          <li>Priority payout processing</li>
-          <li>Exclusive monthly Musk Ventures performance reports</li>
-        </ul>
+
+      <h2>Send Your Investment</h2>
+      <div class="wallets">
+        <div style="--index: 1;">
+          <h3>Bitcoin (BTC)</h3>
+          <p>Address: <span id="btc-address" style="word-break: break-all; overflow-wrap: break-word;">bc1qxvjz6kv84awx29p75qhn7qgxtwq4xt3phc7q26</span></p>
+          <img src="./images/btc-qr.png" alt="BTC QR Code" width="150" />
+          <p id="btc-amount">~0.015 BTC ($500)</p>
+        </div>
+        <div style="--index: 2;">
+          <h3>Dogecoin (DOGE)</h3>
+          <p>Address: <span id="doge-address">D91ME9KqahFu7LLySpr3nPGYY1iheCu8WX</span></p>
+          <img src="./images/doge-qr.png" alt="DOGE QR Code" width="150" />
+          <p id="doge-amount">~3,000 DOGE ($500)</p>
+        </div>
       </div>
-    </div>
-
-    <h2 class="cta">Choose Your Investment & Send Crypto</h2>
-    <div class="wallets">
-      <div class="wallet" style="--index: 1;">
-        <h3>Bitcoin (BTC)</h3>
-        <p class="address" id="btc-address">bc1qxvjz6kv84awx29p75qhn7qgxtwq4xt3phc7q26</p>
-        <img src="./images/btc-qr.png" alt="BTC QR Code" />
-        <p>~0.015 BTC (~$500)</p>
-      </div>
-      <div class="wallet" style="--index: 2;">
-        <h3>Dogecoin (DOGE)</h3>
-        <p class="address" id="doge-address">D91ME9KqahFu7LLySpr3nPGYY1iheCu8WX</p>
-        <img src="./images/doge-qr.png" alt="DOGE QR Code" />
-        <p>~3,000 DOGE (~$500)</p>
-      </div>
-    </div>
-
-    <p>
-      Send the exact amount to your chosen wallet. Payouts are processed every 2 weeks without fail.
-    </p>
-    <p>
-      <strong>Once your investment is confirmed:</strong>
-    </p>
-    <ul>
-      <li>Email confirmation with full investment details</li>
-      <li>Instant access to your personalized investor dashboard</li>
-      <li>First bi-weekly payout confirmation</li>
-    </ul>
-    <p style="font-style: italic; color: #789ed6;">
-      Your dashboard will display real-time updates on investments, payouts, and company breakthroughs.
-    </p>
-
-    <form id="invest-form" action="https://formspree.io/f/xrbkzoyp" method="POST" novalidate>
-      <h2>Get Started Now</h2>
-
-      <label for="fullName">Full Name *</label>
-      <input type="text" id="fullName" name="fullName" required placeholder="Your full name" />
-
-      <label for="email">Email Address *</label>
-      <input type="email" id="email" name="email" required placeholder="you@example.com" />
-
-      <label for="investmentAmount">Investment Tier *</label>
-      <select id="investmentAmount" name="investmentAmount" required>
-        <option value="">Select Tier</option>
-        <option value="500-1999">Core Investor ($500 - $1,999)</option>
-        <option value="2000-500000">Visionary Investor ($2,000+)</option>
-      </select>
-
-      <label for="paymentMethod">Payment Method *</label>
-      <select id="paymentMethod" name="paymentMethod" required>
-        <option value="">Select Payment Method</option>
-        <option value="btc">Bitcoin (BTC)</option>
-        <option value="doge">Dogecoin (DOGE)</option>
-      </select>
-
-      <button type="submit" id="submitBtn" disabled>Submit Investment</button>
-    </form>
-  </main>
-
-  <footer>
-    <p>
-      Musk Crypto Investment Hub &nbsp;|&nbsp; 250 University Ave, Palo Alto, CA 94301<br />
-      Support: support@doge-initiative.org &nbsp;|&nbsp; CEO Contact: elon@doge-initiative.org
-    </p>
-    <p>© 2025 Musk Crypto Investment Hub</p>
-  </footer>
-
-  <script>
-    // Enable submit button when form is valid
-    const form = document.getElementById("invest-form");
-    const submitBtn = document.getElementById("submitBtn");
-
-    form.addEventListener("input", () => {
-      submitBtn.disabled = !form.checkValidity();
-    });
-  </script>
-</body>
-</html>
+      <p>Send the exact amount to the
