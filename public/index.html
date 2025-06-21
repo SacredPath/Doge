@@ -7,7 +7,65 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
   <style>
-    /* ... existing styles ... */
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+      color: #111;
+    }
+    header {
+      background: #111;
+      color: #fff;
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+    header nav a {
+      color: #fff;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .countdown {
+      background: #ffd700;
+      color: #000;
+      text-align: center;
+      font-weight: 700;
+      font-size: 16px;
+      padding: 12px;
+    }
+    .hero {
+      padding: 60px 20px;
+      text-align: center;
+      background: #fff;
+    }
+    .hero h1 {
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+    .floating-cta {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #00d0ff;
+      color: white;
+      padding: 14px 24px;
+      border-radius: 50px;
+      font-weight: 600;
+      z-index: 999;
+      text-decoration: none;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    }
     .live-alert {
       position: fixed;
       bottom: 80px;
@@ -21,16 +79,43 @@
       z-index: 998;
       display: none;
     }
+    footer {
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 14px;
+    }
   </style>
 </head>
 <body>
-  <!-- ... existing HTML content ... -->
+  <header>
+    <div class="logo">Doge Initiative</div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#invest">Invest</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
 
-  <a href="#invest" class="floating-cta">💰 Invest Now</a>
+  <div class="countdown">⏳ Next Investor Round Ends In: loading…</div>
+
+  <section class="hero">
+    <h1>Invest in the Future with Elon Musk</h1>
+    <p>Minimum $500 Investment • Get Paid Every 2 Weeks • Backed by Real Companies</p>
+    <a href="#invest" class="floating-cta">💰 Invest Now</a>
+  </section>
+
   <div class="live-alert" id="liveAlert">💸 Someone just invested!</div>
 
+  <footer>
+    <p>Doge Initiative – 250 University Ave, Palo Alto, CA 94301</p>
+    <p>Email: support@doge-initiative.org</p>
+    <p>© 2025 Doge Initiative. All rights reserved.</p>
+  </footer>
+
   <script>
-    // LIVE ALERT ROTATOR
     const investorMessages = [
       "💸 Ahmed from Dubai just invested $1,000",
       "💸 Maria from Brazil just invested $750",
@@ -49,7 +134,6 @@
       "💸 Luka from Croatia just invested $720"
     ];
     const alertBox = document.getElementById("liveAlert");
-
     let alertIndex = 0;
     function showNextAlert() {
       alertBox.textContent = investorMessages[alertIndex];
@@ -63,7 +147,6 @@
     }
     setInterval(showNextAlert, 6000);
 
-    // LEGIT COUNTDOWN TIMER RESETTING EVERY 14 DAYS
     function updateCountdown() {
       const countdownElement = document.querySelector(".countdown");
       const now = new Date();
