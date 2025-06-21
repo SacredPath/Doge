@@ -223,26 +223,36 @@
     </div>
   </section>
 
-  <section class="testimonials" id="testimonials">
-    <h2 class="section-title">What Real Investors Say</h2>
-    <div class="testimonials-grid">
-      <div class="testimonial">
+ <section class="testimonials" id="testimonials">
+  <h2 class="section-title">What Real Investors Say</h2>
+  <div class="testimonial-carousel" style="position: relative; overflow: hidden; max-width: 320px; margin: auto;">
+    <div class="carousel-track" style="display: flex; transition: transform 0.5s ease;">
+      <div class="testimonial" style="min-width: 100%; box-sizing: border-box;">
         <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="">
         <p>“I received my first payout on time. It’s no joke.”</p>
         <strong>– Jackson, USA</strong>
       </div>
-      <div class="testimonial">
+      <div class="testimonial" style="min-width: 100%; box-sizing: border-box;">
         <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="">
         <p>“I hesitated. Now I wish I invested sooner.”</p>
         <strong>– Ayana, Nigeria</strong>
       </div>
-      <div class="testimonial">
+      <div class="testimonial" style="min-width: 100%; box-sizing: border-box;">
         <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="">
         <p>“Money shows up. That’s all I care about.”</p>
         <strong>– Marko, Croatia</strong>
       </div>
     </div>
-  </section>
+  </div>
+  <script>
+    const track = document.querySelector('.carousel-track');
+    let index = 0;
+    setInterval(() => {
+      index = (index + 1) % 3;
+      track.style.transform = `translateX(-${index * 100}%)`;
+    }, 3500);
+  </script>
+</section>
 
   <section class="proof" id="proof">
     <h2 class="section-title">Verified & Protected</h2>
