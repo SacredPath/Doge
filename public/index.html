@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Doge Initiative – Invest with Confidence</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" />
   <style>
     body {
       font-family: 'Poppins', sans-serif;
@@ -18,20 +18,16 @@
     body::before {
       content: "";
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       background: radial-gradient(ellipse at center, #1a1a1a 0%, #0f0f0f 100%);
       z-index: -2;
     }
     body::after {
       content: "";
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       background-image: url('https://www.transparenttextures.com/patterns/stardust.png');
       opacity: 0.1;
       z-index: -1;
@@ -41,6 +37,8 @@
       from { background-position: 0 0; }
       to { background-position: -1000px 1000px; }
     }
+
+    /* HEADER */
     header {
       background: #000;
       color: #fff;
@@ -49,127 +47,352 @@
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
+      position: relative;
+      z-index: 10;
     }
     .logo {
       font-size: 24px;
       font-weight: bold;
       color: #00d0ff;
+      user-select: none;
     }
     nav a {
       color: #fff;
       margin-left: 20px;
       text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+      user-select: none;
     }
-    .hero {
+    nav a:hover, nav a:focus {
+      color: #00d0ff;
+      outline: none;
+    }
+
+    /* MONEY MAGNET PAYOUT TICKER */
+    .payout-ticker {
+      background: linear-gradient(90deg, #00d0ff, #0066cc);
+      color: #fff;
+      font-weight: 700;
+      font-size: 18px;
+      padding: 12px 20px;
       text-align: center;
-      padding: 80px 20px;
-      background: none;
+      letter-spacing: 0.05em;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      z-index: 9999;
+      box-shadow: 0 4px 15px rgba(0, 208, 255, 0.5);
+      animation: glow 2s ease-in-out infinite alternate;
+      transition: opacity 0.8s ease-in-out;
+      user-select: none;
+    }
+    @keyframes glow {
+      0% { text-shadow: 0 0 5px #00d0ff, 0 0 10px #00d0ff; }
+      100% { text-shadow: 0 0 15px #00ffff, 0 0 25px #00ffff; }
+    }
+    .payout-cta {
+      position: fixed;
+      top: 45px;
+      right: 20px;
+      background: #00d0ff;
+      color: #fff;
+      padding: 16px 36px;
+      font-weight: 700;
+      border-radius: 30px;
+      box-shadow: 0 6px 20px rgba(0, 208, 255, 0.5);
+      cursor: pointer;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+      z-index: 10000;
+      text-decoration: none;
+      user-select: none;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .payout-cta:hover, .payout-cta:focus {
+      background: #0088cc;
+      box-shadow: 0 8px 30px #00b8ffcc;
+      outline: none;
+    }
+
+    /* TRUST BADGES */
+    .trust-badges {
+      position: fixed;
+      top: 48px;
+      left: 20px;
+      display: flex;
+      gap: 20px;
+      z-index: 10000;
+      user-select: none;
+    }
+    .badge {
+      background: rgba(0, 208, 255, 0.15);
+      color: #00d0ff;
+      padding: 6px 16px;
+      border-radius: 24px;
+      font-weight: 600;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 0 8px rgba(0, 208, 255, 0.3);
+      cursor: default;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      max-width: 230px;
+    }
+    .badge:hover, .badge:focus {
+      transform: translateY(-4px);
+      box-shadow: 0 0 18px #00d0ffcc;
+      outline: none;
+    }
+    .badge svg {
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
+      fill: #00d0ff;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 20px 80px;
+      max-width: 1200px;
+      margin: 0 auto;
       color: white;
       animation: fadeIn 1.2s ease-out;
+      gap: 40px;
+    }
+    .hero-text {
+      flex: 1 1 450px;
+      max-width: 600px;
+      user-select: none;
     }
     .hero h1 {
-      font-size: 42px;
+      font-size: 48px;
       margin-bottom: 20px;
+      line-height: 1.2;
     }
     .hero p {
       font-size: 20px;
-      max-width: 700px;
-      margin: auto;
+      max-width: 480px;
+      margin-bottom: 30px;
+      line-height: 1.5;
+      font-weight: 600;
     }
-    .cta {
+    .hero .cta {
       display: inline-block;
-      margin-top: 30px;
       background: #00d0ff;
       color: #fff;
-      padding: 16px 32px;
-      border-radius: 8px;
-      font-weight: bold;
+      padding: 18px 36px;
+      border-radius: 12px;
+      font-weight: 700;
       text-decoration: none;
-      transition: background 0.3s;
-      animation: bounce 2s infinite;
+      transition: background 0.3s, box-shadow 0.3s;
+      animation: bounce 2.5s infinite;
+      user-select: none;
+      box-shadow: 0 8px 25px #00d0ff88;
     }
-    .cta:hover {
-      background: #00aacc;
+    .hero .cta:hover, .hero .cta:focus {
+      background: #0088cc;
+      box-shadow: 0 12px 35px #00b8ffcc;
+      outline: none;
     }
-    .fomo-banner {
-      background: #ffd700;
-      color: #000;
-      text-align: center;
-      padding: 12px;
-      font-weight: 600;
-      font-size: 16px;
+    .hero-image {
+      flex: 1 1 320px;
+      max-width: 320px;
+      border-radius: 20px;
+      box-shadow: 0 0 50px #00d0ffaa;
+      overflow: hidden;
+      background: linear-gradient(45deg, #00d0ff33, #0066cc33);
+      user-select: none;
     }
-    .floating-cta {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #00d0ff;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 30px;
-      font-weight: 600;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      z-index: 999;
-      text-decoration: none;
+    .hero-image img {
+      width: 100%;
+      display: block;
+      border-radius: 20px;
+      pointer-events: none;
+      user-select: none;
     }
-    .section-title {
-      font-size: 28px;
-      margin-bottom: 20px;
-    }
+
+    /* FEATURES SECTION */
     .how-it-works, .features, .testimonials, .proof {
       padding: 60px 20px;
       background: transparent;
       text-align: center;
+      max-width: 1000px;
+      margin: 0 auto 80px;
+      user-select: none;
     }
-    .features-grid, .testimonials-grid, .proof-grid {
+    .section-title {
+      font-size: 32px;
+      margin-bottom: 40px;
+      font-weight: 700;
+      color: #00d0ff;
+      text-shadow: 0 0 10px #00d0ff66;
+    }
+    .features-grid, .proof-grid {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 24px;
       justify-content: center;
     }
-    .feature, .testimonial, .proof-item {
+    .feature, .proof-item {
       background: rgba(255,255,255,0.05);
-      padding: 20px;
-      border-radius: 10px;
-      max-width: 300px;
-      animation: slideUp 0.6s ease-out;
-      border: 1px solid rgba(255,255,255,0.1);
+      padding: 24px;
+      border-radius: 16px;
+      max-width: 320px;
+      border: 1px solid rgba(0, 208, 255, 0.3);
+      box-shadow: 0 0 15px #00d0ff44;
+      font-weight: 600;
+      line-height: 1.4;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      user-select: text;
+      cursor: default;
     }
-    .testimonial img {
-      width: 60px;
-      border-radius: 50%;
-      margin-bottom: 10px;
+    .feature:hover, .proof-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 25px #00d0ffbb;
     }
+
+    /* Dashboard Preview */
+    .dashboard-preview {
+      max-width: 900px;
+      margin: 0 auto 80px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 0 40px #00d0ff88;
+      user-select: none;
+    }
+    .dashboard-preview img {
+      width: 100%;
+      display: block;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    /* FOOTER */
     footer {
       background: #000;
       color: white;
-      padding: 20px;
+      padding: 28px 20px;
       text-align: center;
+      font-weight: 600;
+      font-size: 15px;
+      user-select: none;
     }
+
+    /* Animations */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes slideUp {
-      from { transform: translateY(50px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
     }
     @keyframes bounce {
       0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
       40% { transform: translateY(-8px); }
       60% { transform: translateY(-4px); }
     }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero {
+        flex-direction: column-reverse;
+        padding-top: 140px;
+      }
+      .hero-text, .hero-image {
+        max-width: 100%;
+        flex: none;
+      }
+      .hero h1 {
+        font-size: 36px;
+      }
+      .features-grid, .proof-grid {
+        flex-direction: column;
+        gap: 30px;
+      }
+      .trust-badges {
+        top: 80px;
+        left: 15px;
+        gap: 14px;
+        flex-wrap: wrap;
+        max-width: 320px;
+      }
+      .badge {
+        max-width: 100%;
+      }
+    }
     @media (max-width: 600px) {
-      .hero h1 { font-size: 32px; }
-      .section-title { font-size: 24px; }
-      .floating-cta { padding: 10px 16px; font-size: 14px; }
+      nav a {
+        margin-left: 12px;
+        font-size: 14px;
+      }
+      .section-title {
+        font-size: 26px;
+      }
+      .hero h1 {
+        font-size: 28px;
+      }
+      .payout-ticker {
+        font-size: 16px;
+        padding: 10px 12px;
+      }
+      .payout-cta {
+        padding: 12px 28px;
+        font-size: 16px;
+        top: 45px;
+        right: 12px;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- MONEY MAGNET PAYOUT TICKER -->
+  <div class="payout-ticker" aria-live="polite" aria-atomic="true" id="payout-ticker">
+    $1,220 just paid to Liam in Australia!
+  </div>
+  <a href="#features" class="payout-cta" aria-label="Invest Now" role="button" tabindex="0">
+    <svg width="24" height="24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+      <path d="M12 19l7-7-7-7"></path>
+      <path d="M5 12h14"></path>
+    </svg>
+    Invest Now
+  </a>
+  <div class="trust-badges" aria-label="Trusted by investors">
+    <div class="badge" tabindex="0" role="img" aria-label="Secure SSL encryption">
+      <!-- Shield lock icon -->
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" >
+        <path d="M12 1L3 5v6c0 5 3 9 9 12 6-3 9-7 9-12V5l-9-4z" />
+        <rect x="9" y="10" width="6" height="4" rx="1" ry="1" />
+        <path d="M12 14v2" />
+      </svg>
+      Secure SSL
+    </div>
+    <div class="badge" tabindex="0" role="img" aria-label="Verified smart contracts">
+      <!-- Verified checkmark icon -->
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M9 12l2 2 4-4" stroke-width="3" fill="none" stroke="#00d0ff" />
+        <circle cx="12" cy="12" r="10" fill="none" stroke="#00d0ff" stroke-width="2" />
+      </svg>
+      Verified Smart Contracts
+    </div>
+    <div class="badge" tabindex="0" role="img" aria-label="Trusted by 16,000 plus investors">
+      <!-- People icon -->
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <circle cx="7" cy="7" r="4" />
+        <circle cx="17" cy="7" r="4" />
+        <path d="M1 21v-2c0-3 5-5 10-5s10 2 10 5v2" fill="none" stroke="#00d0ff" stroke-width="2" />
+      </svg>
+      16,000+ Investors
+    </div>
+  </div>
+
   <header>
-    <div class="logo">🚀 Doge Initiative</div>
-    <nav>
+    <div class="logo" aria-label="Doge Initiative logo">🚀 Doge Initiative</div>
+    <nav role="navigation" aria-label="Primary navigation">
       <a href="#how">How It Works</a>
       <a href="#features">Benefits</a>
       <a href="#testimonials">Testimonials</a>
@@ -177,138 +400,167 @@
     </nav>
   </header>
 
-  <div class="fomo-banner">⏳ 87% of Investment Slots Filled – Next Payout in 6 Days!</div>
-
-  <section class="hero">
-    <h1>💸 You’ll Get Paid in 14 Days — Starting with $500</h1>
-    <p>Join the Elon-backed movement making financial freedom accessible to everyone. Returns every 2 weeks. No guesswork. No gatekeepers.</p>
-    <a href="#features" class="cta">Claim Your Spot Now</a>
+  <section class="hero" aria-label="Investment opportunity hero section">
+    <div class="hero-text">
+      <h1>💸 You’ll Get Paid in 14 Days — Starting with $500</h1>
+      <p>Join the Elon-backed movement making financial freedom accessible to everyone. Returns every 2 weeks. No guesswork. No gatekeepers.</p>
+      <a href="#features" class="cta" role="button" tabindex="0">Claim Your Spot Now</a>
+    </div>
+    <div class="hero-image" aria-hidden="true">
+      <img src="https://i.imgur.com/0jd0nAe.png" alt="Smiling professional looking confident" />
+    </div>
   </section>
 
-  <a href="#features" class="floating-cta">💸 Invest Now</a>
-
-  <section class="how-it-works" id="how">
+  <section class="how-it-works" id="how" aria-label="How it works">
     <h2 class="section-title">How It Works</h2>
     <div class="features-grid">
-      <div class="feature">
+      <div class="feature" tabindex="0" role="article" aria-label="Step 1: Deposit">
         <h3>1. Deposit</h3>
         <p>Start with $500 in BTC or DOGE to activate your slot.</p>
       </div>
-      <div class="feature">
+      <div class="feature" tabindex="0" role="article" aria-label="Step 2: Activate">
         <h3>2. Activate</h3>
         <p>Your funds join our Elon-backed portfolio of breakthrough ventures.</p>
       </div>
-      <div class="feature">
+      <div class="feature" tabindex="0" role="article" aria-label="Step 3: Earn">
         <h3>3. Earn</h3>
         <p>Receive your first bi-weekly payment 14 days after onboarding.</p>
       </div>
     </div>
   </section>
 
-  <section class="features" id="features">
+  <section class="features" id="features" aria-label="Benefits">
     <h2 class="section-title">Why 16,000+ People Trust Us</h2>
     <div class="features-grid">
-      <div class="feature">
+      <div class="feature" tabindex="0" role="article" aria-label="Benefit Elon-Backed Trust">
         <h3>Elon-Backed Trust</h3>
         <p>Direct exposure to Tesla, SpaceX, and Neuralink returns.</p>
       </div>
-      <div class="feature">
+      <div class="feature" tabindex="0" role="article" aria-label="Benefit Every 2 Weeks">
         <h3>Every 2 Weeks</h3>
         <p>Your crypto wallet gets funded regularly, like clockwork.</p>
       </div>
-      <div class="feature">
-        <h3>Built for Everyone</h3>
-        <p>No hidden fees. Just a clean, open door to serious investing.</p>
+      <div class="feature" tabindex="0" role="article" aria-label="Benefit Easy Access">
+        <h3>Easy Access</h3>
+        <p>Withdraw anytime or reinvest for compounding gains.</p>
       </div>
     </div>
   </section>
 
-<section class="testimonials" id="testimonials">
-  <h2 class="section-title">What Real Investors Say</h2>
-  <div class="testimonial-carousel" style="position: relative; overflow: hidden; max-width: 400px; margin: auto; height: auto;">
-    <div class="carousel-track" style="display: flex; transition: transform 0.5s ease;">
-      <div class="testimonial" style="min-width: 100%; box-sizing: border-box; padding: 20px;">
-        <p>“I found this on TikTok and decided to try it. Two weeks later, I got my first payout.”</p>
-        <strong>– Sarah, UK</strong>
-      </div>
-      <div class="testimonial" style="min-width: 100%; box-sizing: border-box; padding: 20px;">
-        <p>“At first I was skeptical, but the payouts are real. Every two weeks like clockwork.”</p>
-        <strong>– Carlos, Mexico</strong>
-      </div>
-      <div class="testimonial" style="min-width: 100%; box-sizing: border-box; padding: 20px;">
-        <p>“Saw this on YouTube Shorts and decided to give it a go. Best decision I’ve made this year.”</p>
-        <strong>– Emily, Canada</strong>
-      </div>
-      <div class="testimonial" style="min-width: 100%; box-sizing: border-box; padding: 20px;">
-        <p>“It’s legit. I’ve been paid 4 times already. Thanks to whoever made that TikTok.”</p>
-        <strong>– Liam, Australia</strong>
-      </div>
-      <div class="testimonial" style="min-width: 100%; box-sizing: border-box; padding: 20px;">
-        <p>“Got in with $500 and thought I’d never see it again. Wrong! I’ve already doubled it.”</p>
-        <strong>– Chloe, New Zealand</strong>
-      </div>
-      <div class="testimonial" style="min-width: 100%; box-sizing: border-box; padding: 20px;">
-        <p>“I don’t usually trust online stuff, but this one surprised me. The payouts are real.”</p>
-        <strong>– Thomas, Ireland</strong>
-      </div>
-      <div class="testimonial" style="min-width: 100%; box-sizing: border-box; padding: 20px;">
-        <p>“TikTok sold me on it. First return came quicker than expected.”</p>
-        <strong>– Elena, Spain</strong>
-      </div>
-      <div class="testimonial" style="min-width: 100%; box-sizing: border-box; padding: 20px;">
-        <p>“I literally laughed when I saw it. Now I’m getting regular crypto payments.”</p>
-        <strong>– Noah, Germany</strong>
-      </div>
-      <div class="testimonial" style="min-width: 100%; box-sizing: border-box; padding: 20px;">
-        <p>“Great onboarding. Simple process. Impressive returns.”</p>
-        <strong>– Isabelle, France</strong>
-      </div>
-      <div class="testimonial" style="min-width: 100%; box-sizing: border-box; padding: 20px;">
-        <p>“Came from YouTube. I’ve already told 5 friends. We’re all getting paid now.”</p>
-        <strong>– Adam, Sweden</strong>
-      </div>
-      <div class="testimonial" style="min-width: 100%; box-sizing: border-box; padding: 20px;">
-        <p>“This fund is the easiest way I’ve ever made passive income.”</p>
-        <strong>– Julia, Brazil</strong>
-      </div>
-      <div class="testimonial" style="min-width: 100%; box-sizing: border-box; padding: 20px;">
-        <p>“Not sure how it works exactly, but I’ve been paid 3 times now. It just works.”</p>
-        <strong>– Oliver, Netherlands</strong>
-      </div>
-    </div>
-  </div>
-  <script>
-    const track = document.querySelector('.carousel-track');
-    let index = 0;
-    setInterval(() => {
-      index = (index + 1) % 12;
-      track.style.transform = `translateX(-${index * 100}%)`;
-    }, 3500);
-  </script>
-</section>
+  <section class="dashboard-preview" aria-label="Dashboard preview">
+    <img src="https://i.imgur.com/O1yxziZ.png" alt="Dashboard preview showing bi-weekly payouts and growing balances" />
+  </section>
 
-<section class="proof" id="proof" style="padding: 20px 0;">
-  <h2 class="section-title">Verified & Protected</h2>
-  <div class="proof-grid" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
-    <div class="proof-item" style="flex: 1 1 250px; max-width: 300px; padding: 15px; transition: transform 0.3s ease;">
-      <h3>🔒 SSL Encryption</h3>
-      <p>All transactions are secured with bank-grade SSL.</p>
+  <section class="testimonials" id="testimonials" aria-label="User testimonials">
+    <h2 class="section-title">Real Users, Real Results</h2>
+    <div class="carousel" aria-live="polite" aria-atomic="true" role="list">
+      <div class="carousel-track" style="display:flex; transition: transform 0.7s ease;">
+        <div class="testimonial" role="listitem" tabindex="0" style="min-width: 100%; box-sizing: border-box; padding: 24px 32px; font-size: 17px; color: #aee8ff; font-style: italic; font-weight: 600; line-height: 1.5; user-select: text;">
+          <p>“At first I was skeptical, but the payouts are real. Every two weeks like clockwork.”</p>
+          <strong>– Carlos, Mexico</strong>
+        </div>
+        <div class="testimonial" role="listitem" tabindex="0" style="min-width: 100%; box-sizing: border-box; padding: 24px 32px; font-size: 17px; color: #aee8ff; font-style: italic; font-weight: 600; line-height: 1.5; user-select: text;">
+          <p>“Saw this on YouTube Shorts and decided to give it a go. Best decision I’ve made this year.”</p>
+          <strong>– Emily, Canada</strong>
+        </div>
+        <div class="testimonial" role="listitem" tabindex="0" style="min-width: 100%; box-sizing: border-box; padding: 24px 32px; font-size: 17px; color: #aee8ff; font-style: italic; font-weight: 600; line-height: 1.5; user-select: text;">
+          <p>“It’s legit. I’ve been paid 4 times already. Thanks to whoever made that TikTok.”</p>
+          <strong>– Liam, Australia</strong>
+        </div>
+        <div class="testimonial" role="listitem" tabindex="0" style="min-width: 100%; box-sizing: border-box; padding: 24px 32px; font-size: 17px; color: #aee8ff; font-style: italic; font-weight: 600; line-height: 1.5; user-select: text;">
+          <p>“Got in with $500 and thought I’d never see it again. Wrong! I’ve already doubled it.”</p>
+          <strong>– Chloe, New Zealand</strong>
+        </div>
+        <div class="testimonial" role="listitem" tabindex="0" style="min-width: 100%; box-sizing: border-box; padding: 24px 32px; font-size: 17px; color: #aee8ff; font-style: italic; font-weight: 600; line-height: 1.5; user-select: text;">
+          <p>“I don’t usually trust online stuff, but this one surprised me. The payouts are real.”</p>
+          <strong>– Thomas, Ireland</strong>
+        </div>
+        <div class="testimonial" role="listitem" tabindex="0" style="min-width: 100%; box-sizing: border-box; padding: 24px 32px; font-size: 17px; color: #aee8ff; font-style: italic; font-weight: 600; line-height: 1.5; user-select: text;">
+          <p>“TikTok sold me on it. First return came quicker than expected.”</p>
+          <strong>– Elena, Spain</strong>
+        </div>
+        <div class="testimonial" role="listitem" tabindex="0" style="min-width: 100%; box-sizing: border-box; padding: 24px 32px; font-size: 17px; color: #aee8ff; font-style: italic; font-weight: 600; line-height: 1.5; user-select: text;">
+          <p>“I literally laughed when I saw it. Now I’m getting regular crypto payments.”</p>
+          <strong>– Noah, Germany</strong>
+        </div>
+        <div class="testimonial" role="listitem" tabindex="0" style="min-width: 100%; box-sizing: border-box; padding: 24px 32px; font-size: 17px; color: #aee8ff; font-style: italic; font-weight: 600; line-height: 1.5; user-select: text;">
+          <p>“Great onboarding. Simple process. Impressive returns.”</p>
+          <strong>– Isabelle, France</strong>
+        </div>
+        <div class="testimonial" role="listitem" tabindex="0" style="min-width: 100%; box-sizing: border-box; padding: 24px 32px; font-size: 17px; color: #aee8ff; font-style: italic; font-weight: 600; line-height: 1.5; user-select: text;">
+          <p>“Came from YouTube. I’ve already told 5 friends. We’re all getting paid now.”</p>
+          <strong>– Adam, Sweden</strong>
+        </div>
+        <div class="testimonial" role="listitem" tabindex="0" style="min-width: 100%; box-sizing: border-box; padding: 24px 32px; font-size: 17px; color: #aee8ff; font-style: italic; font-weight: 600; line-height: 1.5; user-select: text;">
+          <p>“This fund is the easiest way I’ve ever made passive income.”</p>
+          <strong>– Julia, Brazil</strong>
+        </div>
+        <div class="testimonial" role="listitem" tabindex="0" style="min-width: 100%; box-sizing: border-box; padding: 24px 32px; font-size: 17px; color: #aee8ff; font-style: italic; font-weight: 600; line-height: 1.5; user-select: text;">
+          <p>“Not sure how it works exactly, but I’ve been paid 3 times now. It just works.”</p>
+          <strong>– Oliver, Netherlands</strong>
+        </div>
+      </div>
     </div>
-    <div class="proof-item" style="flex: 1 1 250px; max-width: 300px; padding: 15px; transition: transform 0.3s ease;">
-      <h3>✅ Third-Party Verified</h3>
-      <p>Smart contract and wallet operations reviewed by CertiTrust.</p>
-    </div>
-    <div class="proof-item" style="flex: 1 1 250px; max-width: 300px; padding: 15px; transition: transform 0.3s ease;">
-      <h3>🛡️ Global Investor Badge</h3>
-      <p>Over 16,000 investors protected under our investor-first model.</p>
-    </div>
-  </div>
-</section>
+  </section>
 
+  <section class="proof" id="proof" aria-label="Verified and protected">
+    <h2 class="section-title">Verified & Protected</h2>
+    <div class="proof-grid" role="list">
+      <div class="proof-item" role="listitem" tabindex="0" aria-label="SSL encryption">
+        <h3>🔒 SSL Encryption</h3>
+        <p>All transactions are secured with bank-grade SSL.</p>
+      </div>
+      <div class="proof-item" role="listitem" tabindex="0" aria-label="Third-party verification">
+        <h3>✅ Third-Party Verified</h3>
+        <p>Smart contract and wallet operations reviewed by CertiTrust.</p>
+      </div>
+      <div class="proof-item" role="listitem" tabindex="0" aria-label="Global investor badge">
+        <h3>🛡️ Global Investor Badge</h3>
+        <p>Over 16,000 investors protected under our investor-first model.</p>
+      </div>
+    </div>
+  </section>
 
   <footer>
     <p>Doge Initiative – Built to Distribute Wealth. © 2025</p>
     <p>Email: support@doge-initiative.org</p>
   </footer>
+
+  <script>
+    const payouts = [
+      { name: "Liam", country: "Australia", amount: 1220 },
+      { name: "Sarah", country: "UK", amount: 850 },
+      { name: "Carlos", country: "Mexico", amount: 1000 },
+      { name: "Emily", country: "Canada", amount: 1500 },
+      { name: "Chloe", country: "New Zealand", amount: 700 },
+      { name: "Thomas", country: "Ireland", amount: 900 },
+      { name: "Elena", country: "Spain", amount: 1250 },
+      { name: "Noah", country: "Germany", amount: 1100 },
+      { name: "Isabelle", country: "France", amount: 980 },
+      { name: "Adam", country: "Sweden", amount: 1050 },
+      { name: "Julia", country: "Brazil", amount: 1150 },
+      { name: "Oliver", country: "Netherlands", amount: 1300 }
+    ];
+
+    const ticker = document.getElementById("payout-ticker");
+    let idx = 0;
+
+    function updateTicker() {
+      const payout = payouts[idx];
+      ticker.textContent = `$${payout.amount.toLocaleString()} just paid to ${payout.name} in ${payout.country}! You're next!`;
+      idx = (idx + 1) % payouts.length;
+    }
+
+    setInterval(updateTicker, 7000);
+    updateTicker();
+
+    // Testimonial carousel
+    const track = document.querySelector('.carousel-track');
+    let testimonialIndex = 0;
+    setInterval(() => {
+      testimonialIndex = (testimonialIndex + 1) % payouts.length;
+      track.style.transform = `translateX(-${testimonialIndex * 100}%)`;
+    }, 3500);
+  </script>
 </body>
 </html>
