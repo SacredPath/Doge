@@ -287,23 +287,83 @@
   </script>
 </section>
 
-  <section class="proof" id="proof">
-    <h2 class="section-title">Verified & Protected</h2>
-    <div class="proof-grid">
-      <div class="proof-item">
-        <h3>🔒 SSL Encryption</h3>
-        <p>All transactions are secured with bank-grade SSL.</p>
-      </div>
-      <div class="proof-item">
-        <h3>✅ Third-Party Verified</h3>
-        <p>Smart contract and wallet operations reviewed by CertiTrust.</p>
-      </div>
-      <div class="proof-item">
-        <h3>🛡️ Global Investor Badge</h3>
-        <p>Over 16,000 investors protected under our investor-first model.</p>
+  <section class="proof" id="proof" style="padding: 20px 0;">
+  <h2 class="section-title">Verified & Protected</h2>
+  <div class="proof-grid" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; perspective: 1000px;">
+    <div class="proof-card">
+      <div class="proof-item flip-card-inner">
+        <div class="flip-card-front">
+          <h3>🔒 SSL Encryption</h3>
+          <p>All transactions are secured with bank-grade SSL.</p>
+        </div>
+        <div class="flip-card-back">
+          <p>Bank-level protection to keep your funds secure from hackers.</p>
+        </div>
       </div>
     </div>
-  </section>
+    <div class="proof-card">
+      <div class="proof-item flip-card-inner">
+        <div class="flip-card-front">
+          <h3>✅ Third-Party Verified</h3>
+          <p>Smart contract and wallet operations reviewed by CertiTrust.</p>
+        </div>
+        <div class="flip-card-back">
+          <p>Reviewed and approved by independent auditors for full transparency.</p>
+        </div>
+      </div>
+    </div>
+    <div class="proof-card">
+      <div class="proof-item flip-card-inner">
+        <div class="flip-card-front">
+          <h3>🛡️ Global Investor Badge</h3>
+          <p>Over 16,000 investors protected under our investor-first model.</p>
+        </div>
+        <div class="flip-card-back">
+          <p>Our reputation is built on trust and security for investors worldwide.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <style>
+    .proof-card {
+      width: 300px;
+      height: 180px;
+      perspective: 1000px;
+    }
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+    }
+    .proof-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+    .flip-card-front {
+      background-color: #fff;
+    }
+    .flip-card-back {
+      background-color: #00aaff;
+      color: #fff;
+      transform: rotateY(180deg);
+    }
+  </style>
+</section>
+
 
   <footer>
     <p>Doge Initiative – Built to Distribute Wealth. © 2025</p>
