@@ -117,6 +117,35 @@
       border-radius: 10px;
       box-shadow: 0 0 12px rgba(0,255,255,0.2);
     }
+    @media screen and (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 28px;
+      }
+      .hero-content p {
+        font-size: 16px;
+      }
+      nav ul {
+        flex-direction: column;
+        background: #111;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        display: none;
+      }
+      nav ul.show {
+        display: flex;
+      }
+      .menu-toggle {
+        display: block;
+        cursor: pointer;
+      }
+    }
+    .menu-toggle {
+      display: none;
+      font-size: 24px;
+      color: #00ffd9;
+    }
   </style>
 </head>
 <body>
@@ -124,6 +153,9 @@
     <div class="logo">
       <img src="https://img.icons8.com/clouds/500/doge.png" alt="Logo" style="height:40px;">
       Doge Initiative
+    </div>
+    <div class="menu-toggle" onclick="document.querySelector('nav ul').classList.toggle('show')">
+      &#9776;
     </div>
     <nav>
       <ul>
@@ -136,9 +168,9 @@
 
   <section class="hero">
     <div class="hero-content">
-      <h1>Invest in Elon-Backed Crypto Projects</h1>
-      <p>Join the only fund inspired by Elon Musk’s vision. Get paid bi-weekly in BTC or DOGE starting with $500.</p>
-      <a class="cta-button" href="#">Get Started</a>
+      <h1>YOU Get Paid Every 2 Weeks. Forever.</h1>
+      <p>Back Elon’s vision. Invest in the Doge Initiative with as little as $500 and start earning bi-weekly crypto payouts.</p>
+      <a class="cta-button" href="#invest">Start Now</a>
     </div>
   </section>
 
