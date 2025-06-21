@@ -518,4 +518,94 @@
           <p id="doge-amount">~3,000 DOGE ($500)</p>
         </div>
       </div>
-      <p>Send the exact amount to the
+      <p>Send the exact amount to the above wallet. Payouts are processed every 2 weeks without fail.</p>
+
+      <p class="investment-process">
+        After your investment is confirmed, you will receive:
+      </p>
+      <ul class="process-steps">
+        <li>Confirmation email with investment details</li>
+        <li>Access to your personalized investor dashboard</li>
+        <li>First bi-weekly payout notification</li>
+      </ul>
+      <p class="process-note">
+        Your dashboard displays real-time updates on payouts and company performance.
+      </p>
+
+      <div class="form-container">
+        <form id="invest-form" action="https://formspree.io/f/xrbkzoyp" method="POST" novalidate>
+          <div class="form-section">
+            <h2>Get Started Now</h2>
+            <div class="form-group">
+              <label for="fullName">Full Name *</label>
+              <input
+                type="text"
+                id="fullName"
+                name="fullName"
+                placeholder="Your full name"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="you@example.com"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="investmentAmount">Investment Tier *</label>
+              <select id="investmentAmount" name="investmentAmount" required>
+                <option value="" disabled selected>Select Tier</option>
+                <option value="500-1999">Core Investor ($500 - $1,999)</option>
+                <option value="2000+">Visionary Investor ($2,000+)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="paymentMethod">Payment Method *</label>
+              <select id="paymentMethod" name="paymentMethod" required>
+                <option value="" disabled selected>Select Payment Method</option>
+                <option value="btc">Bitcoin (BTC)</option>
+                <option value="doge">Dogecoin (DOGE)</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="submit" id="submitBtn" disabled>Submit Investment</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Musk Crypto Investment Hub &copy; 2025</p>
+    <p>
+      Contact: <a href="mailto:support@doge-initiative.org" style="color:#00aaff;">support@doge-initiative.org</a> |
+      CEO Email: <a href="mailto:elon@doge-initiative.org" style="color:#00aaff;">elon@doge-initiative.org</a>
+    </p>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      mobileMenuBtn.classList.toggle('active');
+    });
+
+    // Enable submit button when form is valid
+    const form = document.getElementById("invest-form");
+    const submitBtn = document.getElementById("submitBtn");
+
+    form.addEventListener("input", () => {
+      submitBtn.disabled = !form.checkValidity();
+    });
+  </script>
+</body>
+</html>
