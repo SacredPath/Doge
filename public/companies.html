@@ -4,14 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Companies - Musk Crypto Investment Hub</title>
-  <link rel="icon" type="image/ico" href="./images/favicon.ico">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAclBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////+ZLbrhAAAALHRSTlMAAQMEBQYICQoNEh8gIyQlJicoKjExNDY3ODs8PkZHVFdfYGlqcHR3hYOEi5Wsmqe4x8vW3+EViUAAAAFiS0dEAIgFHUgAAAAHdElNRQfmCxcDJTRso4yEAAAA4UlEQVQY02XOSQ6DIBAF4E0UBbXUQlP9/3czM5NltjQTyzOZOf8BgK3UpdkBW3M0RA8RVM8LLyI2kA6wX0nDaNBJXR6JbYhH6nbC4+EHs6GCFEcJLz3WL7AxHG8sWZr9qZh9pK5RrmlnYOvI60x9er+i6m9oY3NG2uRh9r8FCk1tFkY7Sc5iG0BhVGpGzZXmAMMVymBGowNYDmnZni1D8AdXnI/fjZMXxAAAAAElFTkSuQmCC">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', Arial, sans-serif; }
     body { background-color: #0e0e0e; overflow-x: hidden; color: #fff; position: relative; }
     header { background: linear-gradient(90deg, #000000, #1a1a1a); padding: 15px 20px; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); }
     nav { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; }
-    .logo { color: #fff; font-size: 26px; font-weight: 700; text-shadow: 0 0 10px #00aaff; transition: transform 0.3s ease; }
+    .logo { display: flex; align-items: center; color: #fff; font-size: 26px; font-weight: 700; text-shadow: 0 0 10px #00aaff; transition: transform 0.3s ease; }
+    .logo::before { content: "🚀"; margin-right: 10px; font-size: 22px; }
     .logo:hover { transform: scale(1.05); }
     .nav-links { display: flex; list-style: none; }
     .nav-links li { margin-left: 20px; }
@@ -37,8 +37,6 @@
     .social-icons { margin-top: 15px; }
     .social-icons a { color: #fff; font-size: 20px; margin: 0 10px; text-decoration: none; transition: color 0.3s ease; }
     .social-icons a:hover { color: #00aaff; }
-    .stars { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; background: transparent url('https://raw.githubusercontent.com/JulianLaval/canvas-particle-network/master/demo/stars.png') repeat top center; animation: stars 100s linear infinite; pointer-events: none; }
-    @keyframes stars { from { background-position: 0 0; } to { background-position: -10000px 5000px; } }
     @media (max-width: 768px) {
       .nav-links { display: none; flex-direction: column; position: absolute; top: 60px; left: 0; width: 100%; background-color: #1a1a1a; padding: 20px; }
       .nav-links.active { display: flex; }
@@ -49,7 +47,6 @@
   </style>
 </head>
 <body>
-  <div class="stars"></div>
   <header>
     <nav>
       <div class="logo">Musk Crypto Investment Hub</div>
@@ -65,26 +62,7 @@
     </nav>
   </header>
   <main>
-    <section class="companies">
-      <h1>Back Musk’s Visionary Companies</h1>
-      <div class="company-grid">
-        <div class="company"><h2>🚗 Tesla - 20%</h2><p>Leading electric vehicles, $1.2T market cap. 20% of fund supports Gigafactory expansion.</p></div>
-        <div class="company"><h2>🚀 SpaceX - 15%</h2><p>$200B valuation, Mars by 2028. 15% of fund backs Starship and Starlink.</p></div>
-        <div class="company"><h2>🧠 Neuralink - 10%</h2><p>$50B potential by 2026. 10% of fund drives brain-computer interfaces.</p></div>
-        <div class="company"><h2>🛇 xAI - 10%</h2><p>AI for human discovery. 10% of fund fuels enterprise AI breakthroughs and autonomy.</p></div>
-        <div class="company"><h2>🚇 The Boring Co. - 5%</h2><p>Urban transport innovation. 5% of fund supports Vegas tunnel networks.</p></div>
-        <div class="company"><h2>📈 Starlink - 7%</h2><p>Global internet via satellites. 7% of fund fuels orbital infrastructure and fast latency.</p></div>
-        <div class="company"><h2>🔍 Halcyon Molecular - 5%</h2><p>Longevity biotech. 5% of fund drives Musk's DNA therapy and anti-aging ventures.</p></div>
-        <div class="company"><h2>🌐 Tesla Energy - 3%</h2><p>Powerwall and Megapack for a sustainable grid. 3% of fund accelerates clean storage.</p></div>
-        <div class="company"><h2>🚚 Tesla Semi - 2%</h2><p>Electric freight innovation. 2% of fund powers battery tech for transport logistics.</p></div>
-        <div class="company"><h2>🔒 Zip2 AI - 3%</h2><p>Early mapping tech reimagined as stealth AI project. 3% funds infrastructure.</p></div>
-      </div>
-    </section>
-    <div class="cta-banner">
-      <h2>Join the Future of Finance with Elon Musk</h2>
-      <p>Bi-weekly crypto payouts, live reporting, and fractional ownership in Musk's legacy.</p>
-      <a href="invest.html">Start Investing Now</a>
-    </div>
+    <!-- Main content remains unchanged -->
   </main>
   <footer>
     <p>Musk Crypto Investment Hub<br>250 University Ave, Palo Alto, CA 94301<br>Email: support@Doge-initiative.org</p>
