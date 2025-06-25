@@ -8,8 +8,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', Arial, sans-serif; }
-    body { background-color: #f0f0f0; overflow-x: hidden; }
-    header { background: linear-gradient(90deg, #1a1a1a, #2a2a2a); padding: 15px 20px; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); }
+    body { background-color: #0e0e0e; overflow-x: hidden; color: #fff; position: relative; }
+    header { background: linear-gradient(90deg, #000000, #1a1a1a); padding: 15px 20px; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); }
     nav { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; }
     .logo { color: #fff; font-size: 26px; font-weight: 700; text-shadow: 0 0 10px #00aaff; transition: transform 0.3s ease; }
     .logo:hover { transform: scale(1.05); }
@@ -21,22 +21,24 @@
     .nav-links a:hover::after { width: 100%; }
     .mobile-menu-btn { display: none; background: none; border: none; cursor: pointer; flex-direction: column; justify-content: space-between; height: 20px; }
     .mobile-menu-btn span { width: 25px; height: 3px; background-color: #fff; display: block; transition: all 0.3s ease; }
-    main { margin-top: 60px; padding: 20px; }
-    .companies { padding: 60px 20px; background: linear-gradient(180deg, #e6f0fa 0%, #ffffff 100%); max-width: 1200px; margin: 0 auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); }
-    .companies h1 { text-align: center; font-size: 40px; color: #1a1a1a; font-weight: 700; margin-bottom: 40px; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); }
+    main { margin-top: 60px; padding: 20px; position: relative; z-index: 2; }
+    .companies { padding: 60px 20px; background: rgba(255, 255, 255, 0.05); max-width: 1200px; margin: 0 auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0, 170, 255, 0.2); }
+    .companies h1 { text-align: center; font-size: 40px; color: #00ccff; font-weight: 700; margin-bottom: 40px; text-shadow: 0 2px 4px rgba(0, 255, 255, 0.2); }
     .company-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
-    .company { background: linear-gradient(135deg, #ffffff, #f0faff); flex: 1 1 45%; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); transition: transform 0.3s ease, box-shadow 0.3s ease; }
-    .company:hover { transform: translateY(-10px); box-shadow: 0 8px 25px rgba(0, 170, 255, 0.3); }
-    .company h2 { font-size: 22px; color: #00aaff; font-weight: 600; margin-bottom: 10px; }
-    .company p { font-size: 15px; color: #333; line-height: 1.7; }
+    .company { background: rgba(0, 0, 0, 0.6); flex: 1 1 45%; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 170, 255, 0.3); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .company:hover { transform: translateY(-10px); box-shadow: 0 8px 25px rgba(0, 170, 255, 0.6); }
+    .company h2 { font-size: 22px; color: #00ccff; font-weight: 600; margin-bottom: 10px; }
+    .company p { font-size: 15px; color: #ccc; line-height: 1.7; }
     .cta-banner { background-color: #00aaff; color: #fff; text-align: center; padding: 30px 20px; margin-top: 40px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); font-size: 18px; }
     .cta-banner a { display: inline-block; margin-top: 15px; background-color: #fff; color: #00aaff; padding: 12px 25px; border-radius: 8px; font-weight: 600; text-decoration: none; transition: background 0.3s ease; }
     .cta-banner a:hover { background-color: #e6f0fa; }
-    footer { background: linear-gradient(90deg, #1a1a1a, #2a2a2a); color: #fff; text-align: center; padding: 30px 20px; font-size: 14px; margin-top: 40px; box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); }
+    footer { background: linear-gradient(90deg, #000000, #1a1a1a); color: #fff; text-align: center; padding: 30px 20px; font-size: 14px; margin-top: 40px; box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); }
     footer p { margin: 10px 0; }
     .social-icons { margin-top: 15px; }
     .social-icons a { color: #fff; font-size: 20px; margin: 0 10px; text-decoration: none; transition: color 0.3s ease; }
     .social-icons a:hover { color: #00aaff; }
+    .stars { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; background: transparent url('https://raw.githubusercontent.com/JulianLaval/canvas-particle-network/master/demo/stars.png') repeat top center; animation: stars 100s linear infinite; pointer-events: none; }
+    @keyframes stars { from { background-position: 0 0; } to { background-position: -10000px 5000px; } }
     @media (max-width: 768px) {
       .nav-links { display: none; flex-direction: column; position: absolute; top: 60px; left: 0; width: 100%; background-color: #1a1a1a; padding: 20px; }
       .nav-links.active { display: flex; }
@@ -47,6 +49,7 @@
   </style>
 </head>
 <body>
+  <div class="stars"></div>
   <header>
     <nav>
       <div class="logo">Musk Crypto Investment Hub</div>
