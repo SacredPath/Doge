@@ -1,54 +1,322 @@
-<main>
-  <div class="content-wrapper">
-    <section class="about">
-      <h1>About Us</h1>
-      <p>Empowering investors to back World Renowned revolutionary companies with Bitcoin and Dogecoin. Our fund, managed by crypto experts, diversifies across Tesla, SpaceX, Neuralink, and more, with bi-weekly payouts.</p>
-    </section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About - Musk Crypto Investment Hub</title>
+  <link rel="icon" type="image/png" href="./images/favicon.ico" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', Arial, sans-serif;
+    }
 
-    <section class="faq">
-      <h2>FAQ</h2>
-      <details>
-        <summary>Is Musk Crypto Investment Hub officially endorsed by Elon Musk?</summary>
-        <p>Yes. The fund is founded, operated, and managed under Elon Musk’s vision and leadership, with exclusive investment access to his key ventures.</p>
-      </details>
-      <details>
-        <summary>Which companies does the fund invest in?</summary>
-        <p>The fund diversifies across Musk’s companies: Tesla, SpaceX, Neuralink, The Boring Company, and xAI—with clear allocation percentages.</p>
-      </details>
-      <details>
-        <summary>What cryptocurrencies are used for investment?</summary>
-        <p>Investments are made using Bitcoin and Dogecoin, enabling crypto-native backing of Musk’s ventures.</p>
-      </details>
-      <details>
-        <summary>How often are payouts made?</summary>
-        <p>Payouts are distributed bi-weekly, helping investors to realize consistent returns.</p>
-      </details>
-      <details>
-        <summary>How can I track fund allocations?</summary>
-        <p>Performance reports and allocation breakdowns are accessible on the “Companies” and “Invest” pages.</p>
-      </details>
-      <details>
-        <summary>Is this fund open to all investors?</summary>
-        <p>Yes, it is designed to democratize access to high-impact investments—beyond traditional accredited investor limitations.</p>
-      </details>
-      <details>
-        <summary>Where is the fund operated?</summary>
-        <p>Headquartered at 250 University Ave, Palo Alto, CA 94301—the heart of the innovation ecosystem.</p>
-      </details>
-      <details>
-        <summary>Who manages the fund's crypto assets?</summary>
-        <p>The fund is overseen by a team of crypto experts specializing in secure custody, compliance, and risk management of Bitcoin and Dogecoin assets.</p>
-      </details>
-    </section>
+    body {
+      background-color: #f0f0f0;
+      overflow-x: hidden;
+    }
 
-    <aside class="how-to">
-      <h2>🚀 How To Invest</h2>
-      <ol>
-        <li>💰 <strong>Deposit:</strong> Send BTC or DOGE to our secure wallet.</li>
-        <li>📝 <strong>Fill Form:</strong> Submit your investment form.</li>
-        <li>✅ <strong>Get Approved:</strong> Our team verifies and activates your account.</li>
-        <li>📈 <strong>Bi-weekly Payouts:</strong> Start earning returns every two weeks.</li>
-      </ol>
-    </aside>
-  </div>
-</main>
+    header {
+      background: linear-gradient(90deg, #1a1a1a, #2a2a2a);
+      padding: 15px 20px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      color: #fff;
+      font-size: 26px;
+      font-weight: 700;
+      text-shadow: 0 0 10px #00aaff;
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+
+    .nav-links li {
+      margin-left: 20px;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 400;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      background-color: #00aaff;
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: #00aaff;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 20px;
+    }
+
+    .mobile-menu-btn span {
+      width: 25px;
+      height: 3px;
+      background-color: #fff;
+      display: block;
+      transition: all 0.3s ease;
+    }
+
+    main {
+      margin-top: 70px;
+      padding: 20px;
+    }
+
+    .content-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .about, .faq, .how-to {
+      flex: 1 1 300px;
+      max-width: 800px;
+      background: linear-gradient(180deg, #e6f0fa 0%, #ffffff 100%);
+      padding: 40px 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      animation: slideUp 0.5s ease-out;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .about:hover, .faq:hover, .how-to:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 25px rgba(0, 170, 255, 0.3);
+    }
+
+    .about h1, .faq h2, .how-to h2 {
+      font-size: 32px;
+      color: #1a1a1a;
+      margin-bottom: 20px;
+      font-weight: 700;
+      text-align: center;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .about p {
+      font-size: 16px;
+      color: #333;
+      line-height: 1.7;
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .faq details {
+      background: #fff;
+      margin: 10px 0;
+      padding: 15px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    }
+
+    .faq summary {
+      font-weight: 600;
+      font-size: 16px;
+      color: #1a1a1a;
+      outline: none;
+    }
+
+    .faq p {
+      margin-top: 10px;
+      font-size: 15px;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .how-to ol {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .how-to li {
+      margin-bottom: 20px;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    footer {
+      background: linear-gradient(90deg, #1a1a1a, #2a2a2a);
+      color: #fff;
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 14px;
+      margin-top: 40px;
+      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    footer p {
+      margin: 10px 0;
+    }
+
+    .social-icons {
+      margin-top: 15px;
+    }
+
+    .social-icons a {
+      color: #fff;
+      font-size: 20px;
+      margin: 0 10px;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: #00aaff;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #1a1a1a;
+        padding: 20px;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links li {
+        margin: 10px 0;
+      }
+
+      .mobile-menu-btn {
+        display: flex;
+      }
+
+      .about h1, .faq h2, .how-to h2 {
+        font-size: 24px;
+      }
+
+      .about p, .faq p, .how-to li {
+        font-size: 14px;
+      }
+
+      .content-wrapper {
+        flex-direction: column;
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">Musk Crypto Investment Hub</div>
+      <button class="mobile-menu-btn" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="investment.html">Invest</a></li>
+        <li><a href="companies.html">Companies</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <div class="content-wrapper">
+      <section class="about">
+        <h1>About Us</h1>
+        <p>Empowering investors to back World Renowned revolutionary companies with Bitcoin and Dogecoin. Our fund, managed by crypto experts, diversifies across Tesla, SpaceX, Neuralink, and more, with bi-weekly payouts.</p>
+      </section>
+
+      <section class="faq">
+        <h2>FAQ</h2>
+        <details><summary>Is Musk Crypto Investment Hub officially endorsed by Elon Musk?</summary><p>Yes. The fund is founded, operated, and managed under Elon Musk’s vision and leadership.</p></details>
+        <details><summary>Which companies does the fund invest in?</summary><p>Tesla, SpaceX, Neuralink, The Boring Company, and xAI.</p></details>
+        <details><summary>What cryptocurrencies are used for investment?</summary><p>Bitcoin and Dogecoin.</p></details>
+        <details><summary>How often are payouts made?</summary><p>Bi-weekly returns distributed every two weeks.</p></details>
+        <details><summary>How can I track fund allocations?</summary><p>View real-time reports on the “Companies” and “Invest” pages.</p></details>
+        <details><summary>Is this fund open to all investors?</summary><p>Yes, it’s open to the public without traditional investor limits.</p></details>
+        <details><summary>Where is the fund operated?</summary><p>250 University Ave, Palo Alto, CA 94301.</p></details>
+        <details><summary>Who manages the fund's crypto assets?</summary><p>Our team of experts ensures secure and compliant crypto management.</p></details>
+      </section>
+
+      <aside class="how-to">
+        <h2>🚀 How To Invest</h2>
+        <ol>
+          <li>💰 <strong>Deposit:</strong> Send BTC or DOGE to our secure wallet.</li>
+          <li>📝 <strong>Fill Form:</strong> Submit your investment form.</li>
+          <li>✅ <strong>Get Approved:</strong> We review and activate your account.</li>
+          <li>📈 <strong>Bi-weekly Payouts:</strong> Earn returns every two weeks.</li>
+        </ol>
+      </aside>
+    </div>
+  </main>
+  <footer>
+    <p>Musk Crypto Investment Hub<br>250 University Ave, Palo Alto, CA 94301</p>
+    <p>© 2025 Musk Crypto Investment Hub</p>
+    <div class="social-icons">
+      <a href="#" aria-label="Twitter">𝕏</a>
+      <a href="#" aria-label="LinkedIn">🖇️</a>
+      <a href="#" aria-label="Email">📧</a>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+  <script src="https://embed.tawk.to/YOUR_TAWKTO_ID/default"></script>
+</body>
+</html>
