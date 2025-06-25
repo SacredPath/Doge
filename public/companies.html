@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Companies - Musk Crypto Investment Hub</title>
-  <link rel="icon" type="image/ico" href="./images/favicon.ico">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/ico" href="./images/favicon.ico" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <style>
     * {
       margin: 0;
@@ -13,12 +13,10 @@
       box-sizing: border-box;
       font-family: 'Poppins', Arial, sans-serif;
     }
-
     body {
       background-color: #f0f0f0;
       overflow-x: hidden;
     }
-
     header {
       background: linear-gradient(90deg, #1a1a1a, #2a2a2a);
       padding: 15px 20px;
@@ -28,7 +26,6 @@
       z-index: 1000;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     }
-
     nav {
       display: flex;
       justify-content: space-between;
@@ -36,7 +33,6 @@
       max-width: 1200px;
       margin: 0 auto;
     }
-
     .logo {
       color: #fff;
       font-size: 26px;
@@ -44,20 +40,16 @@
       text-shadow: 0 0 10px #00aaff;
       transition: transform 0.3s ease;
     }
-
     .logo:hover {
       transform: scale(1.05);
     }
-
     .nav-links {
       display: flex;
       list-style: none;
     }
-
     .nav-links li {
       margin-left: 20px;
     }
-
     .nav-links a {
       color: #fff;
       text-decoration: none;
@@ -66,7 +58,6 @@
       position: relative;
       transition: color 0.3s ease;
     }
-
     .nav-links a::after {
       content: '';
       position: absolute;
@@ -77,15 +68,12 @@
       background-color: #00aaff;
       transition: width 0.3s ease;
     }
-
     .nav-links a:hover {
       color: #00aaff;
     }
-
     .nav-links a:hover::after {
       width: 100%;
     }
-
     .mobile-menu-btn {
       display: none;
       background: none;
@@ -95,7 +83,6 @@
       justify-content: space-between;
       height: 20px;
     }
-
     .mobile-menu-btn span {
       width: 25px;
       height: 3px;
@@ -103,23 +90,21 @@
       display: block;
       transition: all 0.3s ease;
     }
-
     main {
-      margin-top: 60px;
+      margin-top: 70px;
       padding: 20px;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
     }
-
     .companies {
-      padding: 60px 20px;
+      padding: 40px 20px;
       text-align: center;
       background: linear-gradient(180deg, #e6f0fa 0%, #ffffff 100%);
-      max-width: 1200px;
-      margin: 0 auto;
       border-radius: 12px;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
       animation: fadeIn 1s ease-out;
     }
-
     .companies h1 {
       font-size: 40px;
       color: #1a1a1a;
@@ -127,7 +112,6 @@
       margin-bottom: 40px;
       text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     }
-
     .company {
       background: linear-gradient(135deg, #ffffff, #f0faff);
       padding: 25px;
@@ -139,41 +123,61 @@
       position: relative;
       animation: slideUp 0.5s ease-out forwards;
       animation-delay: calc(0.1s * var(--index));
+      text-align: left;
     }
-
     .company:hover {
       transform: translateY(-10px);
       box-shadow: 0 8px 25px rgba(0, 170, 255, 0.3);
     }
-
     .company::before {
-      content: '⚡️'; /* Placeholder icon; varies by company */
+      content: '⚡️';
       position: absolute;
       top: 20px;
       left: 20px;
       font-size: 24px;
       opacity: 0.2;
     }
-
     .company:nth-child(1)::before { content: '🚗'; } /* Tesla */
     .company:nth-child(2)::before { content: '🚀'; } /* SpaceX */
     .company:nth-child(3)::before { content: '🧠'; } /* Neuralink */
     .company:nth-child(4)::before { content: '🚇'; } /* The Boring Company */
     .company:nth-child(5)::before { content: '🤖'; } /* xAI */
-
+    .company:nth-child(6)::before { content: '🔬'; } /* Halcyon Molecular */
+    .company:nth-child(7)::before { content: '🌐'; } /* Zip2 */
+    .company:nth-child(8)::before { content: '🛰️'; } /* Starlink */
+    .company:nth-child(9)::before { content: '🔋'; } /* Tesla Energy */
+    .company:nth-child(10)::before { content: '🚚'; } /* Tesla Semi */
     .company h2 {
       font-size: 26px;
       color: #00aaff;
       font-weight: 600;
       margin-bottom: 15px;
     }
-
     .company p {
       font-size: 16px;
       color: #333;
       line-height: 1.7;
+      margin-left: 40px;
     }
-
+    .charts-section {
+      margin-top: 50px;
+      background: linear-gradient(180deg, #ffffff 0%, #e6f0fa 100%);
+      border-radius: 12px;
+      padding: 30px 20px;
+      box-shadow: 0 4px 25px rgba(0, 170, 255, 0.2);
+    }
+    .charts-section h2 {
+      text-align: center;
+      color: #1a1a1a;
+      font-size: 32px;
+      margin-bottom: 30px;
+      font-weight: 700;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .chart-container {
+      max-width: 700px;
+      margin: 0 auto 50px;
+    }
     footer {
       background: linear-gradient(90deg, #1a1a1a, #2a2a2a);
       color: #fff;
@@ -183,15 +187,12 @@
       margin-top: 40px;
       box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
     }
-
     footer p {
       margin: 10px 0;
     }
-
     .social-icons {
       margin-top: 15px;
     }
-
     .social-icons a {
       color: #fff;
       font-size: 20px;
@@ -199,21 +200,17 @@
       text-decoration: none;
       transition: color 0.3s ease;
     }
-
     .social-icons a:hover {
       color: #00aaff;
     }
-
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
     }
-
     @keyframes slideUp {
       from { transform: translateY(50px); opacity: 0; }
       to { transform: translateY(0); opacity: 1; }
     }
-
     @media (max-width: 768px) {
       .nav-links {
         display: none;
@@ -225,34 +222,41 @@
         background-color: #1a1a1a;
         padding: 20px;
       }
-
       .nav-links.active {
         display: flex;
       }
-
       .nav-links li {
         margin: 10px 0;
       }
-
       .mobile-menu-btn {
         display: flex;
       }
-
+      main {
+        padding: 10px;
+      }
       .companies h1 {
-        font-size: 32px;
+        font-size: 28px;
       }
-
       .company {
-        padding: 20px;
+        padding: 15px;
         margin: 15px auto;
+        max-width: 100%;
       }
-
       .company h2 {
         font-size: 22px;
       }
-
       .company p {
         font-size: 14px;
+        margin-left: 30px;
+      }
+      .charts-section {
+        padding: 20px 10px;
+      }
+      .charts-section h2 {
+        font-size: 24px;
+      }
+      .chart-container {
+        max-width: 100%;
       }
     }
   </style>
@@ -262,9 +266,7 @@
     <nav>
       <div class="logo">Musk Crypto Investment Hub</div>
       <button class="mobile-menu-btn" aria-label="Toggle menu">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span>
       </button>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
@@ -277,6 +279,7 @@
   <main>
     <section class="companies">
       <h1>Back Musk’s Visionary Companies</h1>
+
       <div class="company" style="--index: 1;">
         <h2>Tesla</h2>
         <p>Leading electric vehicles, $1.2T market cap. 20% of fund supports Gigafactory expansion.</p>
@@ -295,12 +298,47 @@
       </div>
       <div class="company" style="--index: 5;">
         <h2>xAI</h2>
-        <p>AI for human discovery. 10% of fund fuels enterprise AI solutions.</p>
+        <p>AI for human discovery. 10% of fund fuels enterprise AI breakthroughs and autonomy.</p>
+      </div>
+      <div class="company" style="--index: 6;">
+        <h2>Halcyon Molecular</h2>
+        <p>Pioneering longevity biotech with DNA sequencing innovations. 5% of fund drives next-gen therapies.</p>
+      </div>
+      <div class="company" style="--index: 7;">
+        <h2>Zip2</h2>
+        <p>Musk's earliest software company now revived as a stealth mapping AI firm. 3% of fund reserved for its comeback infrastructure.</p>
+      </div>
+      <div class="company" style="--index: 8;">
+        <h2>Starlink</h2>
+        <p>Global internet via satellites. 7% of fund fuels new orbital coverage and low-latency enterprise offerings.</p>
+      </div>
+      <div class="company" style="--index: 9;">
+        <h2>Tesla Energy</h2>
+        <p>Solar + storage ecosystem. 3% of fund powers expansion of Megapack and Powerwall deployments worldwide.</p>
+      </div>
+      <div class="company" style="--index: 10;">
+        <h2>Tesla Semi</h2>
+        <p>Revolutionizing freight transport. 2% of fund allocated to gigacasting and battery logistics for long-haul EV trucking.</p>
+      </div>
+    </section>
+
+    <section class="charts-section">
+      <h2>Fund Allocation Breakdown</h2>
+      <div class="chart-container">
+        <canvas id="allocationChart"></canvas>
+      </div>
+      <h2>Recent Quarterly Performance (%)</h2>
+      <div class="chart-container">
+        <canvas id="performanceChart"></canvas>
       </div>
     </section>
   </main>
   <footer>
-    <p>Musk Crypto Investment Hub<br>250 University Ave, Palo Alto, CA 94301<br>Email: support@Doge-initiative.org</p>
+    <p>
+      Musk Crypto Investment Hub<br />
+      250 University Ave, Palo Alto, CA 94301<br />
+      Email: support@Doge-initiative.org
+    </p>
     <p>© 2025 Musk Crypto Investment Hub</p>
     <div class="social-icons">
       <a href="#" aria-label="Twitter">𝕏</a>
@@ -308,7 +346,97 @@
       <a href="#" aria-label="Email">✉️</a>
     </div>
   </footer>
-  <script src="script.js"></script>
-  <script src="https://embed.tawk.to/YOUR_TAWKTO_ID/default"></script>
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script>
+    const ctxAllocation = document.getElementById('allocationChart').getContext('2d');
+    const allocationChart = new Chart(ctxAllocation, {
+      type: 'pie',
+      data: {
+        labels: [
+          'Tesla', 'SpaceX', 'Neuralink', 'The Boring Company', 'xAI', 
+          'Halcyon Molecular', 'Zip2', 'Starlink', 'Tesla Energy', 'Tesla Semi'
+        ],
+        datasets: [{
+          label: 'Fund Allocation %',
+          data: [20, 15, 10, 5, 10, 5, 3, 7, 3, 2],
+          backgroundColor: [
+            '#0074D9', '#FF4136', '#2ECC40', '#FF851B', '#7FDBFF', 
+            '#B10DC9', '#FFDC00', '#001f3f', '#39CCCC', '#85144b'
+          ],
+          borderColor: '#fff',
+          borderWidth: 2,
+          hoverOffset: 15,
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'bottom',
+            labels: {
+              font: { size: 14 }
+            }
+          },
+          tooltip: {
+            callbacks: {
+              label: ctx => `${ctx.label}: ${ctx.parsed}% of fund`
+            }
+          }
+        }
+      }
+    });
+
+    const ctxPerformance = document.getElementById('performanceChart').getContext('2d');
+    const performanceChart = new Chart(ctxPerformance, {
+      type: 'bar',
+      data: {
+        labels: [
+          'Tesla', 'SpaceX', 'Neuralink', 'The Boring Company', 'xAI', 
+          'Halcyon Molecular', 'Zip2', 'Starlink', 'Tesla Energy', 'Tesla Semi'
+        ],
+        datasets: [{
+          label: 'Q2 2025 Return (%)',
+          data: [18, 25, 22, 12, 19, 15, 9, 21, 14, 11],
+          backgroundColor: '#00aaff',
+          borderRadius: 5,
+          maxBarThickness: 50,
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 30,
+            ticks: {
+              stepSize: 5,
+              font: { size: 14 }
+            },
+            title: {
+              display: true,
+              text: 'Return (%)',
+              font: { size: 16, weight: 'bold' }
+            }
+          },
+          x: {
+            ticks: {
+              font: { size: 14 }
+            }
+          }
+        },
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: ctx => `${ctx.parsed.y}% return`
+            }
+          }
+        }
+      }
+    });
+  </script>
 </body>
 </html>
