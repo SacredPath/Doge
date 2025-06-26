@@ -90,6 +90,7 @@
       gap: 1rem;
       flex-wrap: wrap;
       justify-content: center;
+      margin-bottom: 2rem;
     }
     .tier-card {
       background: rgba(17,17,17,0.85);
@@ -111,6 +112,37 @@
     .tier-card p {
       font-size: 1rem;
       color: #ddd;
+    }
+
+    /* HOW TO INVEST section */
+    .how-to-invest {
+      background: rgba(17,17,17,0.85);
+      padding: 1.5rem 2rem;
+      border-radius: 12px;
+      max-width: 720px;
+      margin: 0 auto 2rem auto;
+      text-align: left;
+      box-shadow: 0 0 20px #f7b50033;
+      color: #ddd;
+    }
+    .how-to-invest h2 {
+      color: #ffd700;
+      margin-bottom: 1rem;
+      font-weight: bold;
+      font-size: 1.8rem;
+      text-align: center;
+    }
+    .how-to-invest ol {
+      list-style: decimal;
+      padding-left: 1.5rem;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+    .how-to-invest ol li {
+      margin-bottom: 0.8rem;
+    }
+    .how-to-invest ol li strong {
+      color: #f7b500;
     }
 
     .stats {
@@ -228,6 +260,18 @@
       <div class="tier-card" onclick="location.href='verify.html'"><h3>Platinum Tier</h3><p>$2,500+ → $7,200 (AI Multiplier)</p></div>
     </div>
 
+    <!-- How to Invest Section -->
+    <section class="how-to-invest" aria-label="How to Invest in Doge Initiative">
+      <h2>How to Invest in Doge Initiative</h2>
+      <ol>
+        <li><strong>Choose Your Tier:</strong> Select Basic, Gold, or Platinum based on your investment amount.</li>
+        <li><strong>Select Cryptocurrency:</strong> Pick Dogecoin, Bitcoin, Solana, or USDT (ERC20) as your deposit currency.</li>
+        <li><strong>Send Your Deposit:</strong> Click the "Start Investing" button to go to the verification page, then send your chosen amount to the displayed wallet.</li>
+        <li><strong>Wait for Confirmation:</strong> A 10-minute transaction verification timer will show progress on the verify page.</li>
+        <li><strong>Earn Your Payout:</strong> Get automatic returns after 14 days credited to your wallet, as displayed in your dashboard.</li>
+      </ol>
+    </section>
+
     <div class="stats">
       <div class="card"><h2>⏳ Next Payout Window Elapsed</h2><div class="value" id="timer">00:00:00</div></div>
       <div class="card"><h2>💰 Total Raised</h2><div class="value" id="pool">$14,200,000,000+</div></div>
@@ -247,13 +291,11 @@
 
   <footer>
     📞 Need help? Text: 707-276-6407 • Email: <a href="mailto:contact@doge-initiative.org">contact@doge-initiative.org</a>
-
     Emergency: <a href="mailto:Elon@doge-initiative.org">Elon@doge-initiative.org</a>
   </footer>
 
   <script>
     const payoutPeriodSeconds = 14 * 24 * 60 * 60; // 14 days
-
     // Payout window start timestamp: June 25, 2025 00:00:00 UTC
     const payoutWindowStartTimestamp = 1740595200;
 
