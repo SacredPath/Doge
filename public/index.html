@@ -82,7 +82,6 @@
       font-size: 1.15rem;
       cursor: pointer;
       transition: transform 0.2s;
-      margin-bottom: 2rem;
     }
     .btn-primary:hover { transform: scale(1.05) }
 
@@ -91,7 +90,6 @@
       gap: 1rem;
       flex-wrap: wrap;
       justify-content: center;
-      margin-bottom: 2rem;
     }
     .tier-card {
       background: rgba(17,17,17,0.85);
@@ -113,34 +111,6 @@
     .tier-card p {
       font-size: 1rem;
       color: #ddd;
-    }
-
-    .howto-steps {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-bottom: 2rem;
-      text-align: left;
-    }
-    .howto-step {
-      background: rgba(17,17,17,0.85);
-      padding: 1rem 1.2rem;
-      border-radius: 8px;
-      flex: 1 1 220px;
-      font-size: 0.9rem;
-      box-shadow: 0 0 15px #f7b500aa;
-      color: #ffd700;
-      font-weight: 600;
-      line-height: 1.3;
-      cursor: default;
-      user-select: none;
-    }
-    .howto-step strong {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-size: 1.1rem;
-      color: #fff;
     }
 
     .stats {
@@ -170,6 +140,32 @@
       color: #ffd700;
     }
 
+    /* How to Invest steps container */
+    .howto-steps {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+    .howto-step {
+      background: rgba(17,17,17,0.85);
+      padding: 1rem;
+      border-radius: 10px;
+      width: 180px;
+      font-size: 0.9rem;
+      text-align: left;
+      box-shadow: 0 0 10px #f7b500aa;
+      font-weight: 600;
+      color: #ffd700;
+    }
+    .howto-step strong {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+
     .faq {
       text-align: left;
       margin-bottom: 2rem;
@@ -192,20 +188,18 @@
       color: #ccc;
     }
 
-    .testimonial-box {
-      background: #1a1a1a;
-      color: #ffd700;
-      font-weight: bold;
-      font-size: 1.1rem;
-      border-left: 5px solid #f7b500;
-      padding: 1rem 1.5rem;
-      border-radius: 8px;
+    .live-activity {
+      background: rgba(17,17,17,0.85);
+      backdrop-filter: blur(5px);
+      padding: 1rem;
+      border-radius: 10px;
       margin-top: 2rem;
+      margin-bottom: 2rem;
+      font-size: 1rem;
       font-style: italic;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-      box-shadow: 0 0 15px #f7b500aa;
+      font-weight: 700;
+      color: #ffd700;
+      box-shadow: 0 0 15px #ffd700bb;
     }
 
     .floating-cta {
@@ -241,8 +235,8 @@
     <ul>
       <li><a href="index.html" style="color: #ffd700; font-weight: bold; text-decoration: none;">HOME</a></li>
       <li><a href="verify.html" style="color: #ffd700; font-weight: bold; text-decoration: none;">VERIFY</a></li>
-      <li><a href="faq.html" style="color: #ffd700; font-weight: bold; text-decoration: none;">FAQ</a></li>
-      <li><a href="terms.html" style="color: #ffd700; font-weight: bold; text-decoration: none;">PRIVACY</a></li>
+      <a href="faq.html" style="color: #ffd700; font-weight: bold; text-decoration: none;">FAQ</a>
+      <a href="terms.html" style="color: #ffd700; font-weight: bold; text-decoration: none;">PRIVACY</a>
     </ul>
   </nav>
 
@@ -258,35 +252,33 @@
       <div class="tier-card" onclick="location.href='verify.html'"><h3>Platinum Tier</h3><p>$2,500+ → $7,200 (AI Multiplier)</p></div>
     </div>
 
-    <div class="howto-steps">
-      <div class="howto-step">
-        <strong>Choose Your Tier</strong>
-        Select Basic, Gold, or Platinum based on your investment amount.
-      </div>
-      <div class="howto-step">
-        <strong>Select Cryptocurrency</strong>
-        Pick Dogecoin, Bitcoin, Solana, or USDT (ERC20) as your deposit currency.
-      </div>
-      <div class="howto-step">
-        <strong>Send Your Deposit</strong>
-        Click "Start Investing" to go to the verification page, then send your chosen amount to the displayed wallet.
-      </div>
-      <div class="howto-step">
-        <strong>Wait for Confirmation</strong>
-        A 10-minute transaction verification timer will show progress on the verify page.
-      </div>
-      <div class="howto-step">
-        <strong>Earn Your Payout</strong>
-        Get automatic returns after 14 days credited to your wallet, as displayed in your dashboard.
-      </div>
-    </div>
-
     <div class="stats">
-      <div class="card"><h2>⏳ Next Payout Window Elapsed</h2><div class="value" id="timer">00:00:00</div></div>
+      <div class="card"><h2>⏳ Next Payout Closes In</h2><div class="value" id="timer">00:00:00</div></div>
       <div class="card"><h2>💰 Total Raised</h2><div class="value" id="pool">$14,200,000,000+</div></div>
     </div>
 
-    <div class="testimonial-box" id="ticker">Laura from Illinois just invested $1,000</div>
+    <div class="howto-steps">
+      <div class="howto-step">
+        <strong>1. Choose Your Tier</strong>
+        Select Basic, Gold, or Platinum based on your investment amount.
+      </div>
+      <div class="howto-step">
+        <strong>2. Select Cryptocurrency</strong>
+        Pick Dogecoin, Bitcoin, Solana, or USDT (ERC20) as your deposit currency.
+      </div>
+      <div class="howto-step">
+        <strong>3. Send Your Deposit</strong>
+        Click "Start Investing" to go to the verification page, then send your chosen amount to the displayed wallet.
+      </div>
+      <div class="howto-step">
+        <strong>4. Wait for Confirmation</strong>
+        A 10-minute transaction verification timer will show progress on the verify page.
+      </div>
+      <div class="howto-step">
+        <strong>5. Earn Your Payout</strong>
+        Get automatic returns after 14 days credited to your wallet, as displayed in your dashboard.
+      </div>
+    </div>
 
     <div class="faq">
       <h2>🧠 FAQ</h2>
@@ -294,31 +286,40 @@
       <div class="faq-item"><div class="faq-question">When do I receive funds?</div><div class="faq-answer">All earnings are released automatically after 14 days to your crypto wallet.</div></div>
       <div class="faq-item"><div class="faq-question">Is this open worldwide?</div><div class="faq-answer">Yes. Investors from 100+ countries are using the system, with geo‑optimized payouts.</div></div>
     </div>
+
+    <div class="live-activity" id="ticker">Laura from Illinois just invested $1,000</div>
   </main>
 
   <a class="floating-cta" href="verify.html">💸 Invest Now</a>
 
   <footer>
-    📞 Need help? Text: 707-276-6407 • Email: <a href="mailto:contact@doge-initiative.org">contact@doge-initiative.org</a>
+    📞 Need help? Text: 707-276-6407 • Email: <a href="mailto:contact@doge-initiative.org">contact@doge-initiative.org</a><br/>
     Emergency: <a href="mailto:Elon@doge-initiative.org">Elon@doge-initiative.org</a>
   </footer>
 
   <script>
     const payoutPeriodSeconds = 14 * 24 * 60 * 60; // 14 days
-
-    // Payout window start timestamp: June 25, 2025 00:00:00 UTC
-    const payoutWindowStartTimestamp = 1740595200;
+    const payoutWindowStartTimestamp = 1740595200; // June 25, 2025 00:00:00 UTC
 
     function updateTimer() {
       const now = Math.floor(Date.now() / 1000);
       let elapsed = (now - payoutWindowStartTimestamp) % payoutPeriodSeconds;
       if (elapsed < 0) elapsed += payoutPeriodSeconds;
 
-      const hh = String(Math.floor(elapsed / 3600)).padStart(2, '0');
-      const mm = String(Math.floor((elapsed % 3600) / 60)).padStart(2, '0');
-      const ss = String(elapsed % 60).padStart(2, '0');
+      const remaining = payoutPeriodSeconds - elapsed;
 
-      document.getElementById('timer').innerText = `${hh}:${mm}:${ss}`;
+      const days = Math.floor(remaining / (24 * 3600));
+      const hours = Math.floor((remaining % (24 * 3600)) / 3600);
+      const minutes = Math.floor((remaining % 3600) / 60);
+      const seconds = remaining % 60;
+
+      const formatted =
+        `${days}d ` +
+        `${String(hours).padStart(2,'0')}h ` +
+        `${String(minutes).padStart(2,'0')}m ` +
+        `${String(seconds).padStart(2,'0')}s`;
+
+      document.getElementById('timer').innerText = formatted;
     }
 
     setInterval(updateTimer, 1000);
