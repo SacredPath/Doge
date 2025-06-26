@@ -351,15 +351,19 @@
   </footer>
 
   <script>
-    // Countdown
-    let t = 86400;
-    setInterval(() => {
-      t = t - 1 < 0 ? 86400 : t - 1;
-      const hh = String(Math.floor(t / 3600)).padStart(2, '0'),
-            mm = String(Math.floor((t % 3600) / 60)).padStart(2, '0'),
-            ss = String(t % 60).padStart(2, '0');
-      document.getElementById('timer').innerText = `${hh}:${mm}:${ss}`;
-    }, 1000);
+    
+    // Timer counting UP from 00:00:00 to 23:59:59, then resets
+let secondsElapsed = 0;
+const maxSeconds = 86400; // 24 hours
+
+setInterval(() => {
+  secondsElapsed = (secondsElapsed + 1) % maxSeconds;
+  const hh = String(Math.floor(secondsElapsed / 3600)).padStart(2, '0');
+  const mm = String(Math.floor((secondsElapsed % 3600) / 60)).padStart(2, '0');
+  const ss = String(secondsElapsed % 60).padStart(2, '0');
+  document.getElementById('timer').innerText = `${hh}:${mm}:${ss}`;
+}, 1000);
+
 
     // Pool growth
     let pool = 14200000000;
