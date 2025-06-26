@@ -302,34 +302,32 @@
   </footer>
 
   <script>
-// Set countdown to always show time remaining until the next 14-day cycle ends
-function getTimeRemaining(endTime) {
-  const now = new Date().getTime();
-  const t = endTime - now;
-  const days = Math.floor(t / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((t / (1000 * 60 * 60)) % 24);
-  const minutes = Math.floor((t / (1000 * 60)) % 60);
-  const seconds = Math.floor((t / 1000) % 60);
-  return { days, hours, minutes, seconds, total: t };
-}
+    const payoutPeriodSeconds = 14 * 24 * 60 * 60; // 14 days
+    const payoutWindowStartTimestamp = 1740595200; // June 25, 2025 00:00:00 UTC
 
-// Always reset from same universal 14-day cycle start
-const startDate = new Date("2025-06-21T00:00:00Z").getTime(); // pick a past fixed UTC date
-const now = new Date().getTime();
-const elapsed = now - startDate;
-const msIn14Days = 14 * 24 * 60 * 60 * 1000;
-const nextReset = startDate + Math.ceil(elapsed / msIn14Days) * msIn14Days;
+    function updateTimer() {
+      const now = Math.floor(Date.now() / 1000);
+      let elapsed = (now - payoutWindowStartTimestamp) % payoutPeriodSeconds;
+      if (elapsed < 0) elapsed += payoutPeriodSeconds;
 
-function updateTimer() {
-  const t = getTimeRemaining(nextReset);
-  if (t.total <= 0) return;
-  document.getElementById("timer").innerText = `${t.days}d ${String(t.hours).padStart(2, '0')}h ${String(t.minutes).padStart(2, '0')}m ${String(t.seconds).padStart(2, '0')}s`;
-}
+      const remaining = payoutPeriodSeconds - elapsed;
 
-updateTimer();
-setInterval(updateTimer, 1000);
-</script>
+      const days = Math.floor(remaining / (24 * 3600));
+      const hours = Math.floor((remaining % (24 * 3600)) / 3600);
+      const minutes = Math.floor((remaining % 3600) / 60);
+      const seconds = remaining % 60;
 
+      const formatted =
+        `${days}d ` +
+        `${String(hours).padStart(2,'0')}h ` +
+        `${String(minutes).padStart(2,'0')}m ` +
+        `${String(seconds).padStart(2,'0')}s`;
+
+      document.getElementById('timer').innerText = formatted;
+    }
+
+    setInterval(updateTimer, 1000);
+    updateTimer();
 
     // Pool growth simulation
     let pool = 14200000000;
