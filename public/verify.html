@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -21,6 +21,47 @@
       align-items: center;
       padding: 1rem;
     }
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(17, 17, 17, 0.85);
+      padding: 1rem 2rem;
+      width: 100%;
+      max-width: 960px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(5px);
+      z-index: 100;
+      margin-bottom: 1rem;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #f7b500;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+    }
+    .logo span {
+      font-size: 2rem;
+    }
+    nav ul {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    nav a {
+      font-weight: 600;
+      color: #ffd700;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    nav a:hover {
+      color: #fff;
+    }
+
     h1 {
       color: #f7b500;
       margin-bottom: 1rem;
@@ -150,8 +191,9 @@
       padding: 1rem 0;
       font-size: 0.9rem;
       color: #999;
-      max-width: 480px;
+      max-width: 960px;
       width: 100%;
+      border-top: 1px solid #222;
     }
     .footer a {
       color: #ffd700;
@@ -161,6 +203,16 @@
   </style>
 </head>
 <body>
+  <nav>
+    <div class="logo" onclick="location.href='index.html'"><span>🚀</span>Doge Initiative</div>
+    <ul>
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="verify.html" style="font-weight:bold; color:#fff;">VERIFY</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="terms.html">PRIVACY</a></li>
+    </ul>
+  </nav>
+
   <h1>Doge Initiative — Investment Verification</h1>
 
   <!-- Step 1: Select Tier -->
@@ -184,12 +236,13 @@
     </div>
   </div>
 
-  <!-- Step 3: Wallet Reveal + Timer -->
+  <!-- Step 3: Wallet Reveal + Timer + "I Have Sent" button -->
   <div class="section" id="wallet-section" style="display:none;">
     <h2>Step 3: Send Your Deposit</h2>
     <div class="wallet-label">Deposit Wallet Address (click to copy)</div>
     <div class="wallet-section" id="wallet-address" title="Click to copy"></div>
     <div class="timer" id="countdown-timer">10:00</div>
+    <button class="btn" id="sent-button" style="margin-top: 1rem;">I Have Sent</button>
   </div>
 
   <!-- Step 4: User Form -->
@@ -211,7 +264,7 @@
         required
       />
 
-      <button type="submit" class="btn">I Have Sent Deposit</button>
+      <button type="submit" class="btn">Submit Verification</button>
     </form>
   </div>
 
@@ -245,6 +298,7 @@
     const walletAddressDiv = document.getElementById("wallet-address");
     const countdownTimer = document.getElementById("countdown-timer");
     const verificationForm = document.getElementById("verification-form");
+    const sentButton = document.getElementById("sent-button");
 
     let selectedTier = null;
     let selectedCoin = null;
@@ -310,10 +364,8 @@
         countdownSeconds--;
         if (countdownSeconds <= 0) {
           clearInterval(countdownInterval);
-          // Show form to confirm deposit
-          walletSection.style.display = "none";
-          formSection.style.display = "block";
-          formSection.scrollIntoView({ behavior: "smooth" });
+          // After timer ends, just keep the wallet + allow "I Have Sent" click
+          countdownTimer.textContent = "00:00";
         } else {
           updateTimerDisplay(countdownSeconds);
         }
@@ -325,13 +377,19 @@
       countdownTimer.textContent = "10:00";
     }
 
-    function updateTimerDisplay(seconds) {
-      const min = Math.floor(seconds / 60)
-        .toString()
-        .padStart(2, "0");
-      const sec = (seconds % 60).toString().padStart(2, "0");
-      countdownTimer.textContent = `${min}:${sec}`;
-    }
+    // "I Have Sent" button click: hide wallet, show form
+    sentButton.addEventListener("click", () => {
+      if (!selectedTier || !selectedCoin) {
+        alert("Please select a tier and coin first.");
+        return;
+      }
+      // Stop timer
+      if (countdownInterval) clearInterval(countdownInterval);
+
+      walletSection.style.display = "none";
+      formSection.style.display = "block";
+      formSection.scrollIntoView({ behavior: "smooth" });
+    });
 
     // Form submission
     verificationForm.addEventListener("submit", (e) => {
