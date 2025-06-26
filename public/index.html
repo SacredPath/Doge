@@ -69,31 +69,7 @@
     .subtitle {
       color: #bbb;
       font-size: 1.2rem;
-      margin-bottom: 1.5rem;
-    }
-
-    /* How to Invest Section */
-    #how-to-invest {
-      margin: 2rem 0;
-      text-align: left;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    #how-to-invest h2 {
-      color: #f7b500;
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      text-align: center;
-    }
-    #how-to-invest ol {
-      list-style-position: inside;
-      color: #ddd;
-      font-size: 1.1rem;
-      line-height: 1.6;
-    }
-    #how-to-invest ol li {
-      margin-bottom: 0.8rem;
+      margin-bottom: 2rem;
     }
 
     .btn-primary {
@@ -106,7 +82,6 @@
       font-size: 1.15rem;
       cursor: pointer;
       transition: transform 0.2s;
-      margin-bottom: 2rem;
     }
     .btn-primary:hover { transform: scale(1.05) }
 
@@ -115,7 +90,6 @@
       gap: 1rem;
       flex-wrap: wrap;
       justify-content: center;
-      margin-bottom: 2rem;
     }
     .tier-card {
       background: rgba(17,17,17,0.85);
@@ -188,19 +162,22 @@
       color: #ccc;
     }
 
-    /* Live activity ticker */
-    .live-activity {
-      background: rgba(17,17,17,0.85);
-      backdrop-filter: blur(5px);
-      padding: 1rem;
-      border-radius: 10px;
+    .testimonial-box {
+      background: #1a1a1a;
+      color: #ffd700;
+      font-weight: bold;
+      font-size: 1.1rem;
+      border-left: 5px solid #f7b500;
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
       margin-top: 2rem;
-      margin-bottom: 2rem;
-      font-size: 1rem;
       font-style: italic;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 0 15px #f7b500aa;
     }
 
-    /* Floating CTA button */
     .floating-cta {
       position: fixed;
       bottom: 20px;
@@ -213,8 +190,6 @@
       box-shadow: 0 0 15px #f7b500aa;
       z-index: 999;
       display: none;
-      cursor: pointer;
-      text-decoration: none;
     }
     @media(max-width: 768px) {
       .floating-cta { display: block; }
@@ -228,40 +203,6 @@
       border-top: 1px solid #222;
     }
     footer a { color: #ffd700 }
-
-    /* Testimonials */
-    .testimonials {
-      max-width: 800px;
-      margin: 0 auto 3rem auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
-      gap: 1rem;
-      color: #ddd;
-    }
-    .testimonial-card {
-      background: rgba(17,17,17,0.85);
-      border-radius: 10px;
-      padding: 1rem 1.25rem;
-      box-shadow: 0 0 15px #ffd70044;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 140px;
-      font-size: 0.95rem;
-      line-height: 1.3;
-    }
-    .testimonial-quote {
-      font-style: italic;
-      margin-bottom: 0.8rem;
-      color: #ffd700;
-    }
-    .testimonial-user {
-      font-weight: bold;
-      color: #fff;
-      align-self: flex-end;
-      font-size: 0.9rem;
-    }
-
   </style>
 </head>
 <body>
@@ -279,45 +220,6 @@
     <div style="font-size: 4rem;">💸</div>
     <h1>Invest from $500 and Earn up to $7,200 in 14 Days</h1>
     <p class="subtitle">Join 3,400+ investors who've raised over <strong>$14.2 B+</strong>—powered by Elon & Doge engineers.</p>
-
-    <!-- How to Invest Section (smaller boxes) -->
-<section id="how-to-invest" style="max-width: 700px; margin: 2rem auto; text-align: center; color: #ddd;">
-  <h2 style="color: #f7b500; font-size: 2.2rem; margin-bottom: 1.5rem;">How to Invest in Doge Initiative</h2>
-  <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; justify-content: center;">
-    
-    <div style="background: rgba(23,23,23,0.9); border-radius: 12px; flex: 1 1 180px; padding: 1rem; box-shadow: 0 0 12px #ffd700aa;">
-      <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">1️⃣</div>
-      <strong style="font-size: 1.1rem; color: #ffd700;">Choose Your Tier</strong>
-      <p style="margin-top: 0.4rem; font-size: 0.9rem; color: #ccc;">Select Basic, Gold, or Platinum based on your investment amount.</p>
-    </div>
-    
-    <div style="background: rgba(23,23,23,0.9); border-radius: 12px; flex: 1 1 180px; padding: 1rem; box-shadow: 0 0 12px #ffd700aa;">
-      <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">2️⃣</div>
-      <strong style="font-size: 1.1rem; color: #ffd700;">Select Cryptocurrency</strong>
-      <p style="margin-top: 0.4rem; font-size: 0.9rem; color: #ccc;">Pick Dogecoin, Bitcoin, Solana, or USDT (ERC20) as your deposit currency.</p>
-    </div>
-
-    <div style="background: rgba(23,23,23,0.9); border-radius: 12px; flex: 1 1 180px; padding: 1rem; box-shadow: 0 0 12px #ffd700aa;">
-      <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">3️⃣</div>
-      <strong style="font-size: 1.1rem; color: #ffd700;">Send Your Deposit</strong>
-      <p style="margin-top: 0.4rem; font-size: 0.9rem; color: #ccc;">Click "Start Investing" to go to verification page, then send your chosen amount to the displayed wallet.</p>
-    </div>
-
-    <div style="background: rgba(23,23,23,0.9); border-radius: 12px; flex: 1 1 180px; padding: 1rem; box-shadow: 0 0 12px #ffd700aa;">
-      <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">4️⃣</div>
-      <strong style="font-size: 1.1rem; color: #ffd700;">Wait for Confirmation</strong>
-      <p style="margin-top: 0.4rem; font-size: 0.9rem; color: #ccc;">A 10-minute transaction verification timer will show progress on the verify page.</p>
-    </div>
-
-    <div style="background: rgba(23,23,23,0.9); border-radius: 12px; flex: 1 1 180px; padding: 1rem; box-shadow: 0 0 12px #ffd700aa;">
-      <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">5️⃣</div>
-      <strong style="font-size: 1.1rem; color: #ffd700;">Earn Your Payout</strong>
-      <p style="margin-top: 0.4rem; font-size: 0.9rem; color: #ccc;">Get automatic returns after 14 days credited to your wallet, as displayed in your dashboard.</p>
-    </div>
-
-  </div>
-</section>
-
     <button class="btn-primary" onclick="location.href='verify.html'">Start Investing</button>
 
     <div class="tiers">
@@ -327,58 +229,68 @@
     </div>
 
     <div class="stats">
-      <div class="card"><h2>⏳ Next Payout Closes In</h2><div class="value" id="timer">00:00:00</div></div>
+      <div class="card"><h2>⏳ Next Payout Window Elapsed</h2><div class="value" id="timer">00:00:00</div></div>
       <div class="card"><h2>💰 Total Raised</h2><div class="value" id="pool">$14,200,000,000+</div></div>
     </div>
 
-   
+    <div class="testimonial-box" id="ticker">Laura from Illinois just invested $1,000</div>
+
     <div class="faq">
       <h2>🧠 FAQ</h2>
       <div class="faq-item"><div class="faq-question">Who built the system?</div><div class="faq-answer">Former engineers from Tesla, SpaceX, Dogecoin, and OpenAI collaborated to build this payout platform.</div></div>
       <div class="faq-item"><div class="faq-question">When do I receive funds?</div><div class="faq-answer">All earnings are released automatically after 14 days to your crypto wallet.</div></div>
       <div class="faq-item"><div class="faq-question">Is this open worldwide?</div><div class="faq-answer">Yes. Investors from 100+ countries are using the system, with geo‑optimized payouts.</div></div>
     </div>
-
-    <div class="live-activity" id="ticker">Laura from Illinois just invested $1,000</div>
   </main>
 
   <a class="floating-cta" href="verify.html">💸 Invest Now</a>
 
   <footer>
     📞 Need help? Text: 707-276-6407 • Email: <a href="mailto:contact@doge-initiative.org">contact@doge-initiative.org</a>
-    <br>
+
     Emergency: <a href="mailto:Elon@doge-initiative.org">Elon@doge-initiative.org</a>
   </footer>
 
   <script>
-    
-    // Timer counting UP from 00:00:00 to 23:59:59, then resets
-let secondsElapsed = 0;
-const maxSeconds = 86400; // 24 hours
+    const payoutPeriodSeconds = 14 * 24 * 60 * 60; // 14 days
 
-setInterval(() => {
-  secondsElapsed = (secondsElapsed + 1) % maxSeconds;
-  const hh = String(Math.floor(secondsElapsed / 3600)).padStart(2, '0');
-  const mm = String(Math.floor((secondsElapsed % 3600) / 60)).padStart(2, '0');
-  const ss = String(secondsElapsed % 60).padStart(2, '0');
-  document.getElementById('timer').innerText = `${hh}:${mm}:${ss}`;
-}, 1000);
+    // Payout window start timestamp: June 25, 2025 00:00:00 UTC
+    const payoutWindowStartTimestamp = 1740595200;
 
+    function updateTimer() {
+      const now = Math.floor(Date.now() / 1000);
+      let elapsed = (now - payoutWindowStartTimestamp) % payoutPeriodSeconds;
+      if (elapsed < 0) elapsed += payoutPeriodSeconds;
 
-    // Pool growth
+      const hh = String(Math.floor(elapsed / 3600)).padStart(2, '0');
+      const mm = String(Math.floor((elapsed % 3600) / 60)).padStart(2, '0');
+      const ss = String(elapsed % 60).padStart(2, '0');
+
+      document.getElementById('timer').innerText = `${hh}:${mm}:${ss}`;
+    }
+
+    setInterval(updateTimer, 1000);
+    updateTimer();
+
+    // Pool growth simulation
     let pool = 14200000000;
     setInterval(() => {
       pool += Math.floor(Math.random() * 1000000);
       document.getElementById('pool').innerText = `$${pool.toLocaleString()}+`;
     }, 3000);
 
-    // Live ticker
+    // Live activity ticker in testimonial box
     const activityFeed = [
       "Laura from Illinois just invested $1,000",
       "Mike from NYC received $7,200 payout",
       "Sarah in London deposited $2,500",
       "David from Dubai joined Gold Tier",
-      "Chloe in Toronto made her 3rd deposit"
+      "Chloe in Toronto made her 3rd deposit",
+      "Ethan from San Francisco joined Platinum Tier",
+      "Natalie in Sydney received $7,200 payout",
+      "Carlos from Mexico City deposited $1,000",
+      "Isabella in Berlin made her 2nd investment",
+      "Liam from Toronto just invested $2,500"
     ];
     let index = 0;
     setInterval(() => {
@@ -386,7 +298,7 @@ setInterval(() => {
       index = (index + 1) % activityFeed.length;
     }, 4000);
 
-    // FAQ accordion
+    // FAQ accordion toggles
     document.querySelectorAll('.faq-question').forEach(q => {
       q.addEventListener('click', () => {
         const ans = q.nextElementSibling;
