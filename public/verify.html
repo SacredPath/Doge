@@ -1,12 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Doge Initiative — Verify & Invest</title>
-  <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
     body {
       font-family: 'Segoe UI', sans-serif;
       background: #000;
@@ -17,275 +21,190 @@
       overflow-x: hidden;
       position: relative;
     }
-    body::before {
-      content: "";
-      position: fixed; top: -100%; left: -100%;
-      width: 300%; height: 300%;
-      background: transparent;
-      animation: stars 60s linear infinite;
-      z-index: -2;
-    }
-    @keyframes stars {
-      from { transform: rotate(0); }
-      to { transform: rotate(360deg); }
-    }
-
     nav {
-      position: sticky; top: 0;
-      background: rgba(17,17,17,0.85);
+      position: sticky;
+      top: 0;
+      background: rgba(17, 17, 17, 0.85);
       padding: 1rem 2rem;
-      display: flex; justify-content: space-between;
+      display: flex;
+      justify-content: space-between;
       align-items: center;
       backdrop-filter: blur(5px);
       z-index: 100;
     }
     .logo {
-      font-size: 1.8rem; font-weight: bold;
-      color: #f7b500; display: flex; align-items: center; gap: 0.5rem;
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #f7b500;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
-    .logo span { font-size: 2rem }
+    .logo span {
+      font-size: 2rem;
+    }
     nav ul {
-      display: flex; gap: 2rem; list-style: none;
+      display: flex;
+      gap: 2rem;
+      list-style: none;
     }
     nav a {
       font-weight: 600;
       color: inherit;
       text-decoration: none;
     }
-    nav a:hover { color: #ffd700 }
+    nav a:hover {
+      color: #ffd700;
+    }
 
     main {
       flex: 1;
-      max-width: 960px;
-      margin: auto;
-      padding: 2rem;
-      text-align: center;
+      max-width: 640px;
+      margin: 2rem auto 3rem;
+      padding: 1rem 1.5rem;
+      background: rgba(17, 17, 17, 0.85);
+      border-radius: 12px;
+      box-shadow: 0 0 20px #ffd700aa;
     }
 
     h1 {
-      font-size: 3rem;
       color: #f7b500;
-      margin-bottom: 0.5rem;
-    }
-    .subtitle {
-      color: #bbb;
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-    }
-
-    .audit-box {
-      background: rgba(17,17,17,0.85);
-      padding: 2rem;
-      border-radius: 15px;
-      box-shadow: 0 0 20px #ffd70044;
-      margin-bottom: 2rem;
-      text-align: left;
-      color: #eee;
-    }
-    .audit-box h2 {
-      color: #ffd700;
       margin-bottom: 1rem;
-      font-weight: 700;
-    }
-    .audit-box p {
-      margin-bottom: 0.5rem;
-      font-size: 1rem;
-    }
-    .audit-box code {
-      background: #222;
-      padding: 0.2rem 0.4rem;
-      border-radius: 4px;
-      font-family: monospace;
-      user-select: all;
-    }
-    .audit-box a.download {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 0.7rem 1.5rem;
-      background-color: #f7b500;
-      color: #000;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-      transition: background-color 0.2s;
-    }
-    .audit-box a.download:hover {
-      background-color: #ffd700cc;
-    }
-
-    .tiers {
-      margin-top: 2rem;
-      margin-bottom: 3rem;
-    }
-    .tiers h3 {
-      color: #ffd700;
-      margin-bottom: 1rem;
+      font-size: 2.5rem;
       text-align: center;
-      font-weight: 700;
-      font-size: 1.8rem;
     }
-    .tier-list {
-      list-style: none;
-      background: rgba(17,17,17,0.85);
-      border-radius: 12px;
-      padding: 1rem 2rem;
-      max-width: 600px;
-      margin: auto;
-      box-shadow: 0 0 15px #ffd70033;
-      color: #ddd;
-    }
-    .tier-list li {
-      margin-bottom: 1rem;
+    p.lead {
+      color: #ccc;
+      text-align: center;
+      margin-bottom: 2rem;
       font-size: 1.1rem;
-      cursor: default;
-    }
-    .tier-list li strong {
-      color: #f7b500;
     }
 
-    /* Wallets */
-    .wallets {
-      max-width: 600px;
-      margin: 2rem auto;
-      background: rgba(17,17,17,0.85);
-      border-radius: 12px;
-      padding: 1rem 1.5rem;
-      box-shadow: 0 0 15px #ffd70033;
-      text-align: left;
-      font-size: 0.95rem;
-      user-select: text;
-      color: #ccc;
+    .coin-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
     }
-    .wallets h3 {
-      margin-bottom: 1rem;
-      color: #ffd700;
-      font-weight: 700;
-    }
-    .wallet-btn {
-      display: block;
-      width: 100%;
-      background: #222;
+    .coin-btn {
+      padding: 0.75rem 1.5rem;
+      border-radius: 10px;
       border: none;
-      color: #f7b500;
-      font-weight: 600;
-      padding: 0.8rem 1rem;
-      margin-bottom: 0.3rem;
-      border-radius: 8px;
+      font-weight: 700;
       cursor: pointer;
-      text-align: left;
-      transition: background-color 0.2s;
+      color: #000;
+      flex: 1 1 120px;
+      max-width: 140px;
+      transition: transform 0.2s, box-shadow 0.2s;
       user-select: none;
     }
-    .wallet-btn:hover {
-      background-color: #333;
+    .coin-btn[data-coin="doge"] {
+      background: #c2a634;
     }
-    .wallet-address {
+    .coin-btn[data-coin="btc"] {
+      background: #f7931a;
+      color: #fff;
+    }
+    .coin-btn[data-coin="sol"] {
+      background: #00ffa3;
+      color: #000;
+    }
+    .coin-btn[data-coin="usdt"] {
+      background: #26a17b;
+      color: #fff;
+    }
+    .coin-btn:hover:not(:disabled) {
+      transform: translateY(-4px);
+      box-shadow: 0 0 12px #ffd700cc;
+    }
+    .coin-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    #wallet-section {
+      display: none;
       background: #111;
-      padding: 0.7rem 1rem;
-      margin-bottom: 1.5rem;
-      border-radius: 8px;
-      color: #eee;
-    }
-    .wallet-address code {
-      display: block;
-      background: #222;
-      padding: 0.3rem 0.6rem;
-      margin-bottom: 0.5rem;
-      border-radius: 4px;
-      word-break: break-all;
-      user-select: all;
+      padding: 1.5rem;
+      border-radius: 12px;
+      text-align: center;
       color: #ffd700;
+      box-shadow: 0 0 20px #f7b500aa;
+      user-select: all;
+    }
+
+    #wallet-address {
+      font-family: monospace;
+      font-size: 1.1rem;
+      background: #222;
+      padding: 1rem;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+      cursor: pointer;
+      user-select: all;
+      word-break: break-word;
+    }
+
+    #timer {
       font-weight: 700;
-      font-size: 1.05rem;
-    }
-    .wallet-address p {
-      font-size: 0.9rem;
-      color: #aaa;
-    }
-
-    .investment-form {
-      max-width: 600px;
-      margin: 2rem auto 3rem;
-      background: rgba(17,17,17,0.85);
-      padding: 2rem;
-      border-radius: 15px;
-      box-shadow: 0 0 20px #ffd70044;
-      text-align: left;
-      color: #eee;
-    }
-
-    .investment-form label {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-weight: 600;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
       color: #f7b500;
     }
-    .investment-form select,
-    .investment-form input[type="email"],
-    .investment-form input[type="text"] {
-      width: 100%;
-      padding: 0.7rem;
-      margin-bottom: 1.2rem;
-      border-radius: 8px;
-      border: none;
-      font-size: 1rem;
-    }
-    .investment-form button {
+
+    #confirm-btn {
       background: #f7b500;
       color: #000;
+      padding: 0.75rem 2rem;
       border: none;
-      padding: 1rem 2rem;
       border-radius: 50px;
       font-weight: bold;
-      font-size: 1.15rem;
-      cursor: pointer;
-      transition: background-color 0.2s;
-      width: 100%;
+      cursor: not-allowed;
+      transition: background-color 0.3s;
+      user-select: none;
     }
-    .investment-form button:hover {
-      background-color: #ffd700cc;
+    #confirm-btn.enabled {
+      cursor: pointer;
+      background-color: #ffdb4d;
+    }
+    #confirm-btn:disabled {
+      opacity: 0.6;
     }
 
-    .success-message {
-      background: #4ade80;
-      color: #000;
-      padding: 1rem;
-      border-radius: 8px;
+    #confirmation-msg {
       margin-top: 1rem;
       font-weight: bold;
+      color: #4ade80;
       display: none;
-      text-align: center;
     }
 
     footer {
-      padding: 2rem 0;
-      font-size: 0.9rem;
-      color: #999;
       text-align: center;
+      padding: 1rem 0;
+      font-size: 0.85rem;
+      color: #999;
       border-top: 1px solid #222;
-      margin-top: auto;
-      font-style: italic;
+      background: #000;
+      user-select: none;
     }
-    footer a { color: #ffd700 }
-
-    /* Floating sticky CTA on mobile */
-    .floating-cta {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #f7b500;
-      color: #000;
-      padding: 1rem 1.5rem;
-      border-radius: 50px;
-      font-weight: bold;
-      box-shadow: 0 0 15px #f7b500aa;
-      z-index: 999;
-      display: none;
-      cursor: pointer;
+    footer a {
+      color: #ffd700;
       text-decoration: none;
     }
-    @media(max-width: 768px) {
-      .floating-cta { display: block; }
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 480px) {
+      main {
+        margin: 1rem;
+        padding: 1rem;
+      }
+      .coin-btn {
+        flex: 1 1 100%;
+        max-width: none;
+      }
     }
   </style>
 </head>
@@ -293,159 +212,113 @@
   <nav>
     <div class="logo"><span>🚀</span>Doge Initiative</div>
     <ul>
-      <li><a href="index.html"  style="color: #ffd700; font-weight: bold; text-decoration: none;">HOME</a></li>
-      <li><a href="verify.html"  style="color: #ffd700; font-weight: bold; text-decoration: none;">VERIFY</a></li>
-       <a href="faq.html" style="color: #ffd700; font-weight: bold; text-decoration: none;">FAQ</a>
-            <a href="terms.html" style="color: #ffd700; font-weight: bold; text-decoration: none;">PRIVACY</a>
-
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="verify.html" style="color:#ffd700; font-weight:bold;">VERIFY</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="terms.html">PRIVACY</a></li>
     </ul>
   </nav>
 
   <main>
-    <h1>Verify & Invest</h1>
-    <p class="subtitle">Your gateway to up to $7,200 ROI in 14 days, verified by CertiTrust audit.</p>
+    <h1>Verify & Deposit</h1>
+    <p class="lead">Choose your crypto, reveal the wallet, and send your deposit. Timer starts when wallet is revealed to mimic transaction window.</p>
 
-    <section class="audit-box" aria-label="CertiTrust audit verification">
-      <h2>CertiTrust Audit Verification</h2>
-      <p>Report ID: <code>CRTS-AUD-569HX-ZF41</code></p>
-      <p>Contract integrity verified per CertiTrust Tier-1 protocol, audit dated June 2025.</p>
-      <p>Audited Entity: <strong>Doge Initiative</strong></p>
-      <p>Smart Contract Address: <code>0x7c4f9873ab23dd00af49e9da89b44caed3c9f7a9</code></p>
-      <a class="download" href="Doge_Initiative_CertiTrust_Audit.pdf" download>Download Official PDF</a>
+    <div class="coin-buttons">
+      <button class="coin-btn" data-coin="doge">DOGE</button>
+      <button class="coin-btn" data-coin="btc">BTC</button>
+      <button class="coin-btn" data-coin="sol">SOL</button>
+      <button class="coin-btn" data-coin="usdt">USDT</button>
+    </div>
+
+    <section id="wallet-section">
+      <p>Deposit Wallet Address:</p>
+      <div id="wallet-address" title="Click to copy wallet address">Click a coin above to reveal address</div>
+      <div id="timer">⏳ Timer: 10:00</div>
+      <button id="confirm-btn" disabled>I Have Sent the Deposit</button>
+      <p id="confirmation-msg">✅ Deposit confirmed! Please wait for payout in 14 days.</p>
     </section>
-
-    <section class="tiers" aria-label="Investment tiers">
-      <h3>Verified Investment Tiers</h3>
-      <ul class="tier-list">
-        <li><strong>Basic Tier:</strong> $500 → $1,125 payout (14 days)</li>
-        <li><strong>Gold Tier:</strong> $1,000 → $2,700 payout (Priority queue)</li>
-        <li><strong>Platinum Tier:</strong> $2,500+ → $7,200 payout (AI Smart Multiplier)</li>
-      </ul>
-    </section>
-
-    <section class="wallets" aria-label="Deposit Wallet Addresses">
-      <h3>Deposit Wallets</h3>
-      <div>
-        <button class="wallet-btn" data-wallet="DOGE" aria-expanded="false" aria-controls="DOGE">DOGE Wallet</button>
-        <div class="wallet-address" id="DOGE" style="display:none;" role="region" aria-live="polite">
-          <code>D91ME9KqahFu7LLySpr3nPGYY1iheCu8WX</code>
-          <p>Verification Time Left: <span class="timer" id="timer-DOGE">10:00</span></p>
-        </div>
-      </div>
-      <div>
-        <button class="wallet-btn" data-wallet="BTC" aria-expanded="false" aria-controls="BTC">BTC Wallet</button>
-        <div class="wallet-address" id="BTC" style="display:none;" role="region" aria-live="polite">
-          <code>bc1qxvjz6kv84awx29p75qhn7qgxtwq4xt3phc7q26</code>
-          <p>Verification Time Left: <span class="timer" id="timer-BTC">10:00</span></p>
-        </div>
-      </div>
-      <div>
-        <button class="wallet-btn" data-wallet="SOL" aria-expanded="false" aria-controls="SOL">SOL Wallet</button>
-        <div class="wallet-address" id="SOL" style="display:none;" role="region" aria-live="polite">
-          <code>3F2D7izX8gYkSwXwSyWoKB1dob53MDMCxqBVpPUEc8sz</code>
-          <p>Verification Time Left: <span class="timer" id="timer-SOL">10:00</span></p>
-        </div>
-      </div>
-      <div>
-        <button class="wallet-btn" data-wallet="USDT" aria-expanded="false" aria-controls="USDT">USDT (ERC20) Wallet</button>
-        <div class="wallet-address" id="USDT" style="display:none;" role="region" aria-live="polite">
-          <code>0x1a670b57855dE6cED8Cf659Eea8BDDcB0F4C5FE4</code>
-          <p>Verification Time Left: <span class="timer" id="timer-USDT">10:00</span></p>
-        </div>
-      </div>
-    </section>
-
-    <form class="investment-form" aria-label="Investment form" id="investForm">
-      <label for="tier">Choose Investment Tier</label>
-      <select id="tier" name="tier" required>
-        <option value="" disabled selected>Select a tier</option>
-        <option value="basic">Basic - $500</option>
-        <option value="gold">Gold - $1,000</option>
-        <option value="platinum">Platinum - $2,500+</option>
-      </select>
-
-      <label for="email">Your Email</label>
-      <input type="email" id="email" name="email" placeholder="email@example.com" required/>
-
-      <label for="wallet">Your Wallet Address (for payout)</label>
-      <input type="text" id="wallet" name="wallet" placeholder="Your crypto wallet address" required/>
-
-      <button type="submit">Invest Now</button>
-      <div class="success-message" id="successMessage">Thank you! Your investment request has been received.</div>
-    </form>
   </main>
 
-  <a class="floating-cta" href="#investForm">💸 Invest Now</a>
-
   <footer>
-    <p>© 2025 Doge Initiative. Designed by Elon & Doge engineers. All rights reserved.</p>
-   📞 Need help? Text: 707-276-6407 • Email: <a href="mailto:contact@doge-initiative.org">contact@doge-initiative.org</a>
-  Emergency: <a href="mailto:Elon@doge-initiative.org">Elon@doge-initiative.org</a>
+    📞 Need help? Text: 707-276-6407 • Email: <a href="mailto:contact@doge-initiative.org">contact@doge-initiative.org</a> • Emergency: <a href="mailto:Elon@doge-initiative.org">Elon@doge-initiative.org</a>
   </footer>
 
   <script>
-    // Starfield animation is handled via CSS.
+    const wallets = {
+      doge: "D91ME9KqahFu7LLySpr3nPGYY1iheCu8WX",
+      btc: "bc1qxvjz6kv84awx29p75qhn7qgxtwq4xt3phc7q26",
+      sol: "3F2D7izX8gYkSwXwSyWoKB1dob53MDMCxqBVpPUEc8sz",
+      usdt: "0x1a670b57855dE6cED8Cf659Eea8BDDcB0F4C5FE4"
+    };
 
-    // Simple form submission handler (fake)
-    const form = document.getElementById('investForm');
-    const successMessage = document.getElementById('successMessage');
+    const buttons = document.querySelectorAll('.coin-btn');
+    const walletSection = document.getElementById('wallet-section');
+    const walletAddress = document.getElementById('wallet-address');
+    const timerDisplay = document.getElementById('timer');
+    const confirmBtn = document.getElementById('confirm-btn');
+    const confirmationMsg = document.getElementById('confirmation-msg');
 
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      // Normally send data to backend/email handler here
+    let countdownInterval = null;
+    let timeLeft = 600; // 10 minutes
 
-      // Show success message and reset form
-      successMessage.style.display = 'block';
-      form.reset();
+    function formatTime(s) {
+      const m = Math.floor(s / 60);
+      const sec = s % 60;
+      return `${m.toString().padStart(2,'0')}:${sec.toString().padStart(2,'0')}`;
+    }
 
-      successMessage.scrollIntoView({behavior: 'smooth'});
-    });
+    function startTimer() {
+      clearInterval(countdownInterval);
+      timeLeft = 600;
+      timerDisplay.textContent = `⏳ Timer: ${formatTime(timeLeft)}`;
+      confirmBtn.disabled = false;
+      confirmBtn.classList.add('enabled');
+      confirmBtn.style.cursor = 'pointer';
+      confirmationMsg.style.display = 'none';
 
-    // Wallet address toggler + timer logic
-    const walletButtons = document.querySelectorAll('.wallet-btn');
-    let activeTimer = null;
-
-    function startTimer(elementId) {
-      let timeLeft = 600; // 10 minutes in seconds
-      const timerElement = document.getElementById(elementId);
-      if (!timerElement) return;
-
-      // Clear any previous timer
-      if (activeTimer) clearInterval(activeTimer);
-
-      activeTimer = setInterval(() => {
-        if (timeLeft <= 0) {
-          clearInterval(activeTimer);
-          timerElement.textContent = "00:00";
-          return;
-        }
+      countdownInterval = setInterval(() => {
         timeLeft--;
-        const minutes = Math.floor(timeLeft / 60).toString().padStart(2, '0');
-        const seconds = (timeLeft % 60).toString().padStart(2, '0');
-        timerElement.textContent = `${minutes}:${seconds}`;
+        timerDisplay.textContent = `⏳ Timer: ${formatTime(timeLeft)}`;
+
+        if (timeLeft <= 0) {
+          clearInterval(countdownInterval);
+          timerDisplay.textContent = "⏳ Timer expired! Please select coin again.";
+          confirmBtn.disabled = true;
+          confirmBtn.classList.remove('enabled');
+          confirmBtn.style.cursor = 'not-allowed';
+          walletAddress.textContent = "Click a coin above to reveal address";
+          walletSection.style.display = "none";
+          confirmationMsg.style.display = "none";
+        }
       }, 1000);
     }
 
-    walletButtons.forEach(btn => {
+    buttons.forEach(btn => {
       btn.addEventListener('click', () => {
-        const wallet = btn.getAttribute('data-wallet');
-
-        // Hide all wallet addresses
-        document.querySelectorAll('.wallet-address').forEach(addr => {
-          addr.style.display = 'none';
-        });
-
-        // Reset aria-expanded for all buttons
-        walletButtons.forEach(b => b.setAttribute('aria-expanded', 'false'));
-
-        // Show selected wallet address and update aria
-        const selected = document.getElementById(wallet);
-        if (selected) {
-          selected.style.display = 'block';
-          btn.setAttribute('aria-expanded', 'true');
-          startTimer(`timer-${wallet}`);
-        }
+        const coin = btn.getAttribute('data-coin');
+        walletAddress.textContent = wallets[coin];
+        walletSection.style.display = 'block';
+        confirmationMsg.style.display = 'none';
+        startTimer();
       });
+    });
+
+    confirmBtn.addEventListener('click', () => {
+      confirmBtn.disabled = true;
+      confirmBtn.classList.remove('enabled');
+      confirmBtn.style.cursor = 'not-allowed';
+      confirmationMsg.style.display = 'block';
+    });
+
+    // Copy wallet address to clipboard on click
+    walletAddress.addEventListener('click', () => {
+      if(walletSection.style.display === 'block' && walletAddress.textContent !== "Click a coin above to reveal address") {
+        navigator.clipboard.writeText(walletAddress.textContent).then(() => {
+          alert('Wallet address copied to clipboard!');
+        }).catch(() => {
+          alert('Failed to copy wallet address.');
+        });
+      }
     });
   </script>
 </body>
