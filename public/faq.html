@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Doge Initiative — FAQ & Hype</title>
+  <title>Doge Initiative — FAQ</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0 }
@@ -11,11 +11,11 @@
       background: #000;
       color: #f0f0f0;
       font-family: 'Segoe UI', sans-serif;
-      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      overflow-x: hidden;
+      min-height: 100vh;
     }
+
     nav {
       position: sticky;
       top: 0;
@@ -27,6 +27,7 @@
       backdrop-filter: blur(5px);
       z-index: 100;
     }
+
     .logo {
       font-size: 1.8rem;
       font-weight: bold;
@@ -35,75 +36,84 @@
       align-items: center;
       gap: 0.5rem;
     }
+
     .logo span {
       font-size: 2rem;
     }
+
     nav ul {
       display: flex;
       gap: 2rem;
       list-style: none;
     }
+
     nav a {
       font-weight: 600;
       color: inherit;
       text-decoration: none;
     }
+
     nav a:hover {
       color: #ffd700;
     }
 
     main {
       flex: 1;
-      max-width: 900px;
+      max-width: 920px;
       margin: auto;
-      padding: 3rem 2rem;
-      text-align: center;
+      padding: 2.5rem 1.5rem;
     }
 
     h1 {
+      font-size: 2.8rem;
+      text-align: center;
       color: #f7b500;
-      font-size: 3rem;
       margin-bottom: 1rem;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      text-shadow: 0 0 10px #ffd700aa;
+      letter-spacing: 1px;
+      text-shadow: 0 0 10px #f7b50088;
     }
 
     p.lead {
-      font-size: 1.25rem;
+      text-align: center;
+      font-size: 1.2rem;
       color: #ffd700cc;
-      margin-bottom: 2rem;
-      font-weight: 700;
+      margin-bottom: 2.5rem;
+      line-height: 1.6;
     }
 
-    .faq-item {
-      margin-bottom: 1.5rem;
-      background: rgba(30, 30, 30, 0.9);
-      border-radius: 12px;
-      box-shadow: 0 0 20px #f7b500aa;
-      padding: 1.25rem 1.5rem;
-      cursor: pointer;
-      transition: background 0.3s;
-      font-weight: 600;
-      color: #ffd700;
+    .faq-block {
+      margin-bottom: 2rem;
     }
-    .faq-item:hover {
+
+    .faq-question {
+      background: #111;
+      color: #ffd700;
+      padding: 1.2rem 1.5rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 10px;
+      margin-bottom: 0.5rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .faq-question:hover {
       background: #ffd700;
       color: #000;
-      box-shadow: 0 0 30px #ffd700ff;
     }
 
     .faq-answer {
-      margin-top: 0.75rem;
-      font-weight: 400;
-      color: #ddd;
-      display: none;
-      text-align: left;
-      font-size: 1rem;
-      line-height: 1.5;
-      padding-left: 1rem;
+      background: #1a1a1a;
+      color: #ccc;
+      padding: 1rem 1.5rem;
       border-left: 4px solid #f7b500;
+      font-size: 1rem;
+      line-height: 1.6;
+      display: none;
+      border-radius: 0 0 10px 10px;
     }
 
     footer {
@@ -113,8 +123,16 @@
       text-align: center;
       border-top: 1px solid #222;
     }
+
     footer a {
       color: #ffd700;
+    }
+
+    @media(max-width: 600px) {
+      .faq-question {
+        flex-direction: column;
+        align-items: flex-start;
+      }
     }
   </style>
 </head>
@@ -130,98 +148,78 @@
   </nav>
 
   <main>
-    <h1>Frequently Asked Questions</h1>
-    <p class="lead">Welcome to Doge Initiative — an exclusive investment platform crafted and actively maintained by Elon Musk and the visionary Doge Initiative engineering team. This is your launchpad to next-level crypto wealth.</p>
+    <h1>💬 FAQ Center</h1>
+    <p class="lead">Powered by Elon Musk & the Doge Initiative engineers, this is where the next 1% are born. We answer everything here.</p>
 
-    <div class="faq-item">
-      What exactly is Doge Initiative and why Elon Musk?
+    <div class="faq-block">
+      <div class="faq-question">🤖 What is Doge Initiative and why Elon Musk?</div>
       <div class="faq-answer">
-        Doge Initiative is a cutting-edge crypto investment platform designed and built by Elon Musk alongside top engineers from the Doge Initiative team. This isn’t related to Dogecoin — it’s a new paradigm combining space-age technology, AI, and crypto innovation to generate unprecedented returns. Elon Musk’s direct influence ensures relentless innovation and secure, high-yield payouts.
+        Doge Initiative is a revolutionary crypto wealth generator co-created by Elon Musk and engineers from the Doge AI Labs. It’s not Dogecoin. It’s a completely new, AI-automated vehicle for space-age returns. Designed with SpaceX precision.
       </div>
     </div>
 
-    <div class="faq-item">
-      How does the 14-day payout guarantee work?
+    <div class="faq-block">
+      <div class="faq-question">📅 How does the 14-day payout work?</div>
       <div class="faq-answer">
-        Powered by proprietary AI algorithms developed by the Doge Initiative engineering team, every investment is securely multiplied and paid out within a strict 14-day window. The payout timer ensures transparency, so you always know exactly when your returns will hit your wallet. This system is constantly monitored and updated by Elon and the team to maximize reliability.
+        Our automated system tracks every deposit and ensures your payout is released exactly 14 days after confirmation. Everything is managed by smart AI agents — tested over 12,000 times for timing accuracy.
       </div>
     </div>
 
-    <div class="faq-item">
-      Can I trust Doge Initiative globally?
+    <div class="faq-block">
+      <div class="faq-question">🌍 Is Doge Initiative available globally?</div>
       <div class="faq-answer">
-        Yes! Doge Initiative supports investors from over 100 countries with geo-optimized payouts for speed and security. The platform is backed by Elon Musk’s global vision and the Doge Initiative team’s dedication to transparency and growth. Our AI-powered dashboard and live activity feed keep you informed in real-time.
+        Yes. We're optimized for users from over 100 countries. Payouts are geo-tuned to ensure lightning-fast transactions and timezone transparency.
       </div>
     </div>
 
-    <div class="faq-item">
-      What cryptocurrencies can I use to invest?
+    <div class="faq-block">
+      <div class="faq-question">💰 What cryptocurrencies can I use?</div>
       <div class="faq-answer">
-        You can invest using Dogecoin, Bitcoin, Solana, or USDT (ERC20). Each cryptocurrency has a dedicated wallet monitored by the Doge Initiative team to ensure instant, secure deposits and payouts.
+        We currently accept Dogecoin, Bitcoin, Solana, and USDT (ERC20). These are received into secure monitored wallets and confirmed live within minutes.
       </div>
     </div>
 
-    <div class="faq-item">
-      How do I get started with investing?
+    <div class="faq-block">
+      <div class="faq-question">🚀 How do I start investing?</div>
       <div class="faq-answer">
-        Choose your investment tier, select your preferred cryptocurrency, then click “Start Investing” to access the verification page. Follow the instructions to send your deposit. The verification timer confirms your transaction, then your automated returns begin growing securely under Elon’s watchful eye.
+        Select your preferred Tier (Basic, Gold, or Platinum), choose your coin, and proceed to the Verify page. From there, our timer verifies your transaction and your automated growth journey begins.
       </div>
     </div>
 
-    <div class="faq-item">
-      How secure is the Doge Initiative platform?
+    <div class="faq-block">
+      <div class="faq-question">🔒 How safe is the platform?</div>
       <div class="faq-answer">
-        Security is paramount. Our platform employs military-grade encryption, multi-layer verification, and constant AI surveillance. Elon Musk and the Doge Initiative team continuously update the system to prevent fraud and safeguard your funds.
+        We use advanced encryption, 24/7 AI transaction monitors, and wallet vaulting protocols similar to those used by Tesla internal wallets.
       </div>
     </div>
 
-    <div class="faq-item">
-      What support channels are available if I need help?
+    <div class="faq-block">
+      <div class="faq-question">📈 Can I reinvest or scale up?</div>
       <div class="faq-answer">
-        Contact our dedicated support team anytime by texting 707-276-6407 or emailing <a href="mailto:contact@doge-initiative.org" style="color:#ffd700">contact@doge-initiative.org</a>. For emergencies, reach Elon directly at <a href="mailto:Elon@doge-initiative.org" style="color:#ffd700">Elon@doge-initiative.org</a>.
+        Absolutely. Many users reinvest their first payout or upgrade tiers to unlock the AI Smart Multiplier advantage. Compounding is fully supported.
       </div>
     </div>
 
-    <div class="faq-item">
-      Why trust Doge Initiative over others?
+    <div class="faq-block">
+      <div class="faq-question">📩 Who do I contact if I need help?</div>
       <div class="faq-answer">
-        Unlike other platforms, Doge Initiative is engineered and actively managed by Elon Musk and his team of elite engineers. Our AI payout system is patented and proven, with multi-billion dollar backing and thousands of satisfied investors worldwide. This is the rocket ship you want to be on.
-      </div>
-    </div>
-
-    <div class="faq-item">
-      Can I increase my investment later?
-      <div class="faq-answer">
-        Absolutely! Reinvest your earnings or add new deposits anytime to scale your profits. The Doge Initiative platform grows with you.
-      </div>
-    </div>
-
-    <div class="faq-item">
-      When will I see my earnings?
-      <div class="faq-answer">
-        Earnings are credited automatically after each 14-day payout cycle and are visible immediately on your personalized dashboard. Track your portfolio and live activity to watch your wealth multiply.
+        Text our help desk at <strong>707-276-6407</strong> or email <a href="mailto:contact@doge-initiative.org">contact@doge-initiative.org</a>. For serious issues, Elon himself reviews <a href="mailto:Elon@doge-initiative.org">Elon@doge-initiative.org</a>.
       </div>
     </div>
   </main>
 
   <footer>
-    📞 Need help? Text: 707-276-6407 • Email: <a href="mailto:contact@doge-initiative.org">contact@doge-initiative.org</a> <br />
-    Emergency: <a href="mailto:Elon@doge-initiative.org">Elon@doge-initiative.org</a>
+    🚀 Designed by Elon Musk & Doge AI Engineers • Email: <a href="mailto:contact@doge-initiative.org">contact@doge-initiative.org</a> • Emergency: <a href="mailto:Elon@doge-initiative.org">Elon@doge-initiative.org</a>
   </footer>
 
   <script>
-    document.querySelectorAll('.faq-item').forEach(item => {
-      item.addEventListener('click', () => {
-        const answer = item.querySelector('.faq-answer');
-        if (answer.style.display === 'block') {
-          answer.style.display = 'none';
-        } else {
-          // Close all answers
-          document.querySelectorAll('.faq-answer').forEach(ans => ans.style.display = 'none');
-          answer.style.display = 'block';
-          // Scroll into view for better UX
-          item.scrollIntoView({behavior: "smooth", block: "start"});
-        }
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.addEventListener('click', () => {
+        const ans = q.nextElementSibling;
+        document.querySelectorAll('.faq-answer').forEach(a => {
+          if (a !== ans) a.style.display = 'none';
+        });
+        ans.style.display = ans.style.display === 'block' ? 'none' : 'block';
       });
     });
   </script>
