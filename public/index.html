@@ -69,7 +69,31 @@
     .subtitle {
       color: #bbb;
       font-size: 1.2rem;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* How to Invest Section */
+    #how-to-invest {
+      margin: 2rem 0;
+      text-align: left;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    #how-to-invest h2 {
+      color: #f7b500;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    #how-to-invest ol {
+      list-style-position: inside;
+      color: #ddd;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+    #how-to-invest ol li {
+      margin-bottom: 0.8rem;
     }
 
     .btn-primary {
@@ -82,6 +106,7 @@
       font-size: 1.15rem;
       cursor: pointer;
       transition: transform 0.2s;
+      margin-bottom: 2rem;
     }
     .btn-primary:hover { transform: scale(1.05) }
 
@@ -90,6 +115,7 @@
       gap: 1rem;
       flex-wrap: wrap;
       justify-content: center;
+      margin-bottom: 2rem;
     }
     .tier-card {
       background: rgba(17,17,17,0.85);
@@ -162,6 +188,7 @@
       color: #ccc;
     }
 
+    /* Live activity ticker */
     .live-activity {
       background: rgba(17,17,17,0.85);
       backdrop-filter: blur(5px);
@@ -173,6 +200,7 @@
       font-style: italic;
     }
 
+    /* Floating CTA button */
     .floating-cta {
       position: fixed;
       bottom: 20px;
@@ -185,6 +213,8 @@
       box-shadow: 0 0 15px #f7b500aa;
       z-index: 999;
       display: none;
+      cursor: pointer;
+      text-decoration: none;
     }
     @media(max-width: 768px) {
       .floating-cta { display: block; }
@@ -198,6 +228,40 @@
       border-top: 1px solid #222;
     }
     footer a { color: #ffd700 }
+
+    /* Testimonials */
+    .testimonials {
+      max-width: 800px;
+      margin: 0 auto 3rem auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+      gap: 1rem;
+      color: #ddd;
+    }
+    .testimonial-card {
+      background: rgba(17,17,17,0.85);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      box-shadow: 0 0 15px #ffd70044;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 140px;
+      font-size: 0.95rem;
+      line-height: 1.3;
+    }
+    .testimonial-quote {
+      font-style: italic;
+      margin-bottom: 0.8rem;
+      color: #ffd700;
+    }
+    .testimonial-user {
+      font-weight: bold;
+      color: #fff;
+      align-self: flex-end;
+      font-size: 0.9rem;
+    }
+
   </style>
 </head>
 <body>
@@ -205,10 +269,9 @@
     <div class="logo"><span>🚀</span>Doge Initiative</div>
     <ul>
       <li><a href="index.html" style="color: #ffd700; font-weight: bold; text-decoration: none;">HOME</a></li>
-      <li><a href="verify.html  " style="color: #ffd700; font-weight: bold; text-decoration: none;">VERIFY</a></li>
-      <a href="faq.html" style="color: #ffd700; font-weight: bold; text-decoration: none;">FAQ</a>
-      <a href="terms.html" style="color: #ffd700; font-weight: bold; text-decoration: none;">PRIVACY</a>
-
+      <li><a href="verify.html" style="color: #ffd700; font-weight: bold; text-decoration: none;">VERIFY</a></li>
+      <li><a href="faq.html" style="color: #ffd700; font-weight: bold; text-decoration: none;">FAQ</a></li>
+      <li><a href="terms.html" style="color: #ffd700; font-weight: bold; text-decoration: none;">PRIVACY</a></li>
     </ul>
   </nav>
 
@@ -216,6 +279,19 @@
     <div style="font-size: 4rem;">💸</div>
     <h1>Invest from $500 and Earn up to $7,200 in 14 Days</h1>
     <p class="subtitle">Join 3,400+ investors who've raised over <strong>$14.2 B+</strong>—powered by Elon & Doge engineers.</p>
+
+    <!-- How to Invest Section -->
+    <section id="how-to-invest">
+      <h2>How to Invest in Doge Initiative</h2>
+      <ol>
+        <li><strong>Choose Your Tier:</strong> Select Basic, Gold, or Platinum based on your investment amount.</li>
+        <li><strong>Select Cryptocurrency:</strong> Pick Dogecoin, Bitcoin, Solana, or USDT (ERC20) as your deposit currency.</li>
+        <li><strong>Send Your Deposit:</strong> Click the "Start Investing" button to go to the verification page, then send your chosen amount to the displayed wallet.</li>
+        <li><strong>Wait for Confirmation:</strong> A 10-minute transaction verification timer will show progress on the verify page.</li>
+        <li><strong>Earn Your Payout:</strong> Get automatic returns after 14 days credited to your wallet, as displayed in your dashboard.</li>
+      </ol>
+    </section>
+
     <button class="btn-primary" onclick="location.href='verify.html'">Start Investing</button>
 
     <div class="tiers">
@@ -227,6 +303,50 @@
     <div class="stats">
       <div class="card"><h2>⏳ Next Payout Closes In</h2><div class="value" id="timer">00:00:00</div></div>
       <div class="card"><h2>💰 Total Raised</h2><div class="value" id="pool">$14,200,000,000+</div></div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <div class="testimonials" aria-label="Investor testimonials">
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"I doubled my investment in just 14 days. This is the real deal!"</div>
+        <div class="testimonial-user">— Amanda, Seattle</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"Elon’s backing makes me confident. Secure and fast payouts every time."</div>
+        <div class="testimonial-user">— Brian, Miami</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"The AI multiplier tier is amazing, earnings skyrocketed beyond expectations."</div>
+        <div class="testimonial-user">— Chloe, New York</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"Customer support is fantastic, and the whole process is seamless."</div>
+        <div class="testimonial-user">— Daniel, Dallas</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"Easy to use and legit payouts. Just follow the simple steps."</div>
+        <div class="testimonial-user">— Elena, London</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"Invested $2,500 and already seeing profits. Highly recommended!"</div>
+        <div class="testimonial-user">— Frank, Chicago</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"The best crypto investment platform I’ve found, hands down."</div>
+        <div class="testimonial-user">— Grace, Toronto</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"I love how the payouts are automatic and reliable."</div>
+        <div class="testimonial-user">— Henry, San Francisco</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"Simple, fast, and backed by top engineers. Can’t ask for more."</div>
+        <div class="testimonial-user">— Isabella, Boston</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote">"Best ROI in the market, thanks to Elon’s vision."</div>
+        <div class="testimonial-user">— Jack, Austin</div>
+      </div>
     </div>
 
     <div class="faq">
@@ -243,7 +363,7 @@
 
   <footer>
     📞 Need help? Text: 707-276-6407 • Email: <a href="mailto:contact@doge-initiative.org">contact@doge-initiative.org</a>
-
+    <br>
     Emergency: <a href="mailto:Elon@doge-initiative.org">Elon@doge-initiative.org</a>
   </footer>
 
