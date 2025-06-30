@@ -1,13 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Doge Initiative — Space‑Tech ROI</title>
-  <link rel="icon" href="favicon.ico" type="image/x-icon"/>
-  <style><!DOCTYPE html>
-<html lang="en">
-<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Doge Initiative – Elon’s Wealth Portal</title>
@@ -25,23 +18,26 @@
       overflow-x: hidden;
     }
 
-    body::before {
+    /* Starfield background */
+    body::after {
       content: "";
       position: fixed;
-      top: -100%;
-      left: -100%;
-      width: 300%;
-      height: 300%;
-      background: radial-gradient(#fff 1px, transparent 1px);
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: repeating-radial-gradient(circle at random, #fff 1px, transparent 2px);
+      background-image: radial-gradient(white 1px, transparent 1px);
       background-size: 3px 3px;
-      animation: rotateStars 60s linear infinite;
+      animation: twinkle 60s linear infinite;
+      opacity: 0.08;
       z-index: -1;
-      opacity: 0.1;
+      pointer-events: none;
     }
 
-    @keyframes rotateStars {
-      from { transform: rotate(0); }
-      to { transform: rotate(360deg); }
+    @keyframes twinkle {
+      0% { background-position: 0 0; }
+      100% { background-position: 1000px 1000px; }
     }
 
     nav {
@@ -54,6 +50,7 @@
       align-items: center;
       z-index: 1000;
     }
+
     .logo {
       color: #f7b500;
       font-weight: bold;
@@ -62,16 +59,19 @@
       align-items: center;
       gap: 0.5rem;
     }
+
     nav ul {
       display: flex;
       list-style: none;
       gap: 2rem;
     }
+
     nav a {
       color: #ffd700;
       font-weight: 600;
       text-decoration: none;
     }
+
     nav a:hover {
       color: #fff;
     }
@@ -80,13 +80,15 @@
       padding: 4rem 2rem 2rem;
       text-align: center;
     }
+
     header h1 {
       font-size: 3rem;
       color: #ffd700;
-      margin-bottom: 1rem;
+      margin-bottom: 0.5rem;
     }
+
     header p {
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       color: #ccc;
     }
 
@@ -96,22 +98,25 @@
       gap: 2rem;
       margin: 3rem auto;
       flex-wrap: wrap;
-      max-width: 900px;
+      max-width: 950px;
     }
+
     .tier {
       background: rgba(255, 215, 0, 0.08);
       border: 2px solid #f7b500;
       border-radius: 10px;
       padding: 2rem;
       text-align: center;
-      flex: 1 1 240px;
+      flex: 1 1 200px;
       color: #fff;
     }
+
     .tier h3 {
       color: #ffd700;
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       margin-bottom: 0.5rem;
     }
+
     .tier p {
       font-size: 1rem;
       color: #ccc;
@@ -126,16 +131,19 @@
       max-width: 960px;
       text-align: center;
     }
+
     .stat {
       background: rgba(255, 255, 255, 0.05);
       padding: 1.5rem;
       border-radius: 10px;
       min-width: 200px;
     }
+
     .stat h4 {
       font-size: 1rem;
       color: #ffd700;
     }
+
     .stat p {
       font-size: 1.4rem;
       font-weight: bold;
@@ -150,6 +158,7 @@
       padding: 1rem 1.5rem;
       border-radius: 10px;
     }
+
     .activity-log div {
       padding: 0.4rem 0;
       color: #ccc;
@@ -160,6 +169,7 @@
       text-align: center;
       margin: 3rem auto;
     }
+
     .cta a {
       display: inline-block;
       padding: 1rem 2rem;
@@ -170,6 +180,7 @@
       border-radius: 50px;
       font-weight: bold;
     }
+
     .cta a:hover {
       background: #ffd700;
     }
@@ -182,23 +193,33 @@
       border-top: 1px solid #222;
     }
 
+    /* Flying emojis */
     .fly-emoji {
       position: fixed;
       bottom: -40px;
-      left: 50%;
       font-size: 2rem;
-      animation: flyDollar 5s linear infinite;
+      animation: flyDollar 7s linear infinite;
       pointer-events: none;
       z-index: 999;
     }
 
+    .fly-emoji:nth-child(1) {
+      left: 40%;
+      animation-delay: 0s;
+    }
+
+    .fly-emoji:nth-child(2) {
+      left: 60%;
+      animation-delay: 3.5s;
+    }
+
     @keyframes flyDollar {
       0% {
-        transform: translateX(-50%) translateY(0) rotate(0deg);
+        transform: translateY(0) rotate(0deg);
         opacity: 1;
       }
       100% {
-        transform: translateX(-50%) translateY(-120vh) rotate(720deg);
+        transform: translateY(-120vh) rotate(720deg);
         opacity: 0;
       }
     }
@@ -206,6 +227,7 @@
 </head>
 <body>
 
+  <div class="fly-emoji">💸</div>
   <div class="fly-emoji">💸</div>
 
   <nav>
@@ -220,10 +242,14 @@
 
   <header>
     <h1>Multiply Your Crypto in 14 Days</h1>
-    <p>Backed by Elon. Powered by Doge AI. Paid bi-weekly. Minimum $500.</p>
+    <p>Built by Elon. Powered by xAI. Since 2024.</p>
   </header>
 
   <section class="tiers">
+    <div class="tier">
+      <h3>Starter Tier</h3>
+      <p>Invest $200 → Receive $400</p>
+    </div>
     <div class="tier">
       <h3>Basic Tier</h3>
       <p>Invest $500 → Receive $1,125</p>
@@ -250,7 +276,7 @@
   </section>
 
   <section class="activity-log" id="activityLog">
-    <!-- Live activity will populate here -->
+    <!-- Dynamic activity log -->
   </section>
 
   <div class="cta">
@@ -269,10 +295,10 @@
       { name: "Maria", location: "CA", action: "upgraded to Platinum Tier with SOL" },
       { name: "Alex", location: "UK", action: "received payout of $2,700" },
       { name: "Lu", location: "SG", action: "verified $500 via DOGE" },
-      { name: "Aisha", location: "NG", action: "sent $500 via USDT" },
+      { name: "Aisha", location: "NG", action: "sent $200 via USDT" },
       { name: "Carlos", location: "MX", action: "joined Gold Tier using BTC" },
       { name: "Kim", location: "KR", action: "verified $2,500 via SOL" },
-      { name: "Sasha", location: "RU", action: "just invested $1,000 using DOGE" }
+      { name: "Sasha", location: "RU", action: "just invested $200 using DOGE" }
     ];
 
     function updateActivity() {
@@ -288,440 +314,5 @@
     updateActivity();
     setInterval(updateActivity, 5000);
   </script>
-</body>
-</html>
-
-    * { box-sizing: border-box; margin: 0; padding: 0 }
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      color: #f0f0f0;
-      background: #000;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      overflow-x: hidden;
-      position: relative;
-    }
-    body::before {
-      content: "";
-      position: fixed; top: -100%; left: -100%;
-      width: 300%; height: 300%;
-      background: transparent;
-      animation: stars 60s linear infinite;
-      z-index: -2;
-    }
-    @keyframes stars {
-      from { transform: rotate(0); }
-      to { transform: rotate(360deg); }
-    }
-
-    nav {
-      position: sticky; top: 0;
-      background: rgba(17,17,17,0.85);
-      padding: 1rem 2rem;
-      display: flex; justify-content: space-between;
-      align-items: center;
-      backdrop-filter: blur(5px);
-      z-index: 100;
-    }
-    .logo {
-      font-size: 1.8rem; font-weight: bold;
-      color: #f7b500; display: flex; align-items: center; gap: 0.5rem;
-    }
-    .logo span { font-size: 2rem }
-    nav ul {
-      display: flex; gap: 2rem; list-style: none;
-    }
-    nav a {
-      font-weight: 600;
-      color: inherit;
-      text-decoration: none;
-    }
-    nav a:hover { color: #ffd700 }
-
-    main {
-      flex: 1;
-      max-width: 960px;
-      margin: auto;
-      padding: 2rem;
-      text-align: center;
-    }
-    h1 {
-      font-size: 3rem;
-      color: #f7b500;
-      margin-bottom: 0.5rem;
-    }
-    .subtitle {
-      color: #bbb;
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-    }
-
-    .btn-primary {
-      background: #f7b500;
-      color: #000;
-      padding: 1rem 2rem;
-      border: none;
-      border-radius: 50px;
-      font-weight: bold;
-      font-size: 1.15rem;
-      cursor: pointer;
-      transition: transform 0.2s;
-    }
-    .btn-primary:hover { transform: scale(1.05) }
-
-    .tiers {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .tier-card {
-      background: rgba(17,17,17,0.85);
-      padding: 1.5rem;
-      border-radius: 10px;
-      flex: 1 1 250px;
-      cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .tier-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 0 20px #ffd70044;
-    }
-    .tier-card h3 {
-      font-size: 1.3rem;
-      color: #ffd700;
-      margin-bottom: 0.5rem;
-    }
-    .tier-card p {
-      font-size: 1rem;
-      color: #ddd;
-    }
-
-    .stats {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 2rem;
-      margin-bottom: 2rem;
-    }
-    .card {
-      background: rgba(17,17,17,0.85);
-      backdrop-filter: blur(5px);
-      flex: 1 1 220px;
-      padding: 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 0 20px #f7b50033;
-      margin-top: 1rem;
-    }
-    .card h2 {
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
-    }
-    .card .value {
-      font-size: 2rem;
-      font-weight: bold;
-      color: #ffd700;
-    }
-
-    /* How to Invest steps container */
-    .howto-steps {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: center;
-      margin-bottom: 2rem;
-    }
-    .howto-step {
-      background: rgba(17,17,17,0.85);
-      padding: 1rem;
-      border-radius: 10px;
-      width: 180px;
-      font-size: 0.9rem;
-      text-align: left;
-      box-shadow: 0 0 10px #f7b500aa;
-      font-weight: 600;
-      color: #ffd700;
-    }
-    .howto-step strong {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-weight: bold;
-      font-size: 1.1rem;
-    }
-
-    .faq {
-      text-align: left;
-      margin-bottom: 2rem;
-    }
-    .faq h2 { margin-bottom: 1rem }
-    .faq-item { margin-bottom: 1rem }
-    .faq-question {
-      background: rgba(17,17,17,0.85);
-      padding: 1rem;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-    .faq-answer {
-      display: none;
-      padding: 0.75rem 1rem;
-      background: rgba(17,17,17,0.6);
-      border-radius: 8px;
-      margin-top: 0.5rem;
-      color: #ccc;
-    }
-
-    .live-activity {
-      background: rgba(17,17,17,0.85);
-      backdrop-filter: blur(5px);
-      padding: 1rem;
-      border-radius: 10px;
-      margin-top: 2rem;
-      margin-bottom: 2rem;
-      font-size: 1rem;
-      font-style: italic;
-      font-weight: 700;
-      color: #ffd700;
-      box-shadow: 0 0 15px #ffd700bb;
-    }
-
-    .floating-cta {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #f7b500;
-      color: #000;
-      padding: 1rem 1.5rem;
-      border-radius: 50px;
-      font-weight: bold;
-      box-shadow: 0 0 15px #f7b500aa;
-      z-index: 999;
-      display: none;
-    }
-    @media(max-width: 768px) {
-      .floating-cta { display: block; }
-    }
-
-    footer {
-      padding: 2rem 0;
-      font-size: 0.9rem;
-      color: #999;
-      text-align: center;
-      border-top: 1px solid #222;
-    }
-    footer a { color: #ffd700 }
-  </style>
-</head>
-<body>
-  <nav>
-    <div class="logo"><span>🚀</span>Doge Initiative</div>
-    <ul>
-      <li><a href="index.html" style="color: #ffd700; font-weight: bold; text-decoration: none;">HOME</a></li>
-      <li><a href="verify.html" style="color: #ffd700; font-weight: bold; text-decoration: none;">VERIFY</a></li>
-      <a href="faq.html" style="color: #ffd700; font-weight: bold; text-decoration: none;">FAQ</a>
-      <a href="terms.html" style="color: #ffd700; font-weight: bold; text-decoration: none;">PRIVACY</a>
-      <select id="lang-switcher" onchange="setLang(this.value)" style="background:#111;color:#ffd700;border:none;font-weight:bold;">
-  <option value="en">🇺🇸 EN</option>
-  <option value="es">🇪🇸 ES</option>
-</select>
-
-    </ul>
-  </nav>
-
-  <main>
-    <div style="font-size: 4rem;">💸</div>
-    <h1 id="headline">Invest from $500 and Earn up to $7,200 in 14 Days</h1>
-    <p id="subtitle" class="subtitle">Join 3,400+ investors who've raised over <strong>$14.2 B+</strong>—powered by Elon & Doge engineers.</p>
-    <button class="btn-primary" id="cta" onclick="location.href='verify.html'">Start Investing</button>
-
-    <div class="tiers">
-      <div class="tier-card" onclick="location.href='verify.html'"><h3>Basic Tier</h3><p>$500 → $1,125 (14 days)</p></div>
-      <div class="tier-card" onclick="location.href='verify.html'"><h3>Gold Tier</h3><p>$1,000 → $2,700 (Priority)</p></div>
-      <div class="tier-card" onclick="location.href='verify.html'"><h3>Platinum Tier</h3><p>$2,500+ → $7,200 (AI Multiplier)</p></div>
-    </div>
-
-    <div class="stats">
-      <div class="card"><h2 id="nextLabel">⏳ Next Payout Closes In</h2><div class="value" id="timer">00:00:00</div></div>
-      <div class="card"><h2 id="poolLabel">💰 Total Raised</h2><div class="value" id="pool">$14,200,000,000+</div></div> 
-    </div>
-
-    <div class="how-to" style="margin: 3rem 0;">
-  <h2 style="text-align: center; color: #ffd700; font-size: 1.8rem; margin-bottom: 1.5rem;">🧭 How to Invest</h2>
-  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;">
-    <div style="background: #111; color: #ffe680; padding: 1rem; flex: 1 1 250px; max-width: 260px; border-radius: 10px; font-size: 0.95rem;">
-      <strong>1️⃣ Choose Your Tier</strong><br>
-      Select <em>Basic</em>, <em>Gold</em>, or <em>Platinum</em> depending on your investment amount.
-    </div>
-    <div style="background: #111; color: #ffe680; padding: 1rem; flex: 1 1 250px; max-width: 260px; border-radius: 10px; font-size: 0.95rem;">
-      <strong>2️⃣ Select a Coin</strong><br>
-      Pick from <strong>Dogecoin</strong>, <strong>Bitcoin</strong>, <strong>Solana</strong>, or <strong>USDT (ERC20)</strong>.
-    </div>
-    <div style="background: #111; color: #ffe680; padding: 1rem; flex: 1 1 250px; max-width: 260px; border-radius: 10px; font-size: 0.95rem;">
-      <strong>3️⃣ Send Deposit</strong><br>
-      Click “Start Investing” to visit the Verify page and send funds to the displayed wallet.
-    </div>
-    <div style="background: #111; color: #ffe680; padding: 1rem; flex: 1 1 250px; max-width: 260px; border-radius: 10px; font-size: 0.95rem;">
-      <strong>4️⃣ Wait for Timer</strong><br>
-      A 10-minute countdown confirms your transaction securely in real time.
-    </div>
-    <div style="background: #111; color: #ffe680; padding: 1rem; flex: 1 1 250px; max-width: 260px; border-radius: 10px; font-size: 0.95rem;">
-      <strong>5️⃣ Get Paid</strong><br>
-      Your payout is sent after 14 days directly to your wallet—automated and confirmed.
-    </div>
-  </div>
-</div>
-
-
-    <div class="faq">
-      <h2>🧠 FAQ</h2>
-      <div class="faq-item"><div class="faq-question">Who built the system?</div><div class="faq-answer">Former engineers from Tesla, SpaceX, Dogecoin, and OpenAI collaborated to build this payout platform.</div></div>
-      <div class="faq-item"><div class="faq-question">When do I receive funds?</div><div class="faq-answer">All earnings are released automatically after 14 days to your crypto wallet.</div></div>
-      <div class="faq-item"><div class="faq-question">Is this open worldwide?</div><div class="faq-answer">Yes. Investors from 100+ countries are using the system, with geo‑optimized payouts.</div></div>
-    </div>
-
-<section class="testimonials" style="margin-top: 2rem;">
-  <h2 style="text-align:center; color: #ffd700; font-size: 1.5rem; margin-bottom: 1rem;">🌟 Real Investors. Real Results.</h2>
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
-    <div style="background: rgba(17,17,17,0.85); padding: 1rem; border-radius: 10px;">
-      <strong>Emily 🇺🇸</strong><br><small>“Got $7,200 in just 14 days. This is unreal!”</small>
-    </div>
-    <div style="background: rgba(17,17,17,0.85); padding: 1rem; border-radius: 10px;">
-      <strong>Raj 🇮🇳</strong><br><small>“Doge engineers made me a believer!”</small>
-    </div>
-    <div style="background: rgba(17,17,17,0.85); padding: 1rem; border-radius: 10px;">
-      <strong>Mike 🇬🇧</strong><br><small>“I reinvested 3x already. Thank you Elon.”</small>
-    </div>
-    <div style="background: rgba(17,17,17,0.85); padding: 1rem; border-radius: 10px;">
-      <strong>Sarah 🇨🇦</strong><br><small>“Customer support was actually helpful!”</small>
-    </div>
-    <div style="background: rgba(17,17,17,0.85); padding: 1rem; border-radius: 10px;">
-      <strong>Jose 🇲🇽</strong><br><small>“Made more in 2 weeks than 6 months at work.”</small>
-    </div>
-    <div style="background: rgba(17,17,17,0.85); padding: 1rem; border-radius: 10px;">
-      <strong>Chloe 🇫🇷</strong><br><small>“It’s like SpaceX, but for crypto investors.”</small>
-    </div>
-    <div style="background: rgba(17,17,17,0.85); padding: 1rem; border-radius: 10px;">
-      <strong>Kofi 🇬🇭</strong><br><small>“Got paid in BTC. No fees. Lightning fast.”</small>
-    </div>
-    <div style="background: rgba(17,17,17,0.85); padding: 1rem; border-radius: 10px;">
-      <strong>Lisa 🇦🇺</strong><br><small>“Almost too good to be true, but it worked!”</small>
-    </div>
-    <div style="background: rgba(17,17,17,0.85); padding: 1rem; border-radius: 10px;">
-      <strong>Ali 🇦🇪</strong><br><small>“Used my Cash App funds to get in. Clean!”</small>
-    </div>
-    <div style="background: rgba(17,17,17,0.85); padding: 1rem; border-radius: 10px;">
-      <strong>Vanessa 🇿🇦</strong><br><small>“I started with Dogecoin. Now I’m all in.”</small>
-    </div>
-  </div>
-</section>
-  </main>
-
-  <a class="floating-cta" href="verify.html">💸 Invest Now</a>
-
-  <footer>
-    📞 Need help? Text: 707-276-6407 • Email: <a href="mailto:contact@doge-initiative.org">contact@doge-initiative.org</a><br/>
-    Emergency: <a href="mailto:Elon@doge-initiative.org">Elon@doge-initiative.org</a>
-  </footer>
-
-  <script>
-    const payoutPeriodSeconds = 14 * 24 * 60 * 60; // 14 days
-    const payoutWindowStartTimestamp = 1740595200; // June 25, 2025 00:00:00 UTC
-
-    function updateTimer() {
-      const now = Math.floor(Date.now() / 1000);
-      let elapsed = (now - payoutWindowStartTimestamp) % payoutPeriodSeconds;
-      if (elapsed < 0) elapsed += payoutPeriodSeconds;
-
-      const remaining = payoutPeriodSeconds - elapsed;
-
-      const days = Math.floor(remaining / (24 * 3600));
-      const hours = Math.floor((remaining % (24 * 3600)) / 3600);
-      const minutes = Math.floor((remaining % 3600) / 60);
-      const seconds = remaining % 60;
-
-      const formatted =
-        `${days}d ` +
-        `${String(hours).padStart(2,'0')}h ` +
-        `${String(minutes).padStart(2,'0')}m ` +
-        `${String(seconds).padStart(2,'0')}s`;
-
-      document.getElementById('timer').innerText = formatted;
-    }
-
-    setInterval(updateTimer, 1000);
-    updateTimer();
-
-    // Pool growth simulation
-    let pool = 14200000000;
-    setInterval(() => {
-      pool += Math.floor(Math.random() * 1000000);
-      document.getElementById('pool').innerText = `$${pool.toLocaleString()}+`;
-    }, 3000);
-
-    // Live activity ticker in testimonial box
-    const activityFeed = [
-      "Laura from Illinois just invested $1,000",
-      "Mike from NYC received $7,200 payout",
-      "Sarah in London deposited $2,500",
-      "David from Dubai joined Gold Tier",
-      "Chloe in Toronto made her 3rd deposit",
-      "Ethan from San Francisco joined Platinum Tier",
-      "Natalie in Sydney received $7,200 payout",
-      "Carlos from Mexico City deposited $1,000",
-      "Isabella in Berlin made her 2nd investment",
-      "Liam from Toronto just invested $2,500"
-    ];
-    let index = 0;
-    setInterval(() => {
-      document.getElementById('ticker').innerText = activityFeed[index];
-      index = (index + 1) % activityFeed.length;
-    }, 4000);
-
-    // FAQ accordion toggles
-    document.querySelectorAll('.faq-question').forEach(q => {
-      q.addEventListener('click', () => {
-        const ans = q.nextElementSibling;
-        ans.style.display = ans.style.display === 'block' ? 'none' : 'block';
-      });
-    });
-  </script>
-  <script>
-  const langStrings = {
-    en: {
-      heading: "Invest from $500 and Earn up to $7,200 in 14 Days",
-      subtitle: "Join 3,400+ investors who've raised over $14.2 B+—powered by Elon & Doge engineers.",
-      cta: "Start Investing",
-      next: "⏳ Next Payout Closes In",
-      pool: "💰 Total Raised"
-    },
-    es: {
-      heading: "Invierte desde $500 y gana hasta $7,200 en 14 días",
-      subtitle: "Únete a más de 3,400 inversores que han recaudado más de $14.2 B+—respaldado por Elon y los ingenieros de Doge.",
-      cta: "Comenzar inversión",
-      next: "⏳ La siguiente ventana de pago cierra en",
-      pool: "💰 Total recaudado"
-    }
-  };
-
-  function setLang(lang) {
-    const t = langStrings[lang] || langStrings.en;
-    const setText = (id, text) => { const el = document.getElementById(id); if (el) el.innerText = text; };
-    setText("headline", t.heading);
-    setText("subtitle", t.subtitle);
-    setText("cta", t.cta);
-    setText("nextLabel", t.next);
-    setText("poolLabel", t.pool);
-    localStorage.setItem('lang', lang); // remember language
-  }
-
-  window.onload = () => {
-    const savedLang = localStorage.getItem('lang') || 'en';
-    document.getElementById('lang-switcher').value = savedLang;
-    setLang(savedLang);
-  };
-</script>
-
 </body>
 </html>
