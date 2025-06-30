@@ -1,234 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Doge Initiative — Home</title>
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta name="description" content="Multiply your crypto in 14 days—built by Elon, powered by xAI, since 2024. AI‑automated payouts.">
+  <meta name="robots" content="index,follow"/>
+  <title>Doge Initiative — AI Wealth Portal</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon"/>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #000 url('https://i.ibb.co/FKk5ymV/stars-bg.jpg') repeat top center;
-      color: #f0f0f0;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      overflow-x: hidden;
-    }
-    .floating-emoji {
-      position: fixed;
-      top: -10%;
-      left: 50%;
-      font-size: 2.5rem;
-      animation: floatDown 12s linear infinite;
-      z-index: 10;
-    }
-    @keyframes floatDown {
-      0% {
-        top: -10%;
-        left: 20%;
-      }
-      50% {
-        left: 60%;
-      }
-      100% {
-        top: 110%;
-        left: 40%;
-      }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body,html {
+      height:100%; width:100%;
+      background:#000; color:#f0f0f0;
+      font-family:'Segoe UI',sans-serif;
+      overflow-x:hidden;
     }
 
-    .floating-emoji2 {
-      position: fixed;
-      top: -15%;
-      left: 70%;
-      font-size: 2.2rem;
-      animation: floatDown2 14s linear infinite;
-      z-index: 10;
+    canvas#stars {
+      position:fixed; top:0; left:0;
+      width:100%; height:100%;
+      z-index:-1;
     }
-    @keyframes floatDown2 {
-      0% {
-        top: -15%;
-        left: 70%;
-      }
-      50% {
-        left: 30%;
-      }
-      100% {
-        top: 110%;
-        left: 60%;
-      }
+
+    .floating-emoji {
+      position:fixed; top:10%; font-size:2.5rem;
+      animation: float1 12s linear infinite;
+      pointer-events:none;
+    }
+    .floating-emoji.middle { left:20%; }
+    .floating-emoji.right { left:70%; }
+
+    @keyframes float1 {
+      0% { transform: translateY(0) rotate(0deg); opacity:1; }
+      100% { transform: translateY(120vh) rotate(720deg); opacity:0; }
     }
 
     nav {
-      position: sticky;
-      top: 0;
-      background: rgba(17, 17, 17, 0.9);
-      padding: 1rem 2rem;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      backdrop-filter: blur(4px);
-      z-index: 99;
+      position:sticky; top:0;
+      background:rgba(17,17,17,0.9);
+      padding:1rem 2rem; display:flex;
+      justify-content:space-between; align-items:center;
+      z-index:10;
     }
-
-    .logo {
-      font-size: 1.8rem;
-      font-weight: bold;
-      color: #f7b500;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-    }
-
+    .logo { font-size:1.8rem; color:#f7b500; font-weight:bold; }
+    nav ul { list-style:none; display:flex; gap:1.5rem; }
     nav a {
-      text-decoration: none;
-      color: #ffd700;
-      font-weight: 600;
+      color:#ffd700; font-weight:600;
+      text-decoration:none;
     }
-
-    nav a:hover {
-      color: #fff;
-    }
+    nav a:hover { color:#fff; }
 
     header {
-      text-align: center;
-      padding: 4rem 2rem 2rem;
+      text-align:center; padding:4rem 1rem 2rem;
     }
-
-    header h1 {
-      font-size: 2.8rem;
-      color: #f7b500;
-      margin-bottom: 1rem;
-    }
-
-    .intro {
-      font-size: 1.2rem;
-      color: #ccc;
-      max-width: 640px;
-      margin: auto;
-    }
+    header h1 { font-size:2.8rem; color:#ffd700; margin-bottom:1rem; }
+    header p { font-size:1.15rem; color:#ccc; max-width:600px; margin:auto; }
 
     .tiers {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-      padding: 2rem 1rem;
+      display:flex; flex-wrap:wrap;
+      justify-content:center; gap:1rem;
+      padding:2rem 1rem;
     }
-
     .tier {
-      background: rgba(25, 25, 25, 0.9);
-      border: 2px solid #f7b500;
-      padding: 1rem 1.5rem;
-      border-radius: 10px;
-      min-width: 180px;
-      text-align: center;
+      background:rgba(25,25,25,0.85);
+      border:2px solid #f7b500;
+      border-radius:10px;
+      padding:1rem 1.5rem;
+      width:180px;
+      text-align:center;
+      flex-shrink:0;
     }
-
-    .tier h3 {
-      color: #ffd700;
-      font-size: 1.3rem;
-      margin-bottom: 0.5rem;
-    }
+    .tier h3 { color:#ffd700; font-size:1.3rem; margin-bottom:0.5rem; }
+    .tier p { font-size:1rem; color:#ccc; }
 
     .stats {
-      text-align: center;
-      margin: 2rem 0;
-      color: #fff;
+      text-align:center; padding:1rem 1rem;
     }
+    .stats .stat-text { font-size:1.4rem; margin:0.6rem 0; }
+    .stats .timer { color:#7fff00; font-size:1.6rem; font-weight:bold; }
 
-    .stat {
-      font-size: 1.4rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .timer {
-      font-size: 1.6rem;
-      font-weight: bold;
-      color: #7fff00;
+    .contact {
+      text-align:center; font-size:1rem; color:#ccc;
+      margin-top:0.5rem;
     }
 
     .live-feed {
-      max-width: 680px;
-      margin: 3rem auto 2rem;
-      background: #111;
-      border-left: 4px solid #ffd700;
-      padding: 1rem 1.5rem;
-      border-radius: 10px;
+      max-width:600px;
+      margin:2rem auto;
+      background:#111;
+      border-left:4px solid #ffd700;
+      padding:1rem 1.5rem;
+      border-radius:8px;
     }
-
-    .live-feed h2 {
-      color: #f7b500;
-      font-size: 1.4rem;
-      margin-bottom: 1rem;
-    }
-
+    .live-feed h2 { color:#f7b500; font-size:1.3rem; margin-bottom:1rem; }
     .live-feed .entry {
-      margin-bottom: 0.8rem;
-      font-size: 1rem;
-      color: #ccc;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.9rem;
-      color: #999;
-      border-top: 1px solid #222;
-    }
-
-    footer a {
-      color: #ffd700;
+      padding:0.4rem 0;
+      color:#ccc; font-size:1rem;
     }
 
     .cta {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #f7b500;
-      color: #000;
-      padding: 0.8rem 1.5rem;
-      border-radius: 50px;
-      font-weight: bold;
-      box-shadow: 0 0 10px #ffd700;
-      text-decoration: none;
-      z-index: 100;
+      position:fixed;
+      bottom:20px; right:20px;
+      background:#f7b500;
+      color:#000;
+      padding:0.8rem 1.4rem;
+      border-radius:50px;
+      font-weight:bold;
+      text-decoration:none;
+      box-shadow:0 0 10px #ffd700;
+      z-index:10;
     }
 
-    @media(max-width: 600px) {
-      .tiers {
-        flex-direction: column;
-        align-items: center;
-      }
+    footer {
+      text-align:center;
+      padding:2rem 1rem;
+      font-size:0.9rem;
+      color:#999;
+      border-top:1px solid #222;
+    }
+    footer a { color:#ffd700; text-decoration:none; }
 
-      .cta {
-        bottom: 15px;
-        right: 15px;
-        font-size: 0.9rem;
-      }
+    @media(max-width:600px){
+      .tiers { gap:0.5rem; }
     }
   </style>
 </head>
 <body>
-  <div class="floating-emoji">💸</div>
-  <div class="floating-emoji2">💸</div>
+  <canvas id="stars"></canvas>
+  <div class="floating-emoji middle">💸</div>
+  <div class="floating-emoji right">💸</div>
 
   <nav>
     <div class="logo">🚀 Doge Initiative</div>
     <ul>
-      <li><a href="index.html" style="color: #fff;">HOME</a></li>
+      <li><a href="index.html">HOME</a></li>
       <li><a href="verify.html">VERIFY</a></li>
       <li><a href="faq.html">FAQ</a></li>
       <li><a href="terms.html">PRIVACY</a></li>
@@ -236,38 +141,21 @@
   </nav>
 
   <header>
-    <h1>Welcome to the Future of Wealth</h1>
-    <p class="intro">
-      Built by Elon. Powered by xAI. Since 2024.<br>
-      Real crypto gains. AI-automated. Payouts every 14 days.
-    </p>
+    <h1>Multiply Your Crypto in 14 Days</h1>
+    <p>Built by Elon, Powered by xAI, Since 2024. AI‑automated payouts to real wallets.</p>
   </header>
 
   <section class="tiers">
-    <div class="tier">
-      <h3>Starter</h3>
-      <p>$200 → $440</p>
-    </div>
-    <div class="tier">
-      <h3>Basic</h3>
-      <p>$500 → $1,125</p>
-    </div>
-    <div class="tier">
-      <h3>Gold</h3>
-      <p>$1,000 → $2,700</p>
-    </div>
-    <div class="tier">
-      <h3>Platinum</h3>
-      <p>$2,500+ → $7,200</p>
-    </div>
+    <div class="tier"><h3>Starter</h3><p>$200 → $440</p></div>
+    <div class="tier"><h3>Basic</h3><p>$500 → $1,125</p></div>
+    <div class="tier"><h3>Gold</h3><p>$1,000 → $2,700</p></div>
+    <div class="tier"><h3>Platinum</h3><p>$2,500+ → $7,200</p></div>
   </section>
 
   <section class="stats">
-    <div class="stat">💰 Total Raised: <strong>$312,557,942</strong></div>
-    <div class="stat">⏳ Next payout closes in: <span class="timer" id="countdown">Loading...</span></div>
-    <div style="margin-top: 1rem; font-size: 1rem; color: #ccc;">
-      For questions, contact us at <a href="mailto:contact@doge-initiative.org">contact@doge-initiative.org</a>
-    </div>
+    <div class="stat-text">💰 Total Raised: <strong>$312,557,942+</strong></div>
+    <div class="stat-text">⏳ Next payout closes in <span class="timer" id="countdown">--d --h --m</span></div>
+    <div class="contact">For questions, contact us at <a href="mailto:contact@doge-initiative.org">contact@doge-initiative.org</a></div>
   </section>
 
   <section class="live-feed">
@@ -278,36 +166,61 @@
     <div class="entry">Liam (UK) deposited 500 USDT</div>
   </section>
 
-  <footer>
-    🚀 Doge Initiative • Email: <a href="mailto:contact@doge-initiative.org">contact@doge-initiative.org</a> • Emergency: <a href="mailto:Elon@doge-initiative.org">Elon@doge-initiative.org</a>
-  </footer>
-
   <a href="verify.html" class="cta">💸 Invest Now</a>
 
+  <footer>
+    🚀 Doge Initiative • Contact: <a href="mailto:contact@doge-initiative.org">contact@doge-initiative.org</a> • Emergency: <a href="mailto:Elon@doge-initiative.org">Elon@doge-initiative.org</a>
+  </footer>
+
   <script>
-    function startCountdown() {
-      const target = new Date();
-      target.setHours(target.getHours() + 75); // 3 days + 3 hours
-      const countdownEl = document.getElementById('countdown');
-
-      function update() {
-        const now = new Date();
-        const diff = target - now;
-        if (diff <= 0) {
-          countdownEl.textContent = "00:00:00";
-          return;
-        }
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-        const minutes = Math.floor((diff / (1000 * 60)) % 60);
-        countdownEl.textContent = `${days}d ${String(hours).padStart(2, '0')}h ${String(minutes).padStart(2, '0')}m`;
-      }
-
-      update();
-      setInterval(update, 60000);
+    // Star field animation
+    const canvas = document.getElementById('stars');
+    const ctx = canvas.getContext('2d');
+    let starsArr = [];
+    function initStars(){
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      starsArr = Array.from({length:200}, () => ({
+        x: Math.random()*canvas.width,
+        y: Math.random()*canvas.height,
+        r: Math.random()*1.2,
+        dy: 0.2 + Math.random()*0.5
+      }));
     }
+    function draw(){
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      ctx.fillStyle = '#fff';
+      starsArr.forEach(s => {
+        ctx.beginPath();
+        ctx.arc(s.x,s.y,s.r,0,2*Math.PI);
+        ctx.fill();
+        s.y += s.dy;
+        if(s.y > canvas.height){
+          s.y = 0;
+          s.x = Math.random()*canvas.width;
+        }
+      });
+      requestAnimationFrame(draw);
+    }
+    window.addEventListener('resize', initStars);
+    initStars();
+    draw();
 
-    startCountdown();
+    // Countdown logic
+    const cdEl = document.getElementById('countdown');
+    const INTERVAL = 1000 * 60; // 1 minute updates
+    const TARGET_PERIOD = 14 * 24 * 60 * 60 * 1000;
+    let start = Date.now();
+    function updateTimer(){
+      let elapsed = (Date.now() - start) % TARGET_PERIOD;
+      let remaining = TARGET_PERIOD - elapsed;
+      const d = Math.floor(remaining / (1000*60*60*24));
+      const h = Math.floor((remaining %(1000*60*60*24)) / (1000*60*60));
+      const m = Math.floor((remaining %(1000*60*60)) / (1000*60));
+      cdEl.textContent = `${d}d ${String(h).padStart(2,'0')}h ${String(m).padStart(2,'0')}m`;
+    }
+    updateTimer();
+    setInterval(updateTimer, INTERVAL);
   </script>
 </body>
 </html>
