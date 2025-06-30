@@ -5,7 +5,292 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Doge Initiative — Space‑Tech ROI</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+  <style><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Doge Initiative – Elon’s Wealth Portal</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon"/>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #000;
+      color: #f0f0f0;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: -100%;
+      left: -100%;
+      width: 300%;
+      height: 300%;
+      background: radial-gradient(#fff 1px, transparent 1px);
+      background-size: 3px 3px;
+      animation: rotateStars 60s linear infinite;
+      z-index: -1;
+      opacity: 0.1;
+    }
+
+    @keyframes rotateStars {
+      from { transform: rotate(0); }
+      to { transform: rotate(360deg); }
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(17, 17, 17, 0.9);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+    .logo {
+      color: #f7b500;
+      font-weight: bold;
+      font-size: 1.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+    nav a {
+      color: #ffd700;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    nav a:hover {
+      color: #fff;
+    }
+
+    header {
+      padding: 4rem 2rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 3rem;
+      color: #ffd700;
+      margin-bottom: 1rem;
+    }
+    header p {
+      font-size: 1.2rem;
+      color: #ccc;
+    }
+
+    .tiers {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 3rem auto;
+      flex-wrap: wrap;
+      max-width: 900px;
+    }
+    .tier {
+      background: rgba(255, 215, 0, 0.08);
+      border: 2px solid #f7b500;
+      border-radius: 10px;
+      padding: 2rem;
+      text-align: center;
+      flex: 1 1 240px;
+      color: #fff;
+    }
+    .tier h3 {
+      color: #ffd700;
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .tier p {
+      font-size: 1rem;
+      color: #ccc;
+    }
+
+    .stat-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin: 2rem auto;
+      max-width: 960px;
+      text-align: center;
+    }
+    .stat {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 1.5rem;
+      border-radius: 10px;
+      min-width: 200px;
+    }
+    .stat h4 {
+      font-size: 1rem;
+      color: #ffd700;
+    }
+    .stat p {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .activity-log {
+      max-width: 600px;
+      margin: 2rem auto;
+      background: #111;
+      border-left: 4px solid #ffd700;
+      padding: 1rem 1.5rem;
+      border-radius: 10px;
+    }
+    .activity-log div {
+      padding: 0.4rem 0;
+      color: #ccc;
+      font-size: 1rem;
+    }
+
+    .cta {
+      text-align: center;
+      margin: 3rem auto;
+    }
+    .cta a {
+      display: inline-block;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      background: #f7b500;
+      color: #000;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: bold;
+    }
+    .cta a:hover {
+      background: #ffd700;
+    }
+
+    footer {
+      padding: 2rem;
+      font-size: 0.9rem;
+      text-align: center;
+      color: #999;
+      border-top: 1px solid #222;
+    }
+
+    .fly-emoji {
+      position: fixed;
+      bottom: -40px;
+      left: 50%;
+      font-size: 2rem;
+      animation: flyDollar 5s linear infinite;
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    @keyframes flyDollar {
+      0% {
+        transform: translateX(-50%) translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateX(-50%) translateY(-120vh) rotate(720deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="fly-emoji">💸</div>
+
+  <nav>
+    <div class="logo">🚀 Doge Initiative</div>
+    <ul>
+      <li><a href="index.html" style="font-weight:bold;">HOME</a></li>
+      <li><a href="verify.html">VERIFY</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+      <li><a href="terms.html">PRIVACY</a></li>
+    </ul>
+  </nav>
+
+  <header>
+    <h1>Multiply Your Crypto in 14 Days</h1>
+    <p>Backed by Elon. Powered by Doge AI. Paid bi-weekly. Minimum $500.</p>
+  </header>
+
+  <section class="tiers">
+    <div class="tier">
+      <h3>Basic Tier</h3>
+      <p>Invest $500 → Receive $1,125</p>
+    </div>
+    <div class="tier">
+      <h3>Gold Tier</h3>
+      <p>Invest $1,000 → Receive $2,700</p>
+    </div>
+    <div class="tier">
+      <h3>Platinum Tier</h3>
+      <p>Invest $2,500+ → Receive $7,200</p>
+    </div>
+  </section>
+
+  <section class="stat-section">
+    <div class="stat">
+      <h4>⏳ Next payout closes in</h4>
+      <p>03:18:54</p>
+    </div>
+    <div class="stat">
+      <h4>💰 Total Raised</h4>
+      <p>$6,425,300+</p>
+    </div>
+  </section>
+
+  <section class="activity-log" id="activityLog">
+    <!-- Live activity will populate here -->
+  </section>
+
+  <div class="cta">
+    <a href="verify.html">💸 Invest Now</a>
+  </div>
+
+  <footer>
+    🚀 Designed by Elon Musk & Doge AI Engineers • Email: <a href="mailto:contact@doge-initiative.org">contact@doge-initiative.org</a> • Emergency: <a href="mailto:Elon@doge-initiative.org">Elon@doge-initiative.org</a>
+  </footer>
+
+  <script>
+    const activityLog = document.getElementById("activityLog");
+
+    const activityEntries = [
+      { name: "Jacob", location: "TX", action: "just invested $1,000 using BTC" },
+      { name: "Maria", location: "CA", action: "upgraded to Platinum Tier with SOL" },
+      { name: "Alex", location: "UK", action: "received payout of $2,700" },
+      { name: "Lu", location: "SG", action: "verified $500 via DOGE" },
+      { name: "Aisha", location: "NG", action: "sent $500 via USDT" },
+      { name: "Carlos", location: "MX", action: "joined Gold Tier using BTC" },
+      { name: "Kim", location: "KR", action: "verified $2,500 via SOL" },
+      { name: "Sasha", location: "RU", action: "just invested $1,000 using DOGE" }
+    ];
+
+    function updateActivity() {
+      const maxDisplay = 4;
+      const randomStart = Math.floor(Math.random() * activityEntries.length);
+      const sliced = [...activityEntries, ...activityEntries].slice(randomStart, randomStart + maxDisplay);
+
+      activityLog.innerHTML = sliced.map(entry =>
+        `<div><strong>${entry.name} (${entry.location})</strong> ${entry.action}</div>`
+      ).join('');
+    }
+
+    updateActivity();
+    setInterval(updateActivity, 5000);
+  </script>
+</body>
+</html>
+
     * { box-sizing: border-box; margin: 0; padding: 0 }
     body {
       font-family: 'Segoe UI', sans-serif;
