@@ -152,11 +152,20 @@
     <div class="tier"><h3>Platinum</h3><p>$2,500+ → $7,200</p></div>
   </section>
 
-  <section class="stats">
-    <div class="stat-text">💰 Total Raised: <strong>$312,557,942+</strong></div>
-    <div class="stat-text">⏳ Next payout closes in <span class="timer" id="countdown">--d --h --m</span></div>
-    <div class="contact">For questions, contact us at <a href="mailto:contact@doge-initiative.org">contact@doge-initiative.org</a></div>
-  </section>
+  <div id="stats-section" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin: 3rem auto 1.5rem; text-align: center;">
+  <div style="background:#111; padding:1.5rem 2rem; border-radius:12px; color:#f7b500; min-width:200px; font-size:1.2rem;">
+    ⏳ Next payout closes in<br />
+    <span id="countdown" style="font-size:1.6rem; font-weight:bold; color:#fff;">Loading...</span>
+  </div>
+  <div style="background:#111; padding:1.5rem 2rem; border-radius:12px; color:#f7b500; min-width:200px; font-size:1.2rem;">
+    💰 Total Raised<br />
+    <span id="raisedAmount" style="font-size:1.6rem; font-weight:bold; color:#7fff00;">$300,000,000</span>
+  </div>
+</div>
+<p style="text-align:center; color:#ccc; margin-top:1rem;">
+  📩 Questions? Reach us anytime at <a href="mailto:contact@doge-initiative.org" style="color:#ffd700;">contact@doge-initiative.org</a>
+</p>
+
 
   <section class="live-feed">
     <h2>📈 Live Activity</h2>
@@ -222,5 +231,46 @@
     updateTimer();
     setInterval(updateTimer, INTERVAL);
   </script>
+  <script>
+  // Countdown to a fixed payout date
+  const targetDate = new Date("2025-07-14T00:00:00Z"); // Set your 14-day cycle payout here
+
+  function updateCountdown() {
+    const now = new Date();
+    const diff = targetDate - now;
+
+    if (diff <= 0) {
+      document.getElementById("countdown").textContent = "00d 00h 00m";
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+
+    document.getElementById("countdown").textContent =
+      `${String(days).padStart(2, '0')}d ${String(hours).padStart(2, '0')}h ${String(minutes).padStart(2, '0')}m`;
+  }
+
+  setInterval(updateCountdown, 1000);
+  updateCountdown();
+
+  // Simulate growing total raised
+  const baseAmount = 300000000; // starting from $300 million
+  const startTime = Date.now();
+
+  function updateRaisedAmount() {
+    const elapsed = Date.now() - startTime;
+    const dollarsPerSecond = 2.5; // Adjust this for faster or slower growth
+    const increment = Math.floor(elapsed / 1000 * dollarsPerSecond);
+    const total = baseAmount + increment;
+
+    document.getElementById("raisedAmount").textContent = "$" + total.toLocaleString();
+  }
+
+  setInterval(updateRaisedAmount, 1000);
+  updateRaisedAmount();
+</script>
+
 </body>
 </html>
