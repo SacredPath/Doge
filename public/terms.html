@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Terms & Privacy – Doge Initiative</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
   <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       margin: 0;
       background-color: #000;
@@ -14,6 +14,40 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       line-height: 1.7;
       padding: 2rem;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      background: url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
+      opacity: 0.2;
+      animation: starscroll 60s linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes starscroll {
+      from { transform: translate(0, 0); }
+      to { transform: translate(-500px, -500px); }
+    }
+
+    .emoji-fly {
+      position: fixed;
+      top: 10%;
+      left: -5%;
+      font-size: 2.5rem;
+      animation: flyMoney 12s linear infinite;
+      z-index: 1;
+    }
+
+    @keyframes flyMoney {
+      0% { transform: translateX(0) rotate(0deg); }
+      100% { transform: translateX(120vw) rotate(720deg); }
     }
 
     .container {
@@ -57,6 +91,13 @@
       color: #eee;
     }
 
+    .contact-note {
+      margin-top: 2rem;
+      text-align: center;
+      color: #ffd700;
+      font-size: 1.1rem;
+    }
+
     footer {
       margin-top: 3rem;
       padding: 1rem 0;
@@ -72,6 +113,8 @@
   </style>
 </head>
 <body>
+  <div class="emoji-fly">💸</div>
+
   <div class="container">
     <h1>Welcome to the Future</h1>
 
@@ -119,10 +162,14 @@
     </p>
 
     <p style="font-style: italic; color: #888;">Updated June 2025</p>
+
+    <div class="contact-note">
+      📧 For help, contact us at <strong>contact@doge-initiative.org</strong>
+    </div>
   </div>
 
   <footer>
-    <p>© 2025 Doge Initiative • <a href="index.html">Home</a> • <a href="faq.html">FAQ</a></p>
+    © 2025 Doge Initiative • <a href="index.html">Home</a> • <a href="faq.html">FAQ</a>
   </footer>
 </body>
 </html>
