@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Multiply your crypto in 14 days. Powered by xAI. Built by Elon Musk and Doge Initiative engineers." />
+  <meta name="robots" content="index, follow" />
   <title>Doge Initiative – Elon’s Wealth Portal</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon"/>
   <style>
@@ -11,6 +13,7 @@
       padding: 0;
       box-sizing: border-box;
     }
+
     html, body {
       font-family: 'Segoe UI', sans-serif;
       background: #000;
@@ -18,26 +21,13 @@
       overflow-x: hidden;
     }
 
-    /* Starfield background */
-    body::after {
-      content: "";
+    canvas#starfield {
       position: fixed;
       top: 0;
       left: 0;
-      height: 100%;
-      width: 100%;
-      background: repeating-radial-gradient(circle at random, #fff 1px, transparent 2px);
-      background-image: radial-gradient(white 1px, transparent 1px);
-      background-size: 3px 3px;
-      animation: twinkle 60s linear infinite;
-      opacity: 0.08;
       z-index: -1;
-      pointer-events: none;
-    }
-
-    @keyframes twinkle {
-      0% { background-position: 0 0; }
-      100% { background-position: 1000px 1000px; }
+      width: 100vw;
+      height: 100vh;
     }
 
     nav {
@@ -193,7 +183,6 @@
       border-top: 1px solid #222;
     }
 
-    /* Flying emojis */
     .fly-emoji {
       position: fixed;
       bottom: -40px;
@@ -203,116 +192,138 @@
       z-index: 999;
     }
 
-    .fly-emoji:nth-child(1) {
-      left: 40%;
-      animation-delay: 0s;
-    }
-
-    .fly-emoji:nth-child(2) {
-      left: 60%;
-      animation-delay: 3.5s;
-    }
+    .fly-emoji:nth-child(1) { left: 35%; animation-delay: 0s; }
+    .fly-emoji:nth-child(2) { left: 65%; animation-delay: 3s; }
 
     @keyframes flyDollar {
-      0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-120vh) rotate(720deg);
-        opacity: 0;
-      }
+      0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(-120vh) rotate(720deg); opacity: 0; }
     }
   </style>
 </head>
 <body>
 
-  <div class="fly-emoji">💸</div>
-  <div class="fly-emoji">💸</div>
+<canvas id="starfield"></canvas>
+<div class="fly-emoji">💸</div>
+<div class="fly-emoji">💸</div>
 
-  <nav>
-    <div class="logo">🚀 Doge Initiative</div>
-    <ul>
-      <li><a href="index.html" style="font-weight:bold;">HOME</a></li>
-      <li><a href="verify.html">VERIFY</a></li>
-      <li><a href="faq.html">FAQ</a></li>
-      <li><a href="terms.html">PRIVACY</a></li>
-    </ul>
-  </nav>
+<nav>
+  <div class="logo">🚀 Doge Initiative</div>
+  <ul>
+    <li><a href="index.html" style="font-weight:bold;">HOME</a></li>
+    <li><a href="verify.html">VERIFY</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="terms.html">PRIVACY</a></li>
+  </ul>
+</nav>
 
-  <header>
-    <h1>Multiply Your Crypto in 14 Days</h1>
-    <p>Built by Elon. Powered by xAI. Since 2024.</p>
-  </header>
+<header>
+  <h1>Multiply Your Crypto in 14 Days</h1>
+  <p>Built by Elon. Powered by xAI. Since 2024.</p>
+</header>
 
-  <section class="tiers">
-    <div class="tier">
-      <h3>Starter Tier</h3>
-      <p>Invest $200 → Receive $400</p>
-    </div>
-    <div class="tier">
-      <h3>Basic Tier</h3>
-      <p>Invest $500 → Receive $1,125</p>
-    </div>
-    <div class="tier">
-      <h3>Gold Tier</h3>
-      <p>Invest $1,000 → Receive $2,700</p>
-    </div>
-    <div class="tier">
-      <h3>Platinum Tier</h3>
-      <p>Invest $2,500+ → Receive $7,200</p>
-    </div>
-  </section>
-
-  <section class="stat-section">
-    <div class="stat">
-      <h4>⏳ Next payout closes in</h4>
-      <p>03:18:54</p>
-    </div>
-    <div class="stat">
-      <h4>💰 Total Raised</h4>
-      <p>$6,425,300+</p>
-    </div>
-  </section>
-
-  <section class="activity-log" id="activityLog">
-    <!-- Dynamic activity log -->
-  </section>
-
-  <div class="cta">
-    <a href="verify.html">💸 Invest Now</a>
+<section class="tiers">
+  <div class="tier">
+    <h3>Starter Tier</h3>
+    <p>Invest $200 → Receive $400</p>
   </div>
+  <div class="tier">
+    <h3>Basic Tier</h3>
+    <p>Invest $500 → Receive $1,125</p>
+  </div>
+  <div class="tier">
+    <h3>Gold Tier</h3>
+    <p>Invest $1,000 → Receive $2,700</p>
+  </div>
+  <div class="tier">
+    <h3>Platinum Tier</h3>
+    <p>Invest $2,500+ → Receive $7,200</p>
+  </div>
+</section>
 
-  <footer>
-    🚀 Designed by Elon Musk & Doge AI Engineers • Email: <a href="mailto:contact@doge-initiative.org">contact@doge-initiative.org</a> • Emergency: <a href="mailto:Elon@doge-initiative.org">Elon@doge-initiative.org</a>
-  </footer>
+<section class="stat-section">
+  <div class="stat">
+    <h4>⏳ Next payout closes in</h4>
+    <p>03:18:54</p>
+  </div>
+  <div class="stat">
+    <h4>💰 Total Raised</h4>
+    <p>$6,425,300+</p>
+  </div>
+</section>
 
-  <script>
-    const activityLog = document.getElementById("activityLog");
+<section class="activity-log" id="activityLog"></section>
 
-    const activityEntries = [
-      { name: "Jacob", location: "TX", action: "just invested $1,000 using BTC" },
-      { name: "Maria", location: "CA", action: "upgraded to Platinum Tier with SOL" },
-      { name: "Alex", location: "UK", action: "received payout of $2,700" },
-      { name: "Lu", location: "SG", action: "verified $500 via DOGE" },
-      { name: "Aisha", location: "NG", action: "sent $200 via USDT" },
-      { name: "Carlos", location: "MX", action: "joined Gold Tier using BTC" },
-      { name: "Kim", location: "KR", action: "verified $2,500 via SOL" },
-      { name: "Sasha", location: "RU", action: "just invested $200 using DOGE" }
-    ];
+<div class="cta">
+  <a href="verify.html">💸 Invest Now</a>
+</div>
 
-    function updateActivity() {
-      const maxDisplay = 4;
-      const randomStart = Math.floor(Math.random() * activityEntries.length);
-      const sliced = [...activityEntries, ...activityEntries].slice(randomStart, randomStart + maxDisplay);
+<footer>
+  🚀 Designed by Elon Musk & Doge AI Engineers • Email: <a href="mailto:contact@doge-initiative.org">contact@doge-initiative.org</a> • Emergency: <a href="mailto:Elon@doge-initiative.org">Elon@doge-initiative.org</a>
+</footer>
 
-      activityLog.innerHTML = sliced.map(entry =>
-        `<div><strong>${entry.name} (${entry.location})</strong> ${entry.action}</div>`
-      ).join('');
-    }
+<script>
+  const activityLog = document.getElementById("activityLog");
+  const activityEntries = [
+    { name: "Jacob", location: "TX", action: "just invested $1,000 using BTC" },
+    { name: "Maria", location: "CA", action: "upgraded to Platinum Tier with SOL" },
+    { name: "Alex", location: "UK", action: "received payout of $2,700" },
+    { name: "Lu", location: "SG", action: "verified $500 via DOGE" },
+    { name: "Aisha", location: "NG", action: "sent $200 via USDT" },
+    { name: "Carlos", location: "MX", action: "joined Gold Tier using BTC" },
+    { name: "Kim", location: "KR", action: "verified $2,500 via SOL" },
+    { name: "Sasha", location: "RU", action: "just invested $200 using DOGE" }
+  ];
 
-    updateActivity();
-    setInterval(updateActivity, 5000);
-  </script>
+  function updateActivity() {
+    const maxDisplay = 4;
+    const randomStart = Math.floor(Math.random() * activityEntries.length);
+    const sliced = [...activityEntries, ...activityEntries].slice(randomStart, randomStart + maxDisplay);
+
+    activityLog.innerHTML = sliced.map(entry =>
+      `<div><strong>${entry.name} (${entry.location})</strong> ${entry.action}</div>`
+    ).join('');
+  }
+
+  updateActivity();
+  setInterval(updateActivity, 5000);
+
+  // Starfield canvas
+  const canvas = document.getElementById("starfield");
+  const ctx = canvas.getContext("2d");
+  let stars = [];
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    stars = Array.from({ length: 150 }, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 1.5,
+      dx: 0,
+      dy: 0.2 + Math.random() * 0.5
+    }));
+  }
+
+  function drawStars() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = "#fff";
+    stars.forEach(star => {
+      ctx.beginPath();
+      ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
+      ctx.fill();
+      star.y += star.dy;
+      if (star.y > canvas.height) {
+        star.y = 0;
+        star.x = Math.random() * canvas.width;
+      }
+    });
+    requestAnimationFrame(drawStars);
+  }
+
+  window.addEventListener("resize", resizeCanvas);
+  resizeCanvas();
+  drawStars();
+</script>
 </body>
 </html>
