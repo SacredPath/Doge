@@ -5,9 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Doge Initiative — FAQ</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
-  <meta name="robots" content="index, follow" />
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * { box-sizing: border-box; margin: 0; padding: 0 }
     body {
       background: #000;
       color: #f0f0f0;
@@ -15,38 +14,6 @@
       display: flex;
       flex-direction: column;
       min-height: 100vh;
-      overflow-x: hidden;
-    }
-
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0; left: 0;
-      width: 300%;
-      height: 300%;
-      background: url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
-      opacity: 0.12;
-      animation: starScroll 100s linear infinite;
-      z-index: -1;
-    }
-
-    @keyframes starScroll {
-      0% { transform: translate(0,0); }
-      100% { transform: translate(-1000px,-1000px); }
-    }
-
-    .emoji-fly {
-      position: fixed;
-      top: 15%;
-      left: -50px;
-      font-size: 2.5rem;
-      z-index: 2;
-      animation: flyMoney 20s linear infinite;
-    }
-
-    @keyframes flyMoney {
-      from { transform: translateX(0) rotate(0deg); }
-      to { transform: translateX(120vw) rotate(720deg); }
     }
 
     nav {
@@ -55,18 +22,10 @@
       background: rgba(17,17,17,0.85);
       padding: 1rem 2rem;
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
       backdrop-filter: blur(5px);
       z-index: 100;
-    }
-
-    .nav-inner {
-      width: 100%;
-      max-width: 960px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
     }
 
     .logo {
@@ -76,6 +35,10 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
+    }
+
+    .logo span {
+      font-size: 2rem;
     }
 
     nav ul {
@@ -90,7 +53,7 @@
       text-decoration: none;
     }
 
-    nav a:hover, nav a.active {
+    nav a:hover {
       color: #ffd700;
     }
 
@@ -153,15 +116,8 @@
       border-radius: 0 0 10px 10px;
     }
 
-    .contact-note {
-      text-align: center;
-      margin-top: 2rem;
-      color: #ffd700;
-      font-size: 1.05rem;
-    }
-
     footer {
-      padding: 2rem 1rem 1rem;
+      padding: 2rem 0;
       font-size: 0.9rem;
       color: #999;
       text-align: center;
@@ -170,7 +126,6 @@
 
     footer a {
       color: #ffd700;
-      text-decoration: none;
     }
 
     @media(max-width: 600px) {
@@ -182,98 +137,26 @@
   </style>
 </head>
 <body>
-  <div class="emoji-fly">💸</div>
-
   <nav>
-    <div class="nav-inner">
-      <div class="logo">🚀 Doge Initiative</div>
-      <ul>
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="verify.html">VERIFY</a></li>
-        <li><a href="faq.html" class="active">FAQ</a></li>
-        <li><a href="terms.html">PRIVACY</a></li>
-      </ul>
-    </div>
+    <div class="logo"><span>🚀</span>Doge Initiative</div>
+    <ul>
+      <li><a href="index.html">HOME</a></li>
+      <li><a href="verify.html">VERIFY</a></li>
+      <li><a href="faq.html" style="color:#ffd700;font-weight:bold;">FAQ</a></li>
+      <li><a href="terms.html">PRIVACY</a></li>
+    </ul>
   </nav>
 
   <main>
     <h1>💬 FAQ Center</h1>
-    <p class="lead">Powered by Elon Musk & Doge Initiative engineers, this is where the next 1% are born. We answer everything here.</p>
+    <p class="lead">Built by Elon. Powered by xAI. Faster, smarter, and more profitable than anything on Wall Street.</p>
 
     <div class="faq-block">
-      <div class="faq-question">🤖 What is Doge Initiative and why Elon Musk?</div>
+      <div class="faq-question">🤖 What exactly is Doge Initiative?</div>
       <div class="faq-answer">
-        Doge Initiative is a revolutionary crypto wealth generator co-created by Elon Musk and engineers from the Doge AI Labs. It’s not Dogecoin. It’s a completely new, AI-automated vehicle for space-age returns. Designed with SpaceX precision.
+        Doge Initiative is the ultimate wealth funnel built by Elon's AI labs. It’s not just another crypto play — it’s a financial time machine using xAI-powered bots to outperform traditional investment firms and every other “AI fund” out there.
       </div>
     </div>
 
     <div class="faq-block">
-      <div class="faq-question">📅 How does the 14-day payout work?</div>
-      <div class="faq-answer">
-        Our automated system tracks every deposit and ensures your payout is released exactly 14 days after confirmation. Everything is managed by smart AI agents — tested over 12,000 times for timing accuracy.
-      </div>
-    </div>
-
-    <div class="faq-block">
-      <div class="faq-question">🌍 Is Doge Initiative available globally?</div>
-      <div class="faq-answer">
-        Yes. We're optimized for users from over 100 countries. Payouts are geo-tuned to ensure lightning-fast transactions and timezone transparency.
-      </div>
-    </div>
-
-    <div class="faq-block">
-      <div class="faq-question">💰 What cryptocurrencies can I use?</div>
-      <div class="faq-answer">
-        We currently accept Dogecoin, Bitcoin, Solana, and USDT (ERC20). These are received into secure monitored wallets and confirmed live within minutes.
-      </div>
-    </div>
-
-    <div class="faq-block">
-      <div class="faq-question">🚀 How do I start investing?</div>
-      <div class="faq-answer">
-        Select your preferred Tier (including our new $200 entry), choose your coin, and proceed to the Verify page. From there, our timer verifies your transaction and your automated growth journey begins.
-      </div>
-    </div>
-
-    <div class="faq-block">
-      <div class="faq-question">🔒 How safe is the platform?</div>
-      <div class="faq-answer">
-        We use advanced encryption, 24/7 AI transaction monitors, and wallet vaulting protocols similar to those used by Tesla internal systems.
-      </div>
-    </div>
-
-    <div class="faq-block">
-      <div class="faq-question">📈 Can I reinvest or scale up?</div>
-      <div class="faq-answer">
-        No compounding or reinvestment — just tier upgrades. Payments are sent bi-weekly to keep liquidity clean and automated.
-      </div>
-    </div>
-
-    <div class="faq-block">
-      <div class="faq-question">📩 Who do I contact if I need help?</div>
-      <div class="faq-answer">
-        Text our help desk at <strong>707-276-6407</strong> or email <a href="mailto:contact@doge-initiative.org">contact@doge-initiative.org</a>. For urgent issues, Elon himself reviews <a href="mailto:Elon@doge-initiative.org">Elon@doge-initiative.org</a>.
-      </div>
-    </div>
-
-    <div class="contact-note">
-      💬 Still have questions? Email <strong>contact@doge-initiative.org</strong> for help.
-    </div>
-  </main>
-
-  <footer>
-    🚀 Designed by Doge AI Engineers • <a href="index.html">Home</a> • <a href="terms.html">Terms</a>
-  </footer>
-
-  <script>
-    document.querySelectorAll('.faq-question').forEach(q => {
-      q.addEventListener('click', () => {
-        const ans = q.nextElementSibling;
-        const isOpen = ans.style.display === 'block';
-        document.querySelectorAll('.faq-answer').forEach(a => a.style.display = 'none');
-        ans.style.display = isOpen ? 'none' : 'block';
-      });
-    });
-  </script>
-</body>
-</html>
+      <div class="faq
