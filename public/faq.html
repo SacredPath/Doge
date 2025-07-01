@@ -3,28 +3,70 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Doge Initiative – AI Wealth for the People</title>
+  <title>Doge Initiative — FAQ</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <meta name="robots" content="index, follow" />
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0 }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       background: #000;
       color: #f0f0f0;
       font-family: 'Segoe UI', sans-serif;
-      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
       overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 300%;
+      height: 300%;
+      background: url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
+      opacity: 0.12;
+      animation: starScroll 100s linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes starScroll {
+      0% { transform: translate(0,0); }
+      100% { transform: translate(-1000px,-1000px); }
+    }
+
+    .emoji-fly {
+      position: fixed;
+      top: 15%;
+      left: -50px;
+      font-size: 2.5rem;
+      z-index: 2;
+      animation: flyMoney 20s linear infinite;
+    }
+
+    @keyframes flyMoney {
+      from { transform: translateX(0) rotate(0deg); }
+      to { transform: translateX(120vw) rotate(720deg); }
     }
 
     nav {
       position: sticky;
       top: 0;
-      background: rgba(17,17,17,0.9);
+      background: rgba(17,17,17,0.85);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      backdrop-filter: blur(5px);
+      z-index: 100;
+    }
+
+    .nav-inner {
+      width: 100%;
+      max-width: 960px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem 2rem;
-      z-index: 100;
-      backdrop-filter: blur(6px);
     }
 
     .logo {
@@ -36,133 +78,93 @@
       gap: 0.5rem;
     }
 
-    .logo span {
-      font-size: 2rem;
-    }
-
     nav ul {
       display: flex;
+      gap: 2rem;
       list-style: none;
-      gap: 1.8rem;
     }
 
-    nav ul li a {
-      text-decoration: none;
-      color: #f7b500;
+    nav a {
       font-weight: 600;
+      color: inherit;
+      text-decoration: none;
     }
 
-    nav ul li a:hover {
-      color: #fff;
-    }
-
-    header {
-      padding: 4rem 2rem 3rem;
-      text-align: center;
-    }
-
-    header h1 {
-      font-size: 2.6rem;
-      color: #f7b500;
-      margin-bottom: 1rem;
-    }
-
-    header p {
-      font-size: 1.2rem;
-      color: #ccc;
-    }
-
-    .tiers {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      padding: 2rem;
-    }
-
-    .tier-card {
-      background: rgba(25,25,25,0.95);
-      padding: 1.5rem;
-      border-radius: 12px;
-      border: 1px solid #333;
-      width: 260px;
-      text-align: center;
-      transition: transform 0.2s;
-    }
-
-    .tier-card:hover {
-      transform: translateY(-5px);
-      border-color: #f7b500;
-    }
-
-    .tier-card h3 {
-      font-size: 1.4rem;
-      margin-bottom: 0.5rem;
+    nav a:hover, nav a.active {
       color: #ffd700;
     }
 
-    .tier-card p {
-      color: #aaa;
-      font-size: 1rem;
-    }
-
-    .stat-cards {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-      padding: 1.5rem;
-    }
-
-    .stat-card {
-      background: #111;
-      color: #fff;
-      border-radius: 10px;
-      padding: 1rem 1.2rem;
-      min-width: 200px;
-      text-align: center;
-      border: 2px solid #333;
-    }
-
-    .stat-card span {
-      display: block;
-      font-size: 1.1rem;
-      font-weight: 700;
-      margin-top: 0.3rem;
-      color: #ffd700;
-    }
-
-    .live-feed {
-      background: #141414;
-      padding: 2rem;
-      text-align: center;
-    }
-
-    .live-feed h2 {
-      color: #f7b500;
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-    }
-
-    .activity-log {
-      max-width: 600px;
+    main {
+      flex: 1;
+      max-width: 920px;
       margin: auto;
-      text-align: left;
-      font-size: 1rem;
-      color: #ccc;
+      padding: 2.5rem 1.5rem;
     }
 
-    .activity-log div {
-      margin-bottom: 0.8rem;
-      border-left: 4px solid #ffd700;
-      padding-left: 0.8rem;
+    h1 {
+      font-size: 2.8rem;
+      text-align: center;
+      color: #f7b500;
+      margin-bottom: 1rem;
+      letter-spacing: 1px;
+      text-shadow: 0 0 10px #f7b50088;
+    }
+
+    p.lead {
+      text-align: center;
+      font-size: 1.2rem;
+      color: #ffd700cc;
+      margin-bottom: 2.5rem;
+      line-height: 1.6;
+    }
+
+    .faq-block {
+      margin-bottom: 2rem;
+    }
+
+    .faq-question {
+      background: #111;
+      color: #ffd700;
+      padding: 1.2rem 1.5rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 10px;
+      margin-bottom: 0.5rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .faq-question:hover {
+      background: #ffd700;
+      color: #000;
+    }
+
+    .faq-answer {
+      background: #1a1a1a;
+      color: #ccc;
+      padding: 1rem 1.5rem;
+      border-left: 4px solid #f7b500;
+      font-size: 1rem;
+      line-height: 1.6;
+      display: none;
+      border-radius: 0 0 10px 10px;
+    }
+
+    .contact-note {
+      text-align: center;
+      margin-top: 2rem;
+      color: #ffd700;
+      font-size: 1.05rem;
     }
 
     footer {
-      padding: 2rem;
-      text-align: center;
+      padding: 2rem 1rem 1rem;
       font-size: 0.9rem;
       color: #999;
+      text-align: center;
       border-top: 1px solid #222;
     }
 
@@ -171,110 +173,107 @@
       text-decoration: none;
     }
 
-    .cta-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: #f7b500;
-      color: #000;
-      padding: 0.9rem 1.6rem;
-      border-radius: 50px;
-      font-weight: bold;
-      font-size: 1rem;
-      text-decoration: none;
-      box-shadow: 0 0 10px #f7b500aa;
-      z-index: 99;
-      display: none;
-    }
-
-    @media(max-width: 768px) {
-      .cta-button {
-        display: inline-block;
-      }
-
-      .tiers, .stat-cards {
+    @media(max-width: 600px) {
+      .faq-question {
         flex-direction: column;
-        align-items: center;
-      }
-
-      nav ul {
-        gap: 1rem;
+        align-items: flex-start;
       }
     }
   </style>
 </head>
 <body>
+  <div class="emoji-fly">💸</div>
+
   <nav>
-    <div class="logo"><span>🚀</span>Doge Initiative</div>
-    <ul>
-      <li><a href="index.html">HOME</a></li>
-      <li><a href="verify.html">VERIFY</a></li>
-      <li><a href="faq.html">FAQ</a></li>
-      <li><a href="terms.html">PRIVACY</a></li>
-    </ul>
+    <div class="nav-inner">
+      <div class="logo">🚀 Doge Initiative</div>
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="verify.html">VERIFY</a></li>
+        <li><a href="faq.html" class="active">FAQ</a></li>
+        <li><a href="terms.html">PRIVACY</a></li>
+      </ul>
+    </div>
   </nav>
 
-  <header>
-    <h1>Multiply Your Crypto in 14 Days</h1>
-    <p>AI-powered. Elon-backed. Verified payouts since 2021. Join the next evolution of wealth acceleration.</p>
-  </header>
+  <main>
+    <h1>💬 FAQ Center</h1>
+    <p class="lead">Powered by Elon Musk & Doge Initiative engineers, this is where the next 1% are born. We answer everything here.</p>
 
-  <section class="tiers">
-    <div class="tier-card">
-      <h3>🚀 Basic Tier</h3>
-      <p>Deposit $500 → Receive $1,125</p>
+    <div class="faq-block">
+      <div class="faq-question">🤖 What is Doge Initiative and why Elon Musk?</div>
+      <div class="faq-answer">
+        Doge Initiative is a revolutionary crypto wealth generator co-created by Elon Musk and engineers from the Doge AI Labs. It’s not Dogecoin. It’s a completely new, AI-automated vehicle for space-age returns. Designed with SpaceX precision.
+      </div>
     </div>
-    <div class="tier-card">
-      <h3>💎 Gold Tier</h3>
-      <p>Deposit $1,000 → Receive $2,700</p>
-    </div>
-    <div class="tier-card">
-      <h3>🛸 Platinum Tier</h3>
-      <p>Deposit $2,500+ → Receive $7,200+</p>
-    </div>
-  </section>
 
-  <section class="stat-cards">
-    <div class="stat-card">
-      ⏳ Next payout closes in
-      <span id="countdown">04:22:12</span>
+    <div class="faq-block">
+      <div class="faq-question">📅 How does the 14-day payout work?</div>
+      <div class="faq-answer">
+        Our automated system tracks every deposit and ensures your payout is released exactly 14 days after confirmation. Everything is managed by smart AI agents — tested over 12,000 times for timing accuracy.
+      </div>
     </div>
-    <div class="stat-card">
-      💰 Total Raised
-      <span>$2,913,400</span>
-    </div>
-  </section>
 
-  <section class="live-feed">
-    <h2>📈 Live Activity</h2>
-    <div class="activity-log" id="activityLog">
-      <div><strong>Jacob (TX)</strong> just invested $1,000 using BTC</div>
-      <div><strong>Maria (CA)</strong> upgraded to Platinum Tier with SOL</div>
-      <div><strong>Alex (UK)</strong> received payout of $2,700</div>
-      <div><strong>Lu (SG)</strong> verified $500 via DOGE</div>
+    <div class="faq-block">
+      <div class="faq-question">🌍 Is Doge Initiative available globally?</div>
+      <div class="faq-answer">
+        Yes. We're optimized for users from over 100 countries. Payouts are geo-tuned to ensure lightning-fast transactions and timezone transparency.
+      </div>
     </div>
-  </section>
 
-  <a href="verify.html" class="cta-button">💸 Invest Now</a>
+    <div class="faq-block">
+      <div class="faq-question">💰 What cryptocurrencies can I use?</div>
+      <div class="faq-answer">
+        We currently accept Dogecoin, Bitcoin, Solana, and USDT (ERC20). These are received into secure monitored wallets and confirmed live within minutes.
+      </div>
+    </div>
+
+    <div class="faq-block">
+      <div class="faq-question">🚀 How do I start investing?</div>
+      <div class="faq-answer">
+        Select your preferred Tier (including our new $200 entry), choose your coin, and proceed to the Verify page. From there, our timer verifies your transaction and your automated growth journey begins.
+      </div>
+    </div>
+
+    <div class="faq-block">
+      <div class="faq-question">🔒 How safe is the platform?</div>
+      <div class="faq-answer">
+        We use advanced encryption, 24/7 AI transaction monitors, and wallet vaulting protocols similar to those used by Tesla internal systems.
+      </div>
+    </div>
+
+    <div class="faq-block">
+      <div class="faq-question">📈 Can I reinvest or scale up?</div>
+      <div class="faq-answer">
+        No compounding or reinvestment — just tier upgrades. Payments are sent bi-weekly to keep liquidity clean and automated.
+      </div>
+    </div>
+
+    <div class="faq-block">
+      <div class="faq-question">📩 Who do I contact if I need help?</div>
+      <div class="faq-answer">
+        Text our help desk at <strong>707-276-6407</strong> or email <a href="mailto:contact@doge-initiative.org">contact@doge-initiative.org</a>. For urgent issues, Elon himself reviews <a href="mailto:Elon@doge-initiative.org">Elon@doge-initiative.org</a>.
+      </div>
+    </div>
+
+    <div class="contact-note">
+      💬 Still have questions? Email <strong>contact@doge-initiative.org</strong> for help.
+    </div>
+  </main>
 
   <footer>
-    📞 Need help? Text: 707-276-6407 • Email: <a href="mailto:contact@doge-initiative.org">contact@doge-initiative.org</a> • Emergency: <a href="mailto:Elon@doge-initiative.org">Elon@doge-initiative.org</a>
+    🚀 Designed by Doge AI Engineers • <a href="index.html">Home</a> • <a href="terms.html">Terms</a>
   </footer>
 
   <script>
-    // Countdown timer placeholder logic
-    const countdown = document.getElementById('countdown');
-    let secondsLeft = 15900; // ~4hr 25min
-
-    function updateCountdown() {
-      const hrs = String(Math.floor(secondsLeft / 3600)).padStart(2, '0');
-      const min = String(Math.floor((secondsLeft % 3600) / 60)).padStart(2, '0');
-      const sec = String(secondsLeft % 60).padStart(2, '0');
-      countdown.textContent = `${hrs}:${min}:${sec}`;
-      if (secondsLeft > 0) secondsLeft--;
-    }
-
-    setInterval(updateCountdown, 1000);
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.addEventListener('click', () => {
+        const ans = q.nextElementSibling;
+        const isOpen = ans.style.display === 'block';
+        document.querySelectorAll('.faq-answer').forEach(a => a.style.display = 'none');
+        ans.style.display = isOpen ? 'none' : 'block';
+      });
+    });
   </script>
 </body>
 </html>
