@@ -3,29 +3,74 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Doge Initiative — FAQ</title>
+  <title>Doge Initiative — Verify Investment</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <meta name="robots" content="index, follow" />
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0 }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
     body {
+      font-family: 'Segoe UI', sans-serif;
       background: #000;
       color: #f0f0f0;
-      font-family: 'Segoe UI', sans-serif;
-      display: flex;
-      flex-direction: column;
       min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/5/57/Starry-sky-background.png') repeat;
+      background-size: cover;
+      z-index: -2;
+      opacity: 0.15;
+    }
+
+    .flying-money {
+      position: fixed;
+      top: 30%;
+      left: -50px;
+      font-size: 2rem;
+      animation: flyMoney 6s linear infinite;
+      z-index: 0;
+    }
+    .flying-money2 {
+      top: 60%;
+      animation-delay: 3s;
+    }
+
+    @keyframes flyMoney {
+      0% { left: -60px; transform: translateY(0); }
+      50% { transform: translateY(-30px); }
+      100% { left: 110%; transform: translateY(0); }
     }
 
     nav {
       position: sticky;
       top: 0;
-      background: rgba(17,17,17,0.85);
+      background: rgba(17, 17, 17, 0.85);
       padding: 1rem 2rem;
+      width: 100vw;
+      backdrop-filter: blur(5px);
+      z-index: 100;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav .nav-inner {
+      width: 100%;
+      max-width: 960px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      backdrop-filter: blur(5px);
-      z-index: 100;
     }
 
     .logo {
@@ -47,174 +92,175 @@
       list-style: none;
     }
 
-    nav a {
+    nav ul li a {
       font-weight: 600;
-      color: inherit;
+      color: #f7b500;
       text-decoration: none;
     }
 
-    nav a:hover {
+    nav ul li a:hover {
       color: #ffd700;
+    }
+
+    nav ul li a.active {
+      font-weight: 700;
+      color: #fff;
     }
 
     main {
-      flex: 1;
-      max-width: 920px;
-      margin: auto;
-      padding: 2.5rem 1.5rem;
+      max-width: 960px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+      text-align: center;
     }
 
     h1 {
-      font-size: 2.8rem;
-      text-align: center;
-      color: #f7b500;
+      font-size: 2.5rem;
       margin-bottom: 1rem;
-      letter-spacing: 1px;
-      text-shadow: 0 0 10px #f7b50088;
+      color: #f7b500;
     }
 
-    p.lead {
-      text-align: center;
-      font-size: 1.2rem;
-      color: #ffd700cc;
-      margin-bottom: 2.5rem;
-      line-height: 1.6;
-    }
-
-    .faq-block {
+    .step-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
       margin-bottom: 2rem;
     }
 
-    .faq-question {
-      background: #111;
-      color: #ffd700;
-      padding: 1.2rem 1.5rem;
-      font-size: 1.1rem;
-      font-weight: 600;
+    .step-box {
+      background: rgba(17, 17, 17, 0.85);
+      padding: 1rem;
       border-radius: 10px;
-      margin-bottom: 0.5rem;
-      cursor: pointer;
-      transition: all 0.2s ease;
+      flex: 1 1 180px;
+      max-width: 220px;
+      font-weight: 600;
+      font-size: 1rem;
+      color: #ffd700;
       display: flex;
       align-items: center;
-      gap: 0.6rem;
+      gap: 0.5rem;
     }
 
-    .faq-question:hover {
-      background: #ffd700;
-      color: #000;
+    .tier-selection, .coin-selection {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 1.5rem;
     }
 
-    .faq-answer {
-      background: #1a1a1a;
-      color: #ccc;
+    .option-card {
+      background: rgba(17, 17, 17, 0.85);
       padding: 1rem 1.5rem;
-      border-left: 4px solid #f7b500;
-      font-size: 1rem;
-      line-height: 1.6;
+      border-radius: 10px;
+      cursor: pointer;
+      min-width: 140px;
+      border: 2px solid transparent;
+      color: #ffd700;
+      font-weight: 700;
+      transition: all 0.3s;
+    }
+
+    .option-card.selected {
+      border-color: #ffd700;
+      background: rgba(255, 215, 0, 0.1);
+    }
+
+    .wallet-container {
+      margin-top: 1rem;
+      background: rgba(17, 17, 17, 0.85);
+      padding: 1rem 1.5rem;
+      border-radius: 10px;
+      max-width: 420px;
+      margin-left: auto;
+      margin-right: auto;
+      font-family: monospace;
+      color: #f7b500;
       display: none;
-      border-radius: 0 0 10px 10px;
+    }
+
+    .wallet-address {
+      cursor: pointer;
+      word-break: break-all;
+    }
+
+    .copy-hint {
+      font-size: 0.85rem;
+      color: #aaa;
+      margin-top: 0.3rem;
+    }
+
+    .btn-send {
+      margin-top: 1.2rem;
+      background: #f7b500;
+      color: #000;
+      padding: 0.7rem 2rem;
+      border: none;
+      border-radius: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .form-section {
+      display: none;
+      background: rgba(17, 17, 17, 0.85);
+      padding: 1.5rem;
+      border-radius: 12px;
+      max-width: 480px;
+      margin: 2rem auto;
+      text-align: left;
+      color: #ffd700;
+    }
+
+    .form-section input {
+      width: 100%;
+      padding: 0.6rem;
+      margin-bottom: 1rem;
+      border-radius: 6px;
+      border: none;
+      font-size: 1rem;
+      font-family: monospace;
     }
 
     footer {
-      padding: 2rem 0;
-      font-size: 0.9rem;
-      color: #999;
+      margin-top: 3rem;
       text-align: center;
-      border-top: 1px solid #222;
+      font-size: 0.95rem;
+      color: #aaa;
+      padding-bottom: 2rem;
     }
 
     footer a {
       color: #ffd700;
-    }
-
-    @media(max-width: 600px) {
-      .faq-question {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+      text-decoration: none;
     }
   </style>
 </head>
 <body>
+  <div class="flying-money">💸</div>
+  <div class="flying-money flying-money2">💸</div>
+
   <nav>
-    <div class="logo"><span>🚀</span>Doge Initiative</div>
-    <ul>
-      <li><a href="index.html">HOME</a></li>
-      <li><a href="verify.html">VERIFY</a></li>
-      <li><a href="faq.html" style="color:#ffd700;font-weight:bold;">FAQ</a></li>
-      <li><a href="terms.html">PRIVACY</a></li>
-    </ul>
+    <div class="nav-inner">
+      <div class="logo"><span>🚀</span> Doge Initiative</div>
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="verify.html" class="active">VERIFY</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="terms.html">PRIVACY</a></li>
+      </ul>
+    </div>
   </nav>
 
   <main>
-    <h1>💬 FAQ Center</h1>
-    <p class="lead">Doge Initiative is not just ahead — it’s rewriting the rules. Powered by Elon Musk’s xAI, we outperform every other investment AI on Earth. Here’s why the future belongs to us.</p>
-
-    <div class="faq-block">
-      <div class="faq-question">🚀 What makes Doge Initiative different?</div>
-      <div class="faq-answer">
-        It’s not just crypto. It’s an AI-powered future accelerator. With Elon Musk's vision and xAI's dominance, we outperform every other robo-investor and fund AI in terms of timing, scalability, and returns.
-      </div>
+    <h1>Verify and Invest</h1>
+    <div class="step-container">
+      <div class="step-box">1️⃣ Choose Tier</div>
+      <div class="step-box">2️⃣ Pick Crypto</div>
+      <div class="step-box">3️⃣ Copy Wallet</div>
+      <div class="step-box">4️⃣ Confirm Sent</div>
+      <div class="step-box">5️⃣ Fill Form</div>
     </div>
 
-    <div class="faq-block">
-      <div class="faq-question">🧠 How does xAI beat other investment AIs?</div>
-      <div class="faq-answer">
-        While traditional AIs rely on outdated financial models, xAI adapts in real-time using a hybrid neural architecture trained on SpaceX telemetry, global finance, and predictive models. The result? Faster, smarter, richer outcomes — with fewer risks.
-      </div>
-    </div>
-
-    <div class="faq-block">
-      <div class="faq-question">💸 How is my payout calculated?</div>
-      <div class="faq-answer">
-        You invest a flat amount ($200, $500, $1000, $2000+) and your payout is generated by AI-optimized asset shifts over 14 days. These returns are strategically enhanced through xAI's predictive cycles and liquidity windows.
-      </div>
-    </div>
-
-    <div class="faq-block">
-      <div class="faq-question">🌍 Can I access this globally?</div>
-      <div class="faq-answer">
-        Yes. The Doge Initiative is decentralized and available worldwide. Our infrastructure is designed to operate 24/7 across 180+ countries, optimized for global compliance and delivery.
-      </div>
-    </div>
-
-    <div class="faq-block">
-      <div class="faq-question">📈 Can I reinvest or upgrade?</div>
-      <div class="faq-answer">
-        We don't do compounding. Instead, we offer bi-weekly tier upgrades. Think of it like a turbo button — every tier lets you plug deeper into xAI’s core investment circuits. For Major Funds, Contact Elon for Proper Investment Vehicle
-      </div>
-    </div>
-
-    <div class="faq-block">
-      <div class="faq-question">🔐 Is this really secure?</div>
-      <div class="faq-answer">
-        Yes. Security here is modeled after Tesla and Neuralink-grade encryption. Wallets are multi-sig, activity is AI-monitored, and everything runs on zero-trust verification layers.
-      </div>
-    </div>
-
-    <div class="faq-block">
-      <div class="faq-question">📩 Who do I contact?</div>
-      <div class="faq-answer">
-        Text or Call our help desk at <strong>707-276-6407</strong> or email <a href="mailto:contact@doge-initiative.org">contact@doge-initiative.org</a>. Urgent? Elon sees it personally via <a href="mailto:Elon@doge-initiative.org">Elon@doge-initiative.org</a>.
-      </div>
-    </div>
-  </main>
-
-  <footer>
-    🚀 Designed by xAI & the Musk Dream Team • <a href="mailto:contact@doge-initiative.org">Contact Support</a>
-  </footer>
-
-  <script>
-    document.querySelectorAll('.faq-question').forEach(q => {
-      q.addEventListener('click', () => {
-        const ans = q.nextElementSibling;
-        document.querySelectorAll('.faq-answer').forEach(a => {
-          if (a !== ans) a.style.display = 'none';
-        });
-        ans.style.display = ans.style.display === 'block' ? 'none' : 'block';
-      });
-    });
-  </script>
-</body>
-</html>
+    <h2 style="color
