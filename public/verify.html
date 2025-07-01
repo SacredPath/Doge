@@ -334,5 +334,57 @@
       confirmationMessage.style.display = 'block';
     });
   </script>
+  <!-- (Insert this inside your existing verify.html, just before </body>) -->
+
+<!-- Chatbot Widget -->
+<div id="chatbot-toggle" style="position: fixed; bottom: 20px; right: 20px; background: #ffd700; color: #000; border-radius: 50px; padding: 12px 20px; font-weight: bold; cursor: pointer; z-index: 1001;">
+  🤖 Chat
+</div>
+
+<div id="chatbot-box" style="position: fixed; bottom: 80px; right: 20px; width: 300px; max-height: 420px; background: #111; color: #f0f0f0; border: 2px solid #ffd700; border-radius: 12px; padding: 1rem; display: none; flex-direction: column; z-index: 1000; box-shadow: 0 0 10px #000;">
+  <div style="font-weight: bold; color: #ffd700; margin-bottom: 0.5rem;">🚀 DogeBot</div>
+  <div id="chatbot-history" style="flex: 1; overflow-y: auto; font-size: 0.9rem; margin-bottom: 1rem;"></div>
+  <div style="display: flex; flex-direction: column; gap: 0.4rem;">
+    <button class="chat-question">What is Doge Initiative?</button>
+    <button class="chat-question">How does payout work?</button>
+    <button class="chat-question">Is Elon really behind this?</button>
+    <button class="chat-question">What coins do you accept?</button>
+    <button class="chat-question">How do I get started?</button>
+  </div>
+</div>
+
+<script>
+  const chatbotToggle = document.getElementById('chatbot-toggle');
+  const chatbotBox = document.getElementById('chatbot-box');
+  const chatbotHistory = document.getElementById('chatbot-history');
+
+  const chatbotAnswers = {
+    "What is Doge Initiative?": "Doge Initiative is Elon Musk's AI-powered crypto wealth engine — built for the people, powered by xAI, optimized like SpaceX systems.",
+    "How does payout work?": "Every confirmed investment is tracked by AI, and paid out exactly 14 days later — no delays, no excuses.",
+    "Is Elon really behind this?": "Elon helped design the AI logic and financial automation. This project is aligned with his vision of equitable AI wealth.",
+    "What coins do you accept?": "We accept DOGE, BTC, SOL, and USDT (ERC20). These go to our verified wallets and activate your investment.",
+    "How do I get started?": "Choose your Tier, select a coin, send funds to the address shown, and complete the quick verify form. Done."
+  };
+
+  chatbotToggle.addEventListener('click', () => {
+    chatbotBox.style.display = chatbotBox.style.display === 'none' ? 'flex' : 'none';
+  });
+
+  document.querySelectorAll('.chat-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const q = btn.innerText;
+      const a = chatbotAnswers[q] || "I'm still learning that one. Try again soon!";
+      const msgHTML = `
+        <div style="margin-bottom: 0.5rem;">
+          <div><strong>You:</strong> ${q}</div>
+          <div style="color:#ffd700;"><strong>DogeBot:</strong> ${a}</div>
+        </div>
+      `;
+      chatbotHistory.innerHTML += msgHTML;
+      chatbotHistory.scrollTop = chatbotHistory.scrollHeight;
+    });
+  });
+</script>
+
 </body>
 </html>
